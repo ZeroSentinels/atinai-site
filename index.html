@@ -3,26 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Atinai — Agentes de IA en crema & vainilla</title>
-  <meta name="description" content="Atinai: directorio y showcase de agentes de inteligencia artificial. Diseño cálido en crema & vainilla, limpio, accesible y profesional." />
-  <meta property="og:title" content="Atinai — Tu punto de encuentro con agentes de IA" />
-  <meta property="og:description" content="Descubrí, compará y probá agentes de IA para ventas, soporte, marketing y operaciones." />
+  <title>Atinai | Diseño de sitios web, estrategia digital y agentes de IA</title>
+  <meta name="description" content="Atinai crea sitios web, estrategia digital y agentes de IA que automatizan tareas, mejoran la atención y aumentan las ventas." />
+  <meta property="og:title" content="Atinai | Web, estrategia y agentes de IA" />
+  <meta property="og:description" content="Diseñamos experiencias digitales y agentes de IA que venden, atienden y operan 24/7." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          fontFamily: { sans: ['Manrope', 'Inter', 'ui-sans-serif', 'system-ui'] },
           colors: {
             vanilla: { 50: '#FFFBF2', 100: '#FFF3D6', 200: '#FFE8AD', 300: '#FFD97A' },
-            crema: { 50: '#F8F5F0', 100: '#EFE7DC', 200: '#E4D8C7', 300: '#D6C3A9' }
+            crema: { 50: '#F8F5F0', 100: '#EFE7DC', 200: '#E4D8C7', 300: '#D6C3A9' },
+            ink: '#111827',
+            midnight: '#0F172A'
           },
-          boxShadow: { soft: '0 10px 30px rgba(0,0,0,0.06)' },
+          boxShadow: { soft: '0 12px 34px rgba(0,0,0,0.07)' },
           borderRadius: { xl2: '1.25rem' }
         }
       }
@@ -41,11 +43,11 @@
   <!-- Overrides del theme del widget (scope en #n8n-chat) -->
   <style>
     #n8n-chat{
-      --chat--font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      --chat--font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
 
-      --chat--color-primary:#1f2937;
-      --chat--color-primary-shade-50:#111827;
-      --chat--color-primary-shade-100:#0b1220;
+      --chat--color-primary:#111827;
+      --chat--color-primary-shade-50:#0b1220;
+      --chat--color-primary-shade-100:#070d18;
 
       --chat--color-secondary:#FFD97A;
       --chat--color-secondary-shade-50:#F2C966;
@@ -55,7 +57,7 @@
       --chat--color-light-shade-50:#FFF3D6;
       --chat--color-light-shade-100:#FFE8AD;
       --chat--color-medium:#E4D8C7;
-      --chat--color-dark:#1f2937;
+      --chat--color-dark:#111827;
       --chat--color-disabled:#9CA3AF;
 
       --chat--window--width:420px;
@@ -92,145 +94,317 @@
   </style>
 </head>
 
-<body class="bg-vanilla-50 text-stone-800">
+<body class="bg-vanilla-50 text-ink">
   <!-- NAV -->
   <header class="sticky top-0 z-40 backdrop-blur bg-vanilla-50/80 border-b border-crema-100">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-2 font-semibold" aria-label="Inicio Atinai">
-        <span class="inline-block w-8 h-8 rounded-xl2 bg-vanilla-200 shadow-soft"></span>
+      <a href="#home" class="flex items-center gap-2 font-semibold tracking-tight" aria-label="Inicio Atinai">
+        <span class="inline-block w-9 h-9 rounded-xl2 bg-vanilla-200 shadow-soft"></span>
         <span>Atinai</span>
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
-        <a href="#agentes" class="hover:underline">Agentes</a>
-        <a href="#categorias" class="hover:underline">Categorías</a>
-        <a href="#implementacion" class="hover:underline">Usos e Implementación</a>
+        <a href="#beneficios" class="hover:underline">Beneficios</a>
+        <a href="#servicios" class="hover:underline">Servicios</a>
+        <a href="#proceso" class="hover:underline">Proceso</a>
+        <a href="#casos" class="hover:underline">Casos</a>
         <a href="#contacto" class="hover:underline">Contacto</a>
-<!-- BOTÓN "PROBAR DEMO" ELIMINADO A PEDIDO -->
-<!-- Antes aquí había un <a href="#chat" data-open-chat>Probar demo</a> en el header. -->
-
+      </nav>
+      <a href="#contacto" class="hidden md:inline-flex px-4 py-2 rounded-xl2 bg-ink text-vanilla-50 text-sm font-semibold hover:opacity-90 shadow-soft">Quiero impulsar mi negocio</a>
     </div>
   </header>
 
-  <!-- HERO / HOME -->
-  <section id="home" class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-vanilla-100/80 to-transparent"></div>
-    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-3xl md:text-5xl font-semibold leading-tight">
-          Tu punto de encuentro con <span class="underline decoration-vanilla-300 decoration-8 underline-offset-4">agentes de IA</span>
-        </h1>
-        <p class="mt-4 text-stone-600 md:text-lg">Potenciá tu negocio con agentes de inteligencia artificial para ventas, soporte, marketing y operaciones. Simple, eficiente y hecho para crecer.</p>
-        <div class="mt-6 flex gap-3">
-          <a href="#agentes" class="px-5 py-3 rounded-xl2 bg-vanilla-200 hover:bg-vanilla-300 shadow-soft font-medium">Explorar agentes</a>
-          <a href="#contacto" class="px-5 py-3 rounded-xl2 bg-crema-100 hover:bg-crema-200 shadow-soft font-medium">Publicar mi agente</a>
+  <main>
+    <!-- HERO / HOME -->
+    <section id="home" class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-vanilla-100/80 to-transparent"></div>
+      <div class="absolute -right-24 top-10 w-64 h-64 bg-vanilla-200 rounded-full blur-3xl opacity-70"></div>
+      <div class="max-w-6xl mx-auto px-4 py-14 md:py-20 grid md:grid-cols-2 gap-12 items-center">
+        <div class="relative z-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crema-50 border border-crema-200 text-xs font-semibold uppercase tracking-wide text-stone-700">
+            Web + Estrategia + Agentes de IA
+          </div>
+          <h1 class="mt-4 text-3xl md:text-5xl font-semibold leading-tight tracking-tight">
+            Diseño de sitios web, estrategia digital y agentes de IA para hacer crecer tu negocio.
+          </h1>
+          <p class="mt-4 text-stone-700 md:text-lg">
+            Creamos sitios modernos, rápidos y orientados a resultados. Implementamos agentes de inteligencia artificial que automatizan tareas, mejoran la atención y aumentan tus ventas.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#contacto" class="px-5 py-3 rounded-xl2 bg-ink text-vanilla-50 font-semibold hover:opacity-90 shadow-soft">Quiero impulsar mi negocio</a>
+            <a href="#servicios" class="px-5 py-3 rounded-xl2 bg-vanilla-200 text-ink font-semibold hover:bg-vanilla-300 shadow-soft">Ver servicios</a>
+            <a href="#contacto" class="px-5 py-3 rounded-xl2 border border-crema-200 text-ink font-semibold hover:bg-white" data-open-chat>Hablar ahora</a>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-4 text-sm text-stone-700">
+            <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-ink"></span> Sitios rápidos, medibles y listos para vender.</span>
+            <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-vanilla-300"></span> Agentes de IA que trabajan 24/7.</span>
+          </div>
+        </div>
+        <div class="relative z-10">
+          <div class="p-6 rounded-3xl bg-white border border-crema-100 shadow-soft space-y-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-xs uppercase text-stone-500 tracking-wide">Panel de impacto</p>
+                <p class="text-2xl font-semibold mt-1">+32% conversión</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-vanilla-200 text-xs font-semibold">IA activa</span>
+            </div>
+            <div class="space-y-3 text-sm text-stone-700">
+              <div class="flex items-start gap-3">
+                <span class="mt-1 inline-flex items-center justify-center w-6 h-6 rounded-full bg-vanilla-200 text-ink font-semibold text-xs">1</span>
+                <div>
+                  <p class="font-semibold">Agentes conversacionales</p>
+                  <p>Captan leads, responden dudas y agendan demos sin saturar al equipo.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="mt-1 inline-flex items-center justify-center w-6 h-6 rounded-full bg-vanilla-200 text-ink font-semibold text-xs">2</span>
+                <div>
+                  <p class="font-semibold">Automatización operativa</p>
+                  <p>Integramos con CRM, helpdesk y flujos internos para reducir tareas manuales.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="mt-1 inline-flex items-center justify-center w-6 h-6 rounded-full bg-vanilla-200 text-ink font-semibold text-xs">3</span>
+                <div>
+                  <p class="font-semibold">Experiencia de marca</p>
+                  <p>Diseño a medida: rápido, accesible y optimizado para conversión.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="relative">
-        <div class="p-4 bg-crema-50 rounded-3xl shadow-soft border border-crema-100">
-          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1400&auto=format&fit=crop" alt="Interfaz de agente de IA — Atinai" class="rounded-2xl w-full h-64 object-cover" loading="lazy" />
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section id="beneficios" class="max-w-6xl mx-auto px-4 py-14 md:py-16">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold">Beneficios claros para tu negocio</h2>
+          <p class="mt-2 text-stone-700 md:text-lg">Resultados medibles: más ventas, menos tareas manuales y atención siempre encendida.</p>
+        </div>
+        <a href="#contacto" class="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:underline">
+          Ver cómo lo implementamos →
+        </a>
+      </div>
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="p-5 rounded-3xl border border-crema-100 bg-white/80 shadow-soft">
+          <p class="text-xs uppercase text-stone-500 tracking-wide">Ventas</p>
+          <h3 class="mt-2 font-semibold text-lg">Más leads calificados</h3>
+          <p class="mt-2 text-sm text-stone-700">Landing optimizadas y agentes que capturan y califican leads 24/7.</p>
+          <p class="mt-3 text-sm font-semibold text-ink">Resultado: +conversiones sin sumar horas humanas.</p>
+        </article>
+        <article class="p-5 rounded-3xl border border-crema-100 bg-white/80 shadow-soft">
+          <p class="text-xs uppercase text-stone-500 tracking-wide">Operaciones</p>
+          <h3 class="mt-2 font-semibold text-lg">Menos tareas manuales</h3>
+          <p class="mt-2 text-sm text-stone-700">Automatizamos flujos repetitivos con agentes que ejecutan y documentan.</p>
+          <p class="mt-3 text-sm font-semibold text-ink">Resultado: ahorro de tiempo y menos errores.</p>
+        </article>
+        <article class="p-5 rounded-3xl border border-crema-100 bg-white/80 shadow-soft">
+          <p class="text-xs uppercase text-stone-500 tracking-wide">Atención</p>
+          <h3 class="mt-2 font-semibold text-lg">Soporte 24/7</h3>
+          <p class="mt-2 text-sm text-stone-700">Bots que responden al instante y escalan a humanos cuando hace falta.</p>
+          <p class="mt-3 text-sm font-semibold text-ink">Resultado: SLAs más rápidos y clientes contentos.</p>
+        </article>
+        <article class="p-5 rounded-3xl border border-crema-100 bg-white/80 shadow-soft">
+          <p class="text-xs uppercase text-stone-500 tracking-wide">Crecimiento</p>
+          <h3 class="mt-2 font-semibold text-lg">Velocidad de salida</h3>
+          <p class="mt-2 text-sm text-stone-700">Prototipo en semanas, iteraciones constantes con datos reales.</p>
+          <p class="mt-3 text-sm font-semibold text-ink">Resultado: mejoras continuas y riesgo controlado.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="max-w-6xl mx-auto px-4 py-14 md:py-16 border-t border-crema-100">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold">Servicios que combinan web, estrategia e IA</h2>
+          <p class="mt-2 text-stone-700 md:text-lg">Todo lo necesario para lanzar y escalar tu presencia digital con inteligencia artificial integrada.</p>
+        </div>
+        <a href="#proceso" class="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:underline">Ver proceso completo →</a>
+      </div>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <article class="p-6 rounded-3xl border border-crema-100 bg-white/80 shadow-soft flex flex-col gap-3">
+          <div class="inline-flex px-3 py-1 text-xs font-semibold bg-vanilla-200 rounded-full w-fit">Diseño de sitios web</div>
+          <h3 class="text-xl font-semibold">Sitios modernos y rápidos</h3>
+          <p class="text-stone-700">Diseño UX/UI, performance, SEO técnico y analítica lista para medir conversiones.</p>
+          <p class="text-sm font-semibold text-ink">Resultado: más confianza y leads desde el día 1.</p>
+        </article>
+        <article class="p-6 rounded-3xl border border-crema-100 bg-white/80 shadow-soft flex flex-col gap-3">
+          <div class="inline-flex px-3 py-1 text-xs font-semibold bg-vanilla-200 rounded-full w-fit">Estrategia digital</div>
+          <h3 class="text-xl font-semibold">Plan de crecimiento</h3>
+          <p class="text-stone-700">Narrativa de marca, journey de usuario, campañas y automatizaciones de marketing.</p>
+          <p class="text-sm font-semibold text-ink">Resultado: adquisición ordenada y mensajes consistentes.</p>
+        </article>
+        <article class="p-6 rounded-3xl border border-crema-100 bg-white/80 shadow-soft flex flex-col gap-3">
+          <div class="inline-flex px-3 py-1 text-xs font-semibold bg-vanilla-200 rounded-full w-fit">Agentes de IA</div>
+          <h3 class="text-xl font-semibold">Agentes a medida</h3>
+          <p class="text-stone-700">Conversacionales, soporte, recomendadores y bots internos conectados a tus sistemas.</p>
+          <p class="text-sm font-semibold text-ink">Resultado: más ventas, soporte 24/7 y menos tareas manuales.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- AGENTES DE IA -->
+    <section id="ia" class="max-w-6xl mx-auto px-4 py-14 md:py-16">
+      <div class="rounded-3xl border border-crema-100 bg-white/80 shadow-soft p-6 md:p-8">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <p class="text-xs uppercase text-stone-500 tracking-wide">Agentes de IA como servicio</p>
+            <h2 class="text-2xl md:text-3xl font-semibold mt-1">Automatizamos tareas y conversaciones con IA accesible</h2>
+            <p class="mt-2 text-stone-700 md:text-lg">Explicamos en simple qué hace cada agente, qué integra y qué resultado genera.</p>
+          </div>
+          <a href="#contacto" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl2 bg-ink text-vanilla-50 text-sm font-semibold hover:opacity-90 shadow-soft" data-open-chat>Probar en vivo</a>
+        </div>
+        <div class="mt-8 grid md:grid-cols-3 gap-6">
+          <article class="p-5 rounded-2xl border border-crema-100 bg-vanilla-50/80">
+            <h3 class="font-semibold text-lg">Agente conversacional</h3>
+            <p class="mt-2 text-sm text-stone-700">Responde preguntas, deriva y agenda reuniones directo en tu CRM.</p>
+            <ul class="mt-3 space-y-1 text-sm text-stone-700">
+              <li>• Problema: leads sin respuesta.</li>
+              <li>• Optimiza: califica y agenda 24/7.</li>
+              <li>• Beneficio: más demos y ventas.</li>
+            </ul>
+          </article>
+          <article class="p-5 rounded-2xl border border-crema-100 bg-vanilla-50/80">
+            <h3 class="font-semibold text-lg">Asistente de soporte</h3>
+            <p class="mt-2 text-sm text-stone-700">Autoservicio con handoff humano y documentación automática.</p>
+            <ul class="mt-3 space-y-1 text-sm text-stone-700">
+              <li>• Problema: tickets repetitivos.</li>
+              <li>• Optimiza: reduce tiempos y carga.</li>
+              <li>• Beneficio: SLAs más bajos y CSAT alto.</li>
+            </ul>
+          </article>
+          <article class="p-5 rounded-2xl border border-crema-100 bg-vanilla-50/80">
+            <h3 class="font-semibold text-lg">Agentes internos</h3>
+            <p class="mt-2 text-sm text-stone-700">Bots para equipos: reportes, integraciones y tareas de backoffice.</p>
+            <ul class="mt-3 space-y-1 text-sm text-stone-700">
+              <li>• Problema: procesos lentos.</li>
+              <li>• Optimiza: ejecuta y notifica.</li>
+              <li>• Beneficio: más tiempo para lo estratégico.</li>
+            </ul>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- AGENTES -->
-  <section id="agentes" class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-2xl md:text-3xl font-semibold">Agentes</h2>
-    <p class="text-stone-700 mt-2 md:text-lg">Los agentes de IA de <strong>Atinai</strong> son asistentes autónomos que entienden contexto, ejecutan tareas y mejoran con datos. Acá podés explorar ejemplos reales, filtrar por categoría (Ventas, Soporte, Marketing y Operaciones) y ver qué KPI impacta cada uno para elegir el que mejor se adapta a tu negocio, sin salir del home.</p>
-    <div id="grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-  </section>
-
-  <!-- CATEGORÍAS (restaurada) -->
-  <section id="categorias" class="max-w-6xl mx-auto px-4 py-16 border-t border-crema-100">
-    <h2 class="text-2xl md:text-3xl font-semibold">Categorías</h2>
-    <p class="text-stone-600 mt-2">Elegí el área donde tu agente de IA generará más valor.</p>
-
-    <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <a class="p-6 rounded-3xl border border-crema-100 bg-white/70 hover:shadow-soft block" href="#agentes" data-cat="Ventas">
-        <h3 class="text-xl font-semibold">Ventas</h3>
-        <p class="text-stone-600 mt-1">Calificación, seguimiento y cierre. Ideal para aumentar conversión.</p>
-      </a>
-      <a class="p-6 rounded-3xl border border-crema-100 bg-white/70 hover:shadow-soft block" href="#agentes" data-cat="Soporte">
-        <h3 class="text-xl font-semibold">Soporte</h3>
-        <p class="text-stone-600 mt-1">Autoservicio 24/7 y reducción de tickets con alta satisfacción.</p>
-      </a>
-      <a class="p-6 rounded-3xl border border-crema-100 bg-white/70 hover:shadow-soft block" href="#agentes" data-cat="Marketing">
-        <h3 class="text-xl font-semibold">Marketing</h3>
-        <p class="text-stone-600 mt-1">Contenidos, segmentación y optimización de pauta.</p>
-      </a>
-      <a class="p-6 rounded-3xl border border-crema-100 bg-white/70 hover:shadow-soft block" href="#agentes" data-cat="Operaciones">
-        <h3 class="text-xl font-semibold">Operaciones</h3>
-        <p class="text-stone-600 mt-1">Orquestación de procesos internos y bots de backoffice.</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- USOS E IMPLEMENTACIÓN (restaurada) -->
-  <section id="implementacion" class="max-w-6xl mx-auto px-4 py-16 border-t border-crema-100">
-    <h2 class="text-2xl md:text-3xl font-semibold">Usos e Implementación</h2>
-    <p class="text-stone-700 mt-2 md:text-lg">Implementar agentes de IA con <strong>Atinai</strong> genera mejoras medibles en poco tiempo. Estos son los principales beneficios y cómo llevarlos a producción.</p>
-
-    <div class="mt-8 grid md:grid-cols-2 gap-6">
-      <article class="rounded-3xl p-6 border border-crema-100 bg-white/70">
-        <h3 class="text-xl font-semibold">Beneficios </h3>
-        <ul class="list-disc list-inside text-stone-700 mt-2 space-y-2">
-          <li><strong>↓ Costos operativos:</strong> automatización de tareas repetitivas.</li>
-          <li><strong>↑ Conversión:</strong> respuesta inmediata y nurturing 24/7.</li>
-          <li><strong>↓ Tiempo de respuesta:</strong> SLAs más rápidos y CSAT alto.</li>
-          <li><strong>↑ Escalabilidad:</strong> atiende aumentos de demanda sin sumar headcount.</li>
-          <li><strong>Mejor decisión:</strong> datos en tiempo real y analítica de conversaciones.</li>
-        </ul>
-      </article>
-
-      <article class="rounded-3xl p-6 border border-crema-100 bg-white/70">
-        <h3 class="text-xl font-semibold">Cómo implementarlo </h3>
-        <ol class="list-decimal list-inside text-stone-700 mt-2 space-y-2">
-          <li><strong>Diagnóstico:</strong> casos de uso y KPIs objetivo.</li>
-          <li><strong>MVP:</strong> 1–2 flujos críticos con éxito definido.</li>
-          <li><strong>Integración:</strong> CRM/helpdesk, webhooks y analíticas.</li>
-          <li><strong>Gobernanza:</strong> permisos, logs, guardrails y privacidad.</li>
-          <li><strong>Escala:</strong> nuevos flujos, multicanal y QA continuo.</li>
-        </ol>
-      </article>
-    </div>
-
-    <div class="mt-10 rounded-3xl p-6 border border-vanilla-200 bg-vanilla-50">
-      <h3 class="text-xl font-semibold">Preguntas frecuentes</h3>
-      <details class="mt-3 p-4 border border-crema-100 rounded-2xl bg-white/70"><summary class="font-medium">¿Qué resultados puedo esperar el primer mes?</summary><p class="mt-2 text-stone-700">Reducciones del 20–40% en tiempos de respuesta y automatización del 30–60% de tickets repetitivos, según el caso.</p></details>
-      <details class="mt-3 p-4 border border-crema-100 rounded-2xl bg-white/70"><summary class="font-medium">¿Cómo controlo riesgos?</summary><p class="mt-2 text-stone-700">Definí políticas de datos, revisiones humanas (HITL) para casos sensibles y métricas de calidad por flujo.</p></details>
-      <details class="mt-3 p-4 border border-crema-100 rounded-2xl bg-white/70"><summary class="font-medium">¿Cuánto tarda el despliegue?</summary><p class="mt-2 text-stone-700">Un MVP suele estar listo en 1–2 semanas si los sistemas de destino están integrados.</p></details>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="max-w-6xl mx-auto px-4 py-16 border-t border-crema-100">
-    <h2 class="text-2xl md:text-3xl font-semibold">Contacto</h2>
-    <p class="text-stone-600 mt-2">Escribinos y coordinamos una demo.</p>
-    <div class="grid md:grid-cols-2 gap-8 mt-6">
-      <div class="rounded-3xl p-8 border border-crema-100 bg-white/70 shadow-soft">
-        <form onsubmit="event.preventDefault(); alert('¡Gracias! Atinai te contacta pronto.'); this.reset();">
-          <label class="block text-sm mb-1">Nombre</label>
-          <input required class="w-full border border-crema-200 rounded-xl2 px-4 py-2 bg-white/80" placeholder="Tu nombre" />
-          <label class="block text-sm mt-4 mb-1">Email</label>
-          <input type="email" required class="w-full border border-crema-200 rounded-xl2 px-4 py-2 bg-white/80" placeholder="tu@email.com" />
-          <label class="block text-sm mt-4 mb-1">Mensaje</label>
-          <textarea rows="5" class="w-full border border-crema-200 rounded-xl2 px-4 py-2 bg-white/80" placeholder="Contanos qué necesitás…"></textarea>
-          <button class="mt-4 px-5 py-3 rounded-xl2 bg-stone-900 text-vanilla-50 hover:opacity-90">Enviar</button>
-        </form>
+    <!-- PROCESO -->
+    <section id="proceso" class="max-w-6xl mx-auto px-4 py-14 md:py-16 border-t border-crema-100">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold">Proceso simple y medible</h2>
+          <p class="mt-2 text-stone-700 md:text-lg">Incluye el flujo específico para agentes de IA: diagnóstico → arquitectura → desarrollo → entrenamiento → soporte.</p>
+        </div>
+        <a href="#contacto" class="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:underline">Agendar una reunión →</a>
       </div>
-
-      <div class="rounded-3xl p-8 border border-vanilla-200 bg-vanilla-50 shadow-soft">
-        <h3 class="text-xl font-semibold">Información</h3>
-        <ul class="mt-2 text-stone-700 space-y-2">
-          <li><strong>Email:</strong> info@atinai.com</li>
-          <li><strong>Horario:</strong> 24 Hs</li>
-        </ul>
+      <div class="mt-8 grid md:grid-cols-5 gap-4">
+        <article class="p-4 rounded-2xl border border-crema-100 bg-white/70 shadow-soft">
+          <p class="text-xs uppercase text-stone-500 tracking-wide">1. Diagnóstico</p>
+          <h3 class="font-semibold mt-2">Objetivos y KPIs</h3>
+          <p class="text-sm text-stone-700 mt-1">Casos de uso, datos disponibles, riesgos y éxito esperado.</p>
+        </article>
+        <article class="p-4 rounded-2xl border border-crema-100 bg-white/70 shadow-soft">
+          <p class="text-xs uppercase text-stone-500 tracking-wide">2. Arquitectura</p>
+          <h3 class="font-semibold mt-2">Flujos + integraciones</h3>
+          <p class="text-sm text-stone-700 mt-1">Diseño UX, prompts, guardrails y conexiones con tus sistemas.</p>
+        </article>
+        <article class="p-4 rounded-2xl border border-crema-100 bg-white/70 shadow-soft">
+          <p class="text-xs uppercase text-stone-500 tracking-wide">3. Desarrollo</p>
+          <h3 class="font-semibold mt-2">MVP en semanas</h3>
+          <p class="text-sm text-stone-700 mt-1">Web y agentes listos para testear con usuarios reales.</p>
+        </article>
+        <article class="p-4 rounded-2xl border border-crema-100 bg-white/70 shadow-soft">
+          <p class="text-xs uppercase text-stone-500 tracking-wide">4. Entrenamiento</p>
+          <h3 class="font-semibold mt-2">Datos y QA</h3>
+          <p class="text-sm text-stone-700 mt-1">Dataset curado, feedback humano y pruebas de calidad.</p>
+        </article>
+        <article class="p-4 rounded-2xl border border-crema-100 bg-white/70 shadow-soft">
+          <p class="text-xs uppercase text-stone-500 tracking-wide">5. Soporte</p>
+          <h3 class="font-semibold mt-2">Mejora continua</h3>
+          <p class="text-sm text-stone-700 mt-1">Monitoreo, reportes y nuevas iteraciones para crecer.</p>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- CASOS / CONFIANZA -->
+    <section id="casos" class="max-w-6xl mx-auto px-4 py-14 md:py-16">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold">Casos y confianza</h2>
+          <p class="mt-2 text-stone-700 md:text-lg">Texto base editable: sumá tus logos, casos y testimonios.</p>
+        </div>
+        <a href="#contacto" class="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:underline">Compartir mi proyecto →</a>
+      </div>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="rounded-3xl border border-crema-100 bg-white/80 shadow-soft p-6">
+          <p class="text-sm uppercase text-stone-500 tracking-wide">Testimonio</p>
+          <p class="mt-3 text-lg font-semibold">“Atinai lanzó nuestra nueva web y un agente que responde leads en minutos. Subimos la tasa de demos sin aumentar el equipo.”</p>
+          <p class="mt-2 text-sm text-stone-700">Nombre Apellido — Rol, Empresa</p>
+        </div>
+        <div class="rounded-3xl border border-crema-100 bg-vanilla-50/80 shadow-soft p-6">
+          <p class="text-sm uppercase text-stone-500 tracking-wide">Logos</p>
+          <div class="mt-4 grid grid-cols-2 gap-4 text-ink font-semibold">
+            <div class="p-3 rounded-xl border border-crema-100 bg-white text-center">Empresa 1</div>
+            <div class="p-3 rounded-xl border border-crema-100 bg-white text-center">Empresa 2</div>
+            <div class="p-3 rounded-xl border border-crema-100 bg-white text-center">Empresa 3</div>
+            <div class="p-3 rounded-xl border border-crema-100 bg-white text-center">Empresa 4</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="cta" class="max-w-6xl mx-auto px-4 py-12 md:py-14">
+      <div class="rounded-3xl border border-crema-100 bg-ink text-vanilla-50 shadow-soft p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold">Listo para impulsar tu negocio</h2>
+          <p class="mt-2 text-vanilla-100 md:text-lg">Diseño, estrategia y agentes de IA en un solo equipo. Hablemos 30 minutos y armamos un plan claro.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="#contacto" class="px-5 py-3 rounded-xl2 bg-vanilla-200 text-ink font-semibold hover:bg-vanilla-300">Agendar una reunión</a>
+          <a href="#contacto" class="px-5 py-3 rounded-xl2 border border-vanilla-200 text-vanilla-50 font-semibold hover:bg-white/10" data-open-chat>Abrir chat ahora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="max-w-6xl mx-auto px-4 py-14 md:py-16 border-t border-crema-100">
+      <h2 class="text-2xl md:text-3xl font-semibold">Contacto</h2>
+      <p class="text-stone-700 mt-2 md:text-lg">Agendemos 30 minutos para entender tu negocio y armar un plan de web + estrategia + agentes de IA.</p>
+      <div class="grid md:grid-cols-2 gap-8 mt-6">
+        <div class="rounded-3xl p-8 border border-crema-100 bg-white/80 shadow-soft">
+          <form onsubmit="event.preventDefault(); alert('¡Gracias! Atinai te contacta pronto.'); this.reset();">
+            <label class="block text-sm mb-1">Nombre</label>
+            <input required class="w-full border border-crema-200 rounded-xl2 px-4 py-2 bg-white/80" placeholder="Tu nombre" />
+            <label class="block text-sm mt-4 mb-1">Email</label>
+            <input type="email" required class="w-full border border-crema-200 rounded-xl2 px-4 py-2 bg-white/80" placeholder="tu@email.com" />
+            <label class="block text-sm mt-4 mb-1">Mensaje</label>
+            <textarea rows="5" class="w-full border border-crema-200 rounded-xl2 px-4 py-2 bg-white/80" placeholder="Contanos qué necesitás (web, estrategia, agentes de IA)."></textarea>
+            <button class="mt-4 px-5 py-3 rounded-xl2 bg-ink text-vanilla-50 hover:opacity-90">Enviar</button>
+          </form>
+        </div>
+
+        <div class="rounded-3xl p-8 border border-vanilla-200 bg-vanilla-50 shadow-soft space-y-4">
+          <h3 class="text-xl font-semibold">Cómo trabajamos</h3>
+          <ul class="text-stone-700 space-y-2 text-sm">
+            <li>• Respuesta en menos de 24 horas.</li>
+            <li>• Llamada de diagnóstico sin costo.</li>
+            <li>• Plan y timeline claro antes de empezar.</li>
+            <li>• Agentes de IA con monitoreo y mejoras continuas.</li>
+          </ul>
+          <div class="pt-4 border-t border-crema-100 text-sm text-stone-700 space-y-1">
+            <p><strong>Email:</strong> info@atinai.com</p>
+            <p><strong>Horario:</strong> 24 hs</p>
+            <p><strong>Canal rápido:</strong> <a class="underline" href="#contacto" data-open-chat>Chat en vivo</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="border-t border-crema-100 bg-crema-50/60">
-    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-stone-600 flex flex-col md:flex-row items-center justify-between gap-3">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-stone-700 flex flex-col md:flex-row items-center justify-between gap-3">
       <p>© <span id="year"></span> Atinai. Todos los derechos reservados.</p>
       <div class="flex gap-4">
         <a href="#" class="hover:underline">Términos</a>
@@ -252,7 +426,7 @@
       target: '#n8n-chat',
       mode: 'window',
       loadPreviousSession: true,
-      enableStreaming: false,      // ponelo en true cuando el flujo soporte streaming
+      enableStreaming: false,
       showWelcomeScreen: false,
       initialMessages: [
         '👋 ¡Hola! Soy el agente de Atinai.',
@@ -260,10 +434,10 @@
       ],
       i18n: {
         en: {
-          title: 'Atinai — Agente de IA',
+          title: 'Atinai - Agente de IA',
           subtitle: '¿En qué te ayudo hoy?',
           getStarted: 'Nueva conversación',
-          inputPlaceholder: 'Escribí tu mensaje…'
+          inputPlaceholder: 'Escribí tu mensaje.'
         }
       },
       metadata: {
@@ -272,8 +446,11 @@
       }
     });
 
-    // Abrir desde cualquier [data-open-chat] (header y cards) con apertura robusta del widget
+    // Abrir desde cualquier [data-open-chat] con fallback robusto
     function openChatWindow() {
+      if (chat && typeof chat.open === 'function') {
+        try { chat.open(); return; } catch (_) { /* fallback abajo */ }
+      }
       const selectors = [
         '#n8n-chat button',
         '#n8n-chat [role="button"]',
@@ -296,7 +473,6 @@
         }
         return false;
       };
-      // intenta por hasta 2s por si el botón aún no montó
       const start = performance.now();
       const loop = () => {
         if (clickEl()) return;
@@ -309,80 +485,19 @@
       const trigger = e.target.closest('[data-open-chat]');
       if (!trigger) return;
       e.preventDefault();
-      // Si el bundle expone métodos en el objeto devuelto, usalos
-      if (typeof chat?.open === 'function') {
-        try { chat.open(); return; } catch (_) { /* fallback abajo */ }
-      }
-      // Fallback: simular click sobre el toggle del widget
       openChatWindow();
     });
 
     // Deep link para campañas: ?openChat=1
-    if (new URLSearchParams(location.search).get('openChat') === '1') {
-      const tryOpen = () => {
-        if (typeof chat?.open === 'function') {
-          try { chat.open(); return; } catch (_) {}
-        }
-        openChatWindow();
-      };
-      // pequeño delay para asegurar montaje
-      requestAnimationFrame(tryOpen);
-    }
-    if (new URLSearchParams(location.search).get('openChat') === '1') {
-      const tryOpen = () => {
-        if (chat && typeof chat.open === 'function') {
-          chat.open();
-        } else {
-          const toggle = document.querySelector('#n8n-chat button');
-          if (toggle) toggle.click(); else requestAnimationFrame(tryOpen);
-        }
-      };
-      tryOpen();
+    const qs = new URLSearchParams(location.search);
+    if (qs.get('openChat') === '1') {
+      requestAnimationFrame(openChatWindow);
     }
   </script>
 
-  <!-- Script extra: año + grid + filtros -->
+  <!-- Script extra: año -->
   <script>
-    // Año footer
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Datos demo
-    const DATA = [
-      { nombre:'Vendedora Pro', categoria:'Ventas', kpi:'conversion', desc:'Califica leads y asiste cierres.', demo:'#', docs:'#', img:'https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1400&auto=format&fit=crop' },
-      { nombre:'Soporte 24/7', categoria:'Soporte', kpi:'costo', desc:'Reduce tickets de L1 con FAQs.', demo:'#', docs:'#', img:'https://images.unsplash.com/photo-1587614382346-4ec70e388b28?q=80&w=1400&auto=format&fit=crop' },
-      { nombre:'Growth Wizard', categoria:'Marketing', kpi:'conversion', desc:'Crea campañas y audiencias.', demo:'#', docs:'#', img:'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1400&auto=format&fit=crop' },
-      { nombre:'OpsFlow', categoria:'Operaciones', kpi:'tiempo', desc:'Orquesta procesos internos.', demo:'#', docs:'#', img:'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1400&auto=format&fit=crop' }
-    ];
-
-    const grid = document.getElementById('grid');
-
-    function card(a){
-      return `<article class="group border border-crema-100 bg-white/70 rounded-3xl p-4 shadow-soft transition">
-        <img src="${a.img}" alt="${a.nombre}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop';" class="w-full h-40 sm:h-44 lg:h-48 object-cover rounded-2xl border border-crema-100 bg-crema-50"/>
-        <div class="mt-4">
-          <div class="flex items-center justify-between"><h3 class="font-semibold text-lg">${a.nombre}</h3><span class="text-xs px-2 py-1 rounded-full bg-vanilla-200">${a.categoria}</span></div>
-          <p class="mt-1 text-sm text-stone-600">${a.desc}</p>
-          <div class="mt-4 flex gap-2"><a class="px-3 py-2 text-sm rounded-xl2 bg-stone-900 text-vanilla-50" href="${a.demo}" data-open-chat>Probar</a><a class="px-3 py-2 text-sm rounded-xl2 bg-crema-100" href="${a.docs}">Docs</a></div>
-        </div>
-      </article>`;
-    }
-
-    let currentCat = null;
-    function apply(){
-      const items = DATA.filter(a => !currentCat || a.categoria===currentCat);
-      grid.innerHTML = items.map(card).join('');
-    }
-    apply();
-
-    // Filtro por categoría desde las cards de Categorías
-    document.querySelectorAll('[data-cat]').forEach(el=>{
-      el.addEventListener('click', ()=>{
-        currentCat = el.getAttribute('data-cat');
-        apply();
-        // salto a la grilla
-        document.getElementById('agentes').scrollIntoView({behavior:'smooth'});
-      });
-    });
   </script>
 </body>
 </html>
