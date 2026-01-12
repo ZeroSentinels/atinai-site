@@ -454,6 +454,7 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+  height: 100%;
 }
 
 .pricing-card.featured {
@@ -483,11 +484,13 @@
 .pricing-desc {
   font-size: 14px;
   color: #4b4a45;
+  min-height: 48px;
 }
 
 .pricing-price {
   display: grid;
   gap: 4px;
+  min-height: 40px;
 }
 
 .pricing-price-usd {
@@ -509,6 +512,7 @@
   margin: 0;
   font-size: 14px;
   color: #4b4a45;
+  flex: 1;
 }
 
 .pricing-features li {
@@ -528,7 +532,7 @@
 }
 
 .pricing-card .btn {
-  margin-top: 6px;
+  margin-top: auto;
 }
 
 .pricing-block {
