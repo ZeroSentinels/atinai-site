@@ -31,6 +31,8 @@
     }
   </script>
 
+  <link rel="stylesheet" href="styles.css" />
+
   <style>
     html { scroll-behavior: smooth; }
     /* offset para header sticky */
@@ -114,69 +116,66 @@
   </header>
 
   <main>
+
+
     <!-- HERO / HOME -->
-    <section id="home" class="relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-b from-vanilla-100/80 to-transparent"></div>
-      <div class="absolute -right-24 top-10 w-64 h-64 bg-vanilla-200 rounded-full blur-3xl opacity-70"></div>
-      <div class="max-w-6xl mx-auto px-4 py-14 md:py-20 grid md:grid-cols-2 gap-12 items-center">
-        <div class="relative z-10">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crema-50 border border-crema-200 text-xs font-semibold uppercase tracking-wide text-stone-700">
-            Web + Estrategia + Agentes de IA
-          </div>
-          <h1 class="mt-4 text-3xl md:text-5xl font-semibold leading-tight tracking-tight">
-            Diseño de sitios web, estrategia digital y agentes de IA para hacer crecer tu negocio.
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-left">
+          <span class="hero-tag">WEB · ESTRATEGIA · AGENTES DE IA</span>
+          <h1 class="hero-title">
+            Agentes de IA y estrategia digital<br />
+            para hacer crecer tus ventas.
           </h1>
-          <p class="mt-4 text-stone-700 md:text-lg">
-            Creamos sitios modernos, rápidos y orientados a resultados. Implementamos agentes de inteligencia artificial que automatizan tareas, mejoran la atención y aumentan tus ventas. Hacemos que tu web trabaje por vos.
+          <p class="hero-subtitle">
+            Creamos sitios rápidos y orientados a resultados. Implementamos agentes de inteligencia artificial que responden, venden y atienden a tus clientes 24/7.
           </p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#contacto" class="px-5 py-3 rounded-xl2 bg-ink text-vanilla-50 font-semibold hover:opacity-90 shadow-soft">Quiero impulsar mi negocio</a>
-            <a href="#servicios" class="px-5 py-3 rounded-xl2 bg-vanilla-200 text-ink font-semibold hover:bg-vanilla-300 shadow-soft">Ver servicios</a>
-            <a href="#contacto" class="px-5 py-3 rounded-xl2 border border-crema-200 text-ink font-semibold hover:bg-white" data-open-chat>Hablar ahora</a>
+          <p class="hero-claim">Hacemos que tu web trabaje por vos.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto">Quiero impulsar mi negocio</a>
+            <a class="btn btn-secondary" href="#demo">Ver demo</a>
           </div>
-          <div class="mt-6 flex flex-wrap gap-4 text-sm text-stone-700">
-            <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-ink"></span> Sitios rápidos, medibles y listos para vender.</span>
-            <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-vanilla-300"></span> Agentes de IA que trabajan 24/7.</span>
-          </div>
+          <ul class="hero-bullets">
+            <li>Integraciones con CRM</li>
+            <li>Agente de IA que trabaja 24/7</li>
+            <li>Implementación rápida y acompañada</li>
+          </ul>
         </div>
-        <div class="relative z-10">
-          <div class="p-6 rounded-3xl bg-white border border-crema-100 shadow-soft space-y-5">
-            <div class="flex items-center justify-between">
-              <div>
-                <p class="text-xs uppercase text-stone-500 tracking-wide">Panel de impacto</p>
-                <p class="text-2xl font-semibold mt-1">+32% conversión</p>
-              </div>
-              <span class="px-3 py-1 rounded-full bg-vanilla-200 text-xs font-semibold">IA activa</span>
+        <div class="hero-right">
+          <div class="hero-image-wrapper">
+            <img class="hero-image" src="img/atinai-hero-personas.jpg" alt="Equipo usando agentes de IA" />
+            <div class="hero-chat-bubble">
+              <span class="hero-chat-name">Agente Atinai</span>
+              <span>Hola 👋 ¿En qué puedo ayudarte hoy?</span>
             </div>
-            <div class="space-y-3 text-sm text-stone-700">
-              <div class="flex items-start gap-3">
-                <span class="mt-1 inline-flex items-center justify-center w-6 h-6 rounded-full bg-vanilla-200 text-ink font-semibold text-xs">1</span>
-                <div>
-                  <p class="font-semibold">Agentes de IA conversacionales</p>
-                  <p>Captan leads, responden dudas y agendan demos sin saturar al equipo.</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span class="mt-1 inline-flex items-center justify-center w-6 h-6 rounded-full bg-vanilla-200 text-ink font-semibold text-xs">2</span>
-                <div>
-                  <p class="font-semibold">Automatización operativa</p>
-                  <p>Integramos con CRM, helpdesk y flujos internos para reducir tareas manuales.</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span class="mt-1 inline-flex items-center justify-center w-6 h-6 rounded-full bg-vanilla-200 text-ink font-semibold text-xs">3</span>
-                <div>
-                  <p class="font-semibold">Experiencia de marca</p>
-                  <p>Diseño a medida: rápido, accesible y optimizado para conversión.</p>
-                </div>
-              </div>
-            </div>
+          </div>
+          <div class="impact-card">
+            <span class="impact-badge">+32% conversión</span>
+            <h3>Resultados reales con inteligencia artificial</h3>
+            <ol>
+              <li>
+                <strong>Leads y clientes captados</strong>
+                <span>El agente responde, agenda y deriva consultas sin saturar tu equipo.</span>
+              </li>
+              <li>
+                <strong>Ahorro operativo</strong>
+                <span>Hasta 87% de consultas resueltas sin intervención humana.</span>
+              </li>
+              <li>
+                <strong>Experiencia optimizada</strong>
+                <span>Diseño a medida, rápido, accesible y optimizado para conversión.</span>
+              </li>
+            </ol>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">"En 30 días aumentamos un 27% los leads desde la web."</p>
+            <p class="testimonial-author">Sebastián López · Gerente de Marketing</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WEB + ESTRATEGIA -->
+<!-- WEB + ESTRATEGIA -->
     <section id="web-estrategia" class="max-w-6xl mx-auto px-4 pb-14 md:pb-16">
       <div class="rounded-3xl border border-crema-100 bg-white/80 shadow-soft p-6 md:p-8 grid md:grid-cols-2 gap-8 items-center">
         <div class="space-y-3">
