@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atinai | Planes y precios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --crema: #F8F3EA;
+      --card: #FFFFFF;
+      --text: #1C1917;
+      --text-muted: #4B4A45;
+      --primary: #111827;
+      --primary-text: #F9FAFB;
+      --chip-bg: #FFF3DA;
+      --chip-text: #92400E;
+      --shadow-soft: 0 18px 36px rgba(15, 23, 42, 0.08);
+      --border: #EFE2D4;
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Manrope', system-ui, -apple-system, Segoe UI, sans-serif;
+      background: var(--crema);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .pricing-section {
+      padding: 72px 24px 88px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      gap: 40px;
+    }
+
+    .section-header {
+      display: grid;
+      gap: 12px;
+      max-width: 640px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .pricing-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .plan-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .plan-card.is-featured {
+      background: #FFFBF2;
+      border-color: #EFD7BA;
+      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    .plan-badge {
+      align-self: flex-start;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      color: var(--chip-text);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .plan-name {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .plan-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .plan-price {
+      display: grid;
+      gap: 6px;
+    }
+
+    .price-usd {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .price-clp {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .plan-features {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .plan-features li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .plan-features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--primary-text);
+      box-shadow: 0 16px 30px rgba(17, 24, 39, 0.16);
+    }
+
+    .btn-secondary {
+      background: #FFFFFF;
+      color: var(--text);
+      border-color: #E7D8C6;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 16px;
+    }
+
+    .block-title {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .block-text {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .addon-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .addon-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #FFFBF2;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .annual-card {
+      background: #FFFBF2;
+      border: 1px solid #EFD7BA;
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      display: grid;
+      gap: 8px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .cta-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .cta-title {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    @media (min-width: 720px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .addon-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1080px) {
+      .pricing-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .cta-card {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+
+      .cta-card .btn {
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="pricing-section">
+    <div class="container">
+      <header class="section-header">
+        <h1 class="section-title">Planes de Atinai</h1>
+        <p class="section-subtitle">Elegí el plan que mejor se adapta a tu negocio.</p>
+      </header>
+
+      <div class="pricing-grid">
+        <article class="plan-card">
+          <h2 class="plan-name">Plan Launch</h2>
+          <p class="plan-desc">Para quienes necesitan presencia y no quieren lidiar con la parte técnica.</p>
+          <div class="plan-price">
+            <span class="price-usd">USD 29 / mes</span>
+            <span class="price-clp">≈ CLP 29.000 / mes</span>
+          </div>
+          <ul class="plan-features">
+            <li>Hosting + SSL</li>
+            <li>Mantenimiento técnico mensual</li>
+            <li>Backups automáticos</li>
+            <li>Actualizaciones CMS/plugins</li>
+            <li>Soporte email 48h</li>
+            <li>Hasta 2 cambios/mes</li>
+          </ul>
+          <a class="btn btn-secondary" href="#contacto">Elegir Launch</a>
+        </article>
+
+        <article class="plan-card">
+          <h2 class="plan-name">Plan Growth</h2>
+          <p class="plan-desc">Para sitios que necesitan performance y capturar tráfico.</p>
+          <div class="plan-price">
+            <span class="price-usd">USD 59 / mes</span>
+            <span class="price-clp">≈ CLP 59.000 / mes</span>
+          </div>
+          <ul class="plan-features">
+            <li>Todo lo del plan Launch</li>
+            <li>Optimización velocidad trimestral</li>
+            <li>Reporte analytics mensual</li>
+            <li>5 cambios/mes</li>
+            <li>Soporte &lt;24h</li>
+            <li>1h mejoras UX/mes</li>
+          </ul>
+          <a class="btn btn-secondary" href="#contacto">Elegir Growth</a>
+        </article>
+
+        <article class="plan-card">
+          <h2 class="plan-name">Plan Commerce</h2>
+          <p class="plan-desc">Para negocios que venden o captan leads y dependen del sitio.</p>
+          <div class="plan-price">
+            <span class="price-usd">USD 119 / mes</span>
+            <span class="price-clp">≈ CLP 119.000 / mes</span>
+          </div>
+          <ul class="plan-features">
+            <li>Todo lo del plan Growth</li>
+            <li>Ecommerce / catálogo / reservas</li>
+            <li>Uptime 24/7</li>
+            <li>Optimización mensual</li>
+            <li>Reglas promocionales</li>
+            <li>Integración pagos</li>
+            <li>10 cambios/mes</li>
+            <li>3h mejoras/mes</li>
+          </ul>
+          <a class="btn btn-secondary" href="#contacto">Elegir Commerce</a>
+        </article>
+
+        <article class="plan-card is-featured">
+          <span class="plan-badge">Recomendado</span>
+          <h2 class="plan-name">Plan Suite</h2>
+          <p class="plan-desc">Operación digital continua con automatización.</p>
+          <div class="plan-price">
+            <span class="price-usd">USD 249 / mes</span>
+            <span class="price-clp">≈ CLP 249.000 / mes</span>
+          </div>
+          <ul class="plan-features">
+            <li>Todo lo del plan Commerce</li>
+            <li>Automatizaciones IA (FAQs, leads, reservas)</li>
+            <li>CRM básico</li>
+            <li>Integraciones (Google, Meta, WhatsApp, Email)</li>
+            <li>Revisión trimestral</li>
+            <li>6h mejoras/mes</li>
+            <li>Soporte dedicado</li>
+          </ul>
+          <a class="btn btn-primary" href="#contacto">Elegir Suite</a>
+        </article>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title">Add-ons para escalar</h2>
+        <p class="block-text">Sumá servicios a tu plan para llevar tu operación digital al siguiente nivel.</p>
+        <div class="addon-grid">
+          <div class="addon-item"><span>Agente IA Vendedor</span><strong>desde USD 49/mes</strong></div>
+          <div class="addon-item"><span>Agente IA Soporte</span><strong>desde USD 39/mes</strong></div>
+          <div class="addon-item"><span>Horas extra</span><strong>USD 45/hora</strong></div>
+          <div class="addon-item"><span>Ads</span><strong>desde USD 150/mes fee</strong></div>
+          <div class="addon-item"><span>SEO Pro</span><strong>desde USD 120/mes</strong></div>
+          <div class="addon-item"><span>Embudos</span><strong>USD 299 setup + 49/mes</strong></div>
+          <div class="addon-item"><span>Integraciones</span><strong>a medida</strong></div>
+        </div>
+      </div>
+
+      <div class="annual-card">
+        <h2 class="block-title">¿Querés pagar anual?</h2>
+        <p class="block-text">Obtené un 15% de descuento pagando tu plan de forma anual.</p>
+      </div>
+
+      <div class="cta-card">
+        <div>
+          <h2 class="cta-title">¿No sabés qué plan elegir?</h2>
+          <p class="block-text">Escribinos y armamos un plan a medida según tu negocio.</p>
+        </div>
+        <a class="btn btn-primary" href="#contacto">Hablar con Atinai</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
