@@ -634,6 +634,65 @@
       }
     });
 
+    const chatRoot = document.getElementById('n8n-chat');
+    const urlRegex = /https?:\/\/[^\s<]+/g;
+    const urlTest = /https?:\/\/[^\s<]+/;
+
+    function linkifyTextNode(node) {
+      const text = node.textContent;
+      if (!text || !urlTest.test(text)) return;
+      const frag = document.createDocumentFragment();
+      let lastIndex = 0;
+      text.replace(urlRegex, (url, index) => {
+        if (index > lastIndex) {
+          frag.append(text.slice(lastIndex, index));
+        }
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = url;
+        frag.appendChild(link);
+        lastIndex = index + url.length;
+        return url;
+      });
+      if (lastIndex < text.length) {
+        frag.append(text.slice(lastIndex));
+      }
+      node.parentNode.replaceChild(frag, node);
+    }
+
+    function linkifyChat(container) {
+      if (!container) return;
+      const walker = document.createTreeWalker(
+        container,
+        NodeFilter.SHOW_TEXT,
+        {
+          acceptNode: (node) => {
+            const parent = node.parentElement;
+            if (!parent) return NodeFilter.FILTER_REJECT;
+            if (parent.closest('a, script, style, textarea, input, button')) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            return urlTest.test(node.textContent || '')
+              ? NodeFilter.FILTER_ACCEPT
+              : NodeFilter.FILTER_REJECT;
+          }
+        }
+      );
+      const nodes = [];
+      while (walker.nextNode()) {
+        nodes.push(walker.currentNode);
+      }
+      nodes.forEach(linkifyTextNode);
+    }
+
+    if (chatRoot) {
+      const observer = new MutationObserver(() => linkifyChat(chatRoot));
+      observer.observe(chatRoot, { childList: true, subtree: true });
+      linkifyChat(chatRoot);
+    }
+
     // Abrir desde cualquier [data-open-chat] con fallback robusto
     function openChatWindow() {
       if (chat && typeof chat.open === 'function') {
