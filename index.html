@@ -112,6 +112,21 @@
         <a href="#contacto" class="hover:underline">Contacto</a>
       </nav>
       <a href="#contacto" class="hidden md:inline-flex px-4 py-2 rounded-xl2 bg-ink text-vanilla-50 text-sm font-semibold hover:opacity-90 shadow-soft">Quiero impulsar mi negocio</a>
+      <button class="mobile-menu-toggle md:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mobile-menu md:hidden" id="mobile-menu">
+      <nav class="mobile-menu-links" aria-label="Principal">
+        <a href="#beneficios">Beneficios</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#casos">Casos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a href="#contacto" class="btn btn-primary mobile-menu-cta">Quiero impulsar mi negocio</a>
     </div>
   </header>
 
@@ -762,6 +777,31 @@
       update();
       window.addEventListener('resize', schedule);
       window.addEventListener('orientationchange', schedule);
+    })();
+
+    (function () {
+      const header = document.querySelector('header');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (!header || !toggle || !menu) return;
+
+      const closeMenu = () => {
+        header.classList.remove('menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      };
+
+      toggle.addEventListener('click', () => {
+        const isOpen = header.classList.toggle('menu-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      menu.addEventListener('click', (event) => {
+        if (event.target.closest('a')) closeMenu();
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) closeMenu();
+      });
     })();
   </script>
 </body>
