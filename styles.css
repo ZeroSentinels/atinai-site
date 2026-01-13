@@ -632,22 +632,33 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-device-width: 768px) {
   :root {
     --header-height: 72px;
   }
 
-  header {
-    position: fixed;
+  header,
+  header.sticky {
+    position: fixed !important;
     top: 0;
     left: 0;
     right: 0;
     z-index: 60;
     padding-top: env(safe-area-inset-top);
+    width: 100%;
+    transform: none;
+    background: rgba(255, 251, 242, 0.98);
   }
 
+  html,
   body {
     padding-top: var(--header-height);
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  main {
     overflow-x: hidden;
   }
 
@@ -677,13 +688,21 @@
   }
 
   #n8n-chat .chat-window-wrapper {
-    right: var(--chat--window--right);
-    bottom: var(--chat--window--bottom);
-    z-index: 90;
+    right: var(--chat--window--right) !important;
+    bottom: var(--chat--window--bottom) !important;
+    z-index: 90 !important;
+    max-width: calc(100vw - 32px);
   }
 
   #n8n-chat .chat-window-toggle {
+    position: fixed !important;
+    right: var(--chat--window--right) !important;
+    bottom: var(--chat--window--bottom) !important;
     min-width: 44px;
     min-height: 44px;
+  }
+
+  #n8n-chat .chat-window {
+    max-width: calc(100vw - 32px);
   }
 }
