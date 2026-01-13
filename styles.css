@@ -631,3 +631,55 @@
     width: auto;
   }
 }
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 72px;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    padding-top: env(safe-area-inset-top);
+  }
+
+  body {
+    padding-top: var(--header-height);
+    overflow-x: hidden;
+  }
+
+  section[id] {
+    scroll-margin-top: var(--header-height);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .btn,
+  button,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+  }
+
+  #n8n-chat {
+    position: fixed;
+    right: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    z-index: 80;
+  }
+
+  #n8n-chat button,
+  #n8n-chat [role="button"],
+  #n8n-chat [class*="toggle"],
+  #n8n-chat [data-testid*="toggle"] {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
