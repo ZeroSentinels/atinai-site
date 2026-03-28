@@ -592,6 +592,17 @@
   color: #4b4a45;
 }
 
+.pricing-note {
+  font-size: 13px;
+  color: #6b6255;
+  background: #fff7e6;
+  border: 1px solid #efd7ba;
+  border-radius: 999px;
+  padding: 8px 12px;
+  display: inline-flex;
+  width: fit-content;
+}
+
 .pricing-addon-list {
   list-style: none;
   display: grid;
@@ -604,10 +615,21 @@
 
 .pricing-addon-list li {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
   padding: 12px 16px 12px 34px;
   border-radius: 16px;
   border: 1px solid #efe2d4;
   background: #fffbf2;
+}
+
+.pricing-addon-list li strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1c1917;
+  white-space: nowrap;
 }
 
 .pricing-addon-list li::before {
@@ -804,5 +826,16 @@
 
   #n8n-chat .chat-window {
     max-width: calc(100vw - 32px);
+  }
+}
+
+@media (max-width: 560px) {
+  .pricing-addon-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pricing-addon-list li strong {
+    white-space: normal;
   }
 }
