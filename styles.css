@@ -334,7 +334,7 @@
   align-items: center;
   gap: 16px;
   width: max-content;
-  animation: logo-scroll 18s linear infinite;
+  animation: logo-scroll 13s linear infinite;
   will-change: transform;
 }
 
@@ -356,6 +356,42 @@
 
 .logo-item:hover {
   transform: translateY(-2px);
+}
+
+.logo-item-placeholder {
+  min-width: 180px;
+  min-height: 70px;
+  border-style: dashed;
+  border-color: #ddcfbf;
+  background:
+    linear-gradient(135deg, rgba(255, 251, 242, 0.96), rgba(255, 245, 230, 0.88));
+  color: #8b735c;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  cursor: default;
+}
+
+.logo-item-placeholder:hover {
+  transform: none;
+}
+
+.logo-placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  line-height: 1.1;
+}
+
+.logo-placeholder-mark {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.logo-placeholder-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .logo-image {
