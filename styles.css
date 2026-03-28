@@ -340,9 +340,11 @@
 
 .logo-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-width: 180px;
+  min-height: 92px;
   padding: 12px 18px;
   border-radius: 16px;
   background: #ffffff;
@@ -399,6 +401,17 @@
   width: 100%;
   height: 44px;
   object-fit: contain;
+}
+
+.logo-meta {
+  margin-top: 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7b6b58;
+  text-align: center;
+  line-height: 1.2;
 }
 
 .logo-carousel:hover .logo-track {
