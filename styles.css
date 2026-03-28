@@ -553,6 +553,11 @@
   color: #4b4a45;
 }
 
+.pricing-price-note {
+  font-size: 13px;
+  color: #4b4a45;
+}
+
 .pricing-features {
   list-style: none;
   display: grid;
@@ -582,6 +587,23 @@
 
 .pricing-card .btn {
   margin-top: auto;
+}
+
+.pricing-card-agent-featured {
+  border-color: #111827;
+  box-shadow: 0 22px 40px rgba(17, 24, 39, 0.12);
+}
+
+.pricing-subsection {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 20px;
+}
+
+.pricing-section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1c1917;
 }
 
 .pricing-block {
@@ -614,6 +636,31 @@
   padding: 8px 12px;
   display: inline-flex;
   width: fit-content;
+}
+
+.pricing-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.pricing-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid #efd7ba;
+  background: #fffbf2;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6b6255;
+}
+
+.pricing-inline-note {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #4b4a45;
 }
 
 .pricing-addon-list {
