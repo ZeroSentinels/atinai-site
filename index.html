@@ -637,33 +637,8 @@
 
   <!-- n8n Chat widget JS (CDN, ESM) -->
   <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-
-    const chat = createChat({
-      webhookUrl: 'https://smartialab.app.n8n.cloud/webhook/5326e2ba-0e9a-4f0f-b3b2-1347140ce359/chat',
-      target: '#n8n-chat',
-      mode: 'window',
-      loadPreviousSession: true,
-      enableStreaming: false,
-      showWelcomeScreen: false,
-      initialMessages: [
-        '👋 ¡Hola! Soy el agente de Atinai.',
-        'Contame qué necesitás y te ayudo al toque.'
-      ],
-      i18n: {
-        en: {
-          title: 'Atinai - Agente de IA',
-          subtitle: '¿En qué te ayudo hoy?',
-          getStarted: 'Nueva conversación',
-          inputPlaceholder: 'Escribí tu mensaje.'
-        }
-      },
-      metadata: {
-        source: 'atinai-site',
-        cmp: new URLSearchParams(location.search).get('cmp') || undefined
-      }
-    });
-
+    let chat = null;
+    let chatBootPromise = null;
     const chatRoot = document.getElementById('n8n-chat');
     const urlRegex = /https?:\/\/[^\s<]+/g;
     const urlTest = /https?:\/\/[^\s<]+/;
@@ -717,45 +692,137 @@
       nodes.forEach(linkifyTextNode);
     }
 
-    if (chatRoot) {
+    function setupChatEnhancements() {
+      if (!chatRoot || chatRoot.dataset.linkifyReady === 'true') return;
       const observer = new MutationObserver(() => linkifyChat(chatRoot));
       observer.observe(chatRoot, { childList: true, subtree: true });
+      chatRoot.dataset.linkifyReady = 'true';
       linkifyChat(chatRoot);
     }
 
-    // Abrir desde cualquier [data-open-chat] con fallback robusto
-    function openChatWindow() {
-      if (chat && typeof chat.open === 'function') {
-        try { chat.open(); return; } catch (_) { /* fallback abajo */ }
-      }
+    function bootChat() {
+      if (chatBootPromise) return chatBootPromise;
+      chatBootPromise = import('https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js')
+        .then(({ createChat }) => {
+          chat = createChat({
+            webhookUrl: 'https://smartialab.app.n8n.cloud/webhook/5326e2ba-0e9a-4f0f-b3b2-1347140ce359/chat',
+            target: '#n8n-chat',
+            mode: 'window',
+            loadPreviousSession: true,
+            enableStreaming: false,
+            showWelcomeScreen: false,
+            initialMessages: [
+              '👋 ¡Hola! Soy el agente de Atinai.',
+              'Contame qué necesitás y te ayudo al toque.'
+            ],
+            i18n: {
+              en: {
+                title: 'Atinai - Agente de IA',
+                subtitle: '¿En qué te ayudo hoy?',
+                getStarted: 'Nueva conversación',
+                inputPlaceholder: 'Escribí tu mensaje.'
+              }
+            },
+            metadata: {
+              source: 'atinai-site',
+              cmp: new URLSearchParams(location.search).get('cmp') || undefined
+            }
+          });
+          setupChatEnhancements();
+          return chat;
+        })
+        .catch((error) => {
+          console.error('No se pudo inicializar el chat de Atinai.', error);
+          return null;
+        });
+
+      return chatBootPromise;
+    }
+
+    function findChatToggle() {
       const selectors = [
+        '#n8n-chat .chat-window-toggle',
+        '#n8n-chat button[class*="toggle"]',
+        '#n8n-chat [class*="chat-window-toggle"]',
         '#n8n-chat button',
         '#n8n-chat [role="button"]',
-        '#n8n-chat [class*="toggle"]',
         '#n8n-chat [data-testid*="toggle"]'
       ];
-      const clickEl = () => {
-        for (const sel of selectors) {
-          const el = document.querySelector(sel);
-          if (el) {
-            try {
-              el.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true }));
-              el.click();
-              el.dispatchEvent(new MouseEvent('pointerup', { bubbles: true }));
-              return true;
-            } catch (_) {
-              try { el.click(); return true; } catch (_) { /* ignore */ }
-            }
-          }
+
+      for (const selector of selectors) {
+        const element = document.querySelector(selector);
+        if (element) return element;
+      }
+
+      return null;
+    }
+
+    function focusChatInput() {
+      const input = document.querySelector(
+        '#n8n-chat textarea, #n8n-chat input:not([type="hidden"]), #n8n-chat [contenteditable="true"]'
+      );
+      if (!input || typeof input.focus !== 'function') return false;
+      input.focus();
+      return true;
+    }
+
+    function clickChatToggle() {
+      const toggle = findChatToggle();
+      if (!toggle) return false;
+
+      try {
+        toggle.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true }));
+        toggle.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+        toggle.click();
+        toggle.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+        toggle.dispatchEvent(new MouseEvent('pointerup', { bubbles: true }));
+        return true;
+      } catch (_) {
+        try {
+          toggle.click();
+          return true;
+        } catch (_) {
+          return false;
         }
-        return false;
-      };
+      }
+    }
+
+    // Abrir desde cualquier [data-open-chat] con fallback robusto
+    async function openChatWindow() {
+      if (chat && typeof chat.open === 'function') {
+        try {
+          chat.open();
+          requestAnimationFrame(focusChatInput);
+          return;
+        } catch (_) { /* fallback abajo */ }
+      }
+
+      if (focusChatInput()) return;
+      if (clickChatToggle()) {
+        requestAnimationFrame(focusChatInput);
+        return;
+      }
+
+      await bootChat();
+
       const start = performance.now();
-      const loop = () => {
-        if (clickEl()) return;
-        if (performance.now() - start < 2000) requestAnimationFrame(loop);
-      };
-      loop();
+      while (performance.now() - start < 4000) {
+        if (chat && typeof chat.open === 'function') {
+          try {
+            chat.open();
+            requestAnimationFrame(focusChatInput);
+            return;
+          } catch (_) { /* seguir con fallback */ }
+        }
+        if (focusChatInput()) return;
+        if (clickChatToggle()) {
+          requestAnimationFrame(focusChatInput);
+          return;
+        }
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+      }
+
+      location.hash = 'contacto';
     }
 
     document.addEventListener('click', (e) => {
@@ -763,12 +830,14 @@
       if (!trigger) return;
       e.preventDefault();
       openChatWindow();
-    });
+    }, true);
+
+    bootChat();
 
     // Deep link para campañas: ?openChat=1
     const qs = new URLSearchParams(location.search);
     if (qs.get('openChat') === '1') {
-      requestAnimationFrame(openChatWindow);
+      requestAnimationFrame(() => openChatWindow());
     }
   </script>
 
