@@ -678,6 +678,79 @@
   color: #1c1917;
 }
 
+.faq-panel {
+  margin-top: 28px;
+  display: grid;
+  gap: 18px;
+}
+
+.faq-header {
+  display: grid;
+  gap: 8px;
+  max-width: 760px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid #efe2d4;
+  border-radius: 20px;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.06);
+  padding: 18px 20px;
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1c1917;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff3da;
+  color: #8a5a14;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-answer {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4b4a45;
+}
+
+.faq-link {
+  color: #1c1917;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 @media (min-width: 720px) {
   .pricing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
