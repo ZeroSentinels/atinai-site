@@ -548,6 +548,10 @@
   color: #1c1917;
 }
 
+.pricing-price-usd-premium {
+  color: #0f172a;
+}
+
 .pricing-price-clp {
   font-size: 13px;
   color: #4b4a45;
