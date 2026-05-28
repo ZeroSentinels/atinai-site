@@ -9,16 +9,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --crema: #F8F3EA;
-      --card: #FFFFFF;
-      --text: #1C1917;
-      --text-muted: #4B4A45;
-      --primary: #111827;
-      --primary-text: #F9FAFB;
-      --chip-bg: #FFF3DA;
-      --chip-text: #92400E;
-      --shadow-soft: 0 18px 36px rgba(15, 23, 42, 0.08);
-      --border: #EFE2D4;
+      --crema: #0C0C0C;
+      --card: linear-gradient(180deg, rgba(21, 21, 21, 0.92), rgba(10, 10, 10, 0.96));
+      --text: #F6EFDF;
+      --text-muted: #B8AB8A;
+      --primary: #F5B800;
+      --primary-text: #0C0C0C;
+      --chip-bg: rgba(245, 184, 0, 0.14);
+      --chip-text: #FFD76A;
+      --shadow-soft: 0 28px 70px rgba(0, 0, 0, 0.45);
+      --border: rgba(245, 184, 0, 0.18);
+      --border-strong: rgba(245, 184, 0, 0.38);
       --radius: 24px;
     }
 
@@ -30,7 +31,10 @@
 
     body {
       font-family: 'Manrope', system-ui, -apple-system, Segoe UI, sans-serif;
-      background: var(--crema);
+      background:
+        radial-gradient(circle at top left, rgba(245, 184, 0, 0.18), transparent 26%),
+        radial-gradient(circle at 84% 10%, rgba(245, 184, 0, 0.12), transparent 20%),
+        linear-gradient(180deg, #121212 0%, #0C0C0C 44%, #090909 100%);
       color: var(--text);
       line-height: 1.5;
     }
@@ -65,9 +69,9 @@
 
     .pricing-note {
       font-size: 13px;
-      color: var(--text-muted);
-      background: #FFF7E6;
-      border: 1px solid #EFD7BA;
+      color: var(--chip-text);
+      background: rgba(245, 184, 0, 0.08);
+      border: 1px solid rgba(245, 184, 0, 0.24);
       border-radius: 999px;
       padding: 8px 12px;
       display: inline-flex;
@@ -88,12 +92,13 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+      backdrop-filter: blur(16px);
     }
 
     .plan-card.is-featured {
-      background: #FFFBF2;
-      border-color: #EFD7BA;
-      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.12);
+      background: linear-gradient(180deg, rgba(245, 184, 0, 0.1), rgba(16, 16, 16, 0.96) 30%, rgba(10, 10, 10, 0.96));
+      border-color: var(--border-strong);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(245, 184, 0, 0.08);
     }
 
     .plan-badge {
@@ -155,6 +160,7 @@
       height: 8px;
       border-radius: 999px;
       background: var(--primary);
+      box-shadow: 0 0 12px rgba(245, 184, 0, 0.24);
     }
 
     .btn {
@@ -174,14 +180,16 @@
     .btn-primary {
       background: var(--primary);
       color: var(--primary-text);
-      box-shadow: 0 16px 30px rgba(17, 24, 39, 0.16);
+      border-color: rgba(255, 232, 173, 0.34);
+      box-shadow: 0 18px 34px rgba(245, 184, 0, 0.24);
     }
 
     .btn-secondary {
-      background: #FFFFFF;
+      background: rgba(15, 15, 15, 0.82);
       color: var(--text);
-      border-color: #E7D8C6;
+      border-color: var(--border);
       box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(12px);
     }
 
     .btn:hover {
@@ -220,14 +228,14 @@
       padding: 12px 16px;
       border-radius: 16px;
       border: 1px solid var(--border);
-      background: #FFFBF2;
+      background: rgba(245, 184, 0, 0.08);
       font-size: 14px;
       color: var(--text);
     }
 
     .annual-card {
-      background: #FFFBF2;
-      border: 1px solid #EFD7BA;
+      background: linear-gradient(180deg, rgba(245, 184, 0, 0.08), rgba(20, 20, 20, 0.94));
+      border: 1px solid var(--border-strong);
       border-radius: var(--radius);
       padding: 22px 24px;
       display: grid;
@@ -236,7 +244,7 @@
     }
 
     .cta-card {
-      background: var(--card);
+      background: linear-gradient(135deg, rgba(245, 184, 0, 0.14), rgba(17, 17, 17, 0.96) 34%, rgba(10, 10, 10, 0.96));
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 24px;

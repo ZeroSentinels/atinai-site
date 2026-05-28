@@ -47,20 +47,20 @@
     #n8n-chat{
       --chat--font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
 
-      --chat--color-primary:#111827;
-      --chat--color-primary-shade-50:#0b1220;
-      --chat--color-primary-shade-100:#070d18;
+      --chat--color-primary:#F5B800;
+      --chat--color-primary-shade-50:#D8A100;
+      --chat--color-primary-shade-100:#B88900;
 
-      --chat--color-secondary:#FFD97A;
-      --chat--color-secondary-shade-50:#F2C966;
+      --chat--color-secondary:#1A1A1A;
+      --chat--color-secondary-shade-50:#111111;
 
       --chat--color-white:#ffffff;
-      --chat--color-light:#FFFBF2;
-      --chat--color-light-shade-50:#FFF3D6;
-      --chat--color-light-shade-100:#FFE8AD;
-      --chat--color-medium:#E4D8C7;
-      --chat--color-dark:#111827;
-      --chat--color-disabled:#9CA3AF;
+      --chat--color-light:#121212;
+      --chat--color-light-shade-50:#181818;
+      --chat--color-light-shade-100:#232323;
+      --chat--color-medium:#5E4A14;
+      --chat--color-dark:#F6EFDF;
+      --chat--color-disabled:#7C7463;
 
       --chat--window--width:420px;
       --chat--window--height:620px;
@@ -70,28 +70,31 @@
       --chat--toggle--background:var(--chat--color-primary);
       --chat--toggle--hover--background:var(--chat--color-primary-shade-50);
       --chat--toggle--active--background:var(--chat--color-primary-shade-100);
-      --chat--toggle--color:#ffffff;
+      --chat--toggle--color:#0C0C0C;
 
-      --chat--header--background:var(--chat--color-secondary);
-      --chat--header--color:#1C1917;
+      --chat--header--background:var(--chat--color-light-shade-50);
+      --chat--header--color:#F6EFDF;
 
       --chat--message--user--background:var(--chat--color-primary);
-      --chat--message--user--color:#FFFBF2;
-      --chat--message--bot--background:var(--chat--color-light-shade-50);
+      --chat--message--user--color:#0C0C0C;
+      --chat--message--bot--background:#1A1A1A;
       --chat--message--bot--color:var(--chat--color-dark);
 
-      --chat--input--background:#FFFDF8;
+      --chat--input--background:#121212;
       --chat--input--color:var(--chat--color-dark);
-      --chat--input--placeholder--color:#9CA3AF;
+      --chat--input--placeholder--color:#7C7463;
 
       --chat--button--background:var(--chat--color-secondary);
-      --chat--button--color:#1C1917;
+      --chat--button--color:#F6EFDF;
 
       --chat--loader--color:var(--chat--color-secondary);
     }
     #n8n-chat :is(header,.header,[data-role="header"]){
       background:var(--chat--header--background)!important;
       color:var(--chat--header--color)!important;
+    }
+    #n8n-chat .chat-window{
+      box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,184,0,0.12);
     }
   </style>
 </head>
