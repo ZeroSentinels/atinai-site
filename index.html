@@ -715,14 +715,17 @@
       </div>
       <div class="grid md:grid-cols-2 gap-8 mt-6">
         <div class="rounded-3xl p-8 border border-crema-100 bg-white/80 shadow-soft">
-          <form onsubmit="event.preventDefault(); alert('¡Gracias! Atinai te contacta pronto.'); this.reset();">
+          <form action="https://formspree.io/f/xqejwwzg" method="POST" data-contact-form>
             <label class="block text-sm mb-1">Nombre</label>
-            <input required class="w-full border border-crema-200 rounded-xl2 px-4 py-2 bg-white/80" placeholder="Tu nombre" />
+            <input name="name" autocomplete="name" required class="w-full border border-crema-200 rounded-xl2 px-4 py-2 bg-white/80" placeholder="Tu nombre" />
             <label class="block text-sm mt-4 mb-1">Email</label>
-            <input type="email" required class="w-full border border-crema-200 rounded-xl2 px-4 py-2 bg-white/80" placeholder="tu@email.com" />
+            <input name="email" type="email" autocomplete="email" required class="w-full border border-crema-200 rounded-xl2 px-4 py-2 bg-white/80" placeholder="tu@email.com" />
             <label class="block text-sm mt-4 mb-1">Mensaje</label>
-            <textarea rows="5" class="w-full border border-crema-200 rounded-xl2 px-4 py-2 bg-white/80" placeholder="Cuéntanos qué necesitas (web, estrategia, agentes de IA)."></textarea>
-            <button class="mt-4 px-5 py-3 rounded-xl2 bg-ink text-vanilla-50 hover:opacity-90">Enviar</button>
+            <textarea name="message" rows="5" required class="w-full border border-crema-200 rounded-xl2 px-4 py-2 bg-white/80" placeholder="Cuéntanos qué necesitas (web, estrategia, agentes de IA)."></textarea>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+            <input type="hidden" name="_subject" value="Nuevo contacto desde atinai-site" />
+            <p class="mt-3 min-h-[1.25rem] text-sm text-stone-600" data-form-status aria-live="polite"></p>
+            <button type="submit" class="mt-1 px-5 py-3 rounded-xl2 bg-ink text-vanilla-50 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60">Enviar</button>
           </form>
         </div>
 
@@ -989,6 +992,61 @@
       update();
       window.addEventListener('resize', schedule);
       window.addEventListener('orientationchange', schedule);
+    })();
+
+    (function () {
+      const form = document.querySelector('[data-contact-form]');
+      if (!form) return;
+
+      const submitButton = form.querySelector('button[type="submit"]');
+      const status = form.querySelector('[data-form-status]');
+
+      const setStatus = (message, tone) => {
+        if (!status) return;
+        status.textContent = message;
+        status.classList.remove('text-stone-600', 'text-green-700', 'text-red-600');
+        status.classList.add(
+          tone === 'success' ? 'text-green-700' : tone === 'error' ? 'text-red-600' : 'text-stone-600'
+        );
+      };
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.setAttribute('aria-busy', 'true');
+        }
+        setStatus('Enviando mensaje...', 'neutral');
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: {
+              Accept: 'application/json'
+            }
+          });
+
+          if (response.ok) {
+            form.reset();
+            setStatus('Gracias. Recibimos tu mensaje y te contactaremos pronto.', 'success');
+            return;
+          }
+
+          const data = await response.json().catch(() => null);
+          const message = data?.errors?.[0]?.message || 'No se pudo enviar el formulario. Intenta nuevamente.';
+          setStatus(message, 'error');
+        } catch (_) {
+          setStatus('No se pudo enviar el formulario. Revisa tu conexión e inténtalo otra vez.', 'error');
+        } finally {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.removeAttribute('aria-busy');
+          }
+        }
+      });
     })();
 
     (function () {
