@@ -966,15 +966,15 @@
           </div>
           <div class="hero-metrics">
             <div class="hero-metric-card">
-              <strong>32%</strong>
+              <strong data-hero-metric="conversion">27%</strong>
               <span>Conversión</span>
             </div>
             <div class="hero-metric-card">
-              <strong>24/7</strong>
+              <strong data-hero-metric="attention">24/7</strong>
               <span>Atención</span>
             </div>
             <div class="hero-metric-card">
-              <strong>87%</strong>
+              <strong data-hero-metric="resolution">73%</strong>
               <span>Resolución</span>
             </div>
           </div>
@@ -1889,10 +1889,48 @@
       const lineCanvas = document.getElementById('lineChart');
       const donutCanvas = document.getElementById('donutChart');
       const bars = Array.from(document.querySelectorAll('#heroBars .hero-bar'));
+      const conversionMetric = document.querySelector('[data-hero-metric="conversion"]');
+      const attentionMetric = document.querySelector('[data-hero-metric="attention"]');
+      const resolutionMetric = document.querySelector('[data-hero-metric="resolution"]');
       const msg1 = document.getElementById('heroMsg1');
       const msg2 = document.getElementById('heroMsg2');
       const msg3 = document.getElementById('heroMsg3');
       const typing = document.getElementById('heroTyping');
+
+      if (conversionMetric && attentionMetric && resolutionMetric) {
+        const metricRanges = {
+          conversion: { start: 27, end: 32 },
+          resolution: { start: 73, end: 87 }
+        };
+        const cycleDuration = 4200;
+        const holdDuration = 1200;
+        const totalDuration = cycleDuration + holdDuration;
+        const easeOutCubic = (value) => 1 - Math.pow(1 - value, 3);
+
+        attentionMetric.textContent = '24/7';
+
+        const metricLoop = (now) => {
+          const phase = now % totalDuration;
+          const progress = Math.min(1, phase / cycleDuration);
+          const eased = easeOutCubic(progress);
+
+          const conversionValue = Math.round(
+            metricRanges.conversion.start +
+            (metricRanges.conversion.end - metricRanges.conversion.start) * eased
+          );
+          const resolutionValue = Math.round(
+            metricRanges.resolution.start +
+            (metricRanges.resolution.end - metricRanges.resolution.start) * eased
+          );
+
+          conversionMetric.textContent = `${conversionValue}%`;
+          resolutionMetric.textContent = `${resolutionValue}%`;
+
+          requestAnimationFrame(metricLoop);
+        };
+
+        requestAnimationFrame(metricLoop);
+      }
 
       if (lineCanvas) {
         const ctx = lineCanvas.getContext('2d');
