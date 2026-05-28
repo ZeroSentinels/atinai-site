@@ -142,10 +142,10 @@
     #home .hero-left {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      text-align: center;
-      gap: 14px;
+      text-align: left;
+      gap: 16px;
     }
 
     #home .hero-right {
@@ -185,11 +185,11 @@
 
     #home .hero-title {
       margin: 0;
-      max-width: 15ch;
+      max-width: none;
       color: #FFFFFF;
       font-family: 'Manrope', sans-serif;
-      font-size: clamp(36px, 4.5vw, 60px);
-      line-height: 1.02;
+      font-size: clamp(36px, 4.2vw, 62px);
+      line-height: 1.06;
       font-weight: 800;
       letter-spacing: -0.05em;
     }
@@ -197,10 +197,10 @@
     #home .hero-inline-metrics {
       display: inline-flex;
       align-items: stretch;
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
       gap: 0;
-      margin: 2px 0 6px;
+      margin: 4px 0 8px;
     }
 
     #home .hero-inline-metrics-item {
@@ -237,22 +237,25 @@
 
     #home .hero-subtitle,
     #home .hero-claim {
-      max-width: 34ch;
+      max-width: 100%;
       margin: 0;
       color: rgba(255, 255, 255, 0.55);
-      font-size: 18px;
+      font-size: 15px;
       line-height: 1.55;
     }
 
     #home .hero-claim {
-      max-width: 38ch;
-      font-size: 17px;
+      max-width: 100%;
+      font-size: 15px;
     }
 
     #home .hero-actions {
       display: flex;
-      justify-content: center;
-      margin-top: 8px;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 18px;
+      margin-top: 10px;
+      flex-wrap: wrap;
     }
 
     #home .hero-actions .btn.btn-primary {
@@ -265,11 +268,45 @@
       font-weight: 500;
     }
 
+    #home .hero-demo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    #home .hero-demo-link::before {
+      content: "";
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 200, 66, 0.22);
+      background:
+        linear-gradient(135deg, rgba(245, 200, 66, 0.08), rgba(245, 200, 66, 0.02));
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+      flex: none;
+    }
+
+    #home .hero-demo-link::after {
+      content: "";
+      position: relative;
+      margin-left: -31px;
+      width: 0;
+      height: 0;
+      border-left: 7px solid var(--gold);
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      flex: none;
+    }
+
     #home .hero-bullets {
       list-style: none;
       display: grid;
       gap: 10px;
-      margin: 6px 0 0;
+      margin: 4px 0 0;
       padding: 0;
       color: rgba(255, 255, 255, 0.78);
       font-size: 15px;
@@ -635,7 +672,7 @@
       }
 
       #home .hero-title {
-        max-width: 14ch;
+        max-width: 12ch;
       }
     }
 
@@ -652,11 +689,22 @@
 
       #home .hero-title {
         font-size: 38px;
+        max-width: 12ch;
       }
 
       #home .hero-subtitle,
       #home .hero-claim {
         font-size: 15px;
+      }
+
+      #home .hero-left {
+        align-items: center;
+        text-align: center;
+      }
+
+      #home .hero-inline-metrics,
+      #home .hero-actions {
+        justify-content: center;
       }
 
       .hero-metrics {
@@ -805,14 +853,14 @@
     <!-- HERO / HOME -->
     <section id="home" class="hero" style="
       display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(360px,440px);
-      gap:48px;
+      grid-template-columns:minmax(0, 1fr) minmax(340px, 410px);
+      column-gap:clamp(16px, 2vw, 32px);
       min-height:100vh;
       background:#080808;
       position:relative;
       overflow:hidden;
       align-items:center;
-      padding:0 clamp(20px,4vw,56px);
+      padding:0 clamp(16px, 3vw, 48px);
     ">
       <div style="position:absolute; width:500px; height:500px; border-radius:50%; background:#F5C842; filter:blur(90px); opacity:0.12; top:-150px; left:-150px; animation:orb1 8s ease-in-out infinite alternate; pointer-events:none;"></div>
       <div style="position:absolute; width:350px; height:350px; border-radius:50%; background:#F5C842; filter:blur(90px); opacity:0.10; bottom:-100px; right:150px; animation:orb2 10s ease-in-out infinite alternate; pointer-events:none;"></div>
@@ -820,34 +868,37 @@
       <div class="hero-left" style="
         display:flex;
         flex-direction:column;
-        align-items:center;
+        align-items:flex-start;
         justify-content:center;
-        text-align:center;
-        justify-self:end;
+        text-align:left;
+        justify-self:center;
+        gap:14px;
         width:100%;
-        max-width:720px;
-        padding:4rem 1rem 4rem 2rem;
+        max-width:560px;
+        padding:3rem 2rem 3rem 2rem;
         position:relative;
         z-index:2;
       ">
         <span class="hero-tag"><span class="hero-tag-dot"></span>AGENTES DE IA · AUTOMATIZACIÓN · ESTRATEGIA</span>
         <h1 class="hero-title">
-          Agentes de IA que <span class="hero-title-highlight">venden</span>,<br />
-          responden y automatizan tu<br />
-          negocio 24/7
+          IA que <span class="hero-title-highlight">vende</span>,<br />
+          responde y<br />
+          automatiza 24/7
         </h1>
-        <div class="hero-inline-metrics" aria-label="Métricas destacadas">
-          <div class="hero-inline-metrics-item">
-            <strong>32%</strong>
-            <span>Conversión</span>
+        <div class="hero-inline-metrics" aria-label="Métricas destacadas" style="display:flex; gap:24px; margin:16px 0 20px; align-items:center;">
+          <div>
+            <strong style="font-size:20px;font-weight:700;color:#fff">32%</strong>
+            <span style="display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.4)">Conversión</span>
           </div>
-          <div class="hero-inline-metrics-item">
-            <strong>24/7</strong>
-            <span>Atención</span>
+          <div style="width:1px;height:32px;background:rgba(255,255,255,0.12)"></div>
+          <div>
+            <strong style="font-size:20px;font-weight:700;color:#fff">24/7</strong>
+            <span style="display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.4)">Atención</span>
           </div>
-          <div class="hero-inline-metrics-item">
-            <strong>87%</strong>
-            <span>Resolución</span>
+          <div style="width:1px;height:32px;background:rgba(255,255,255,0.12)"></div>
+          <div>
+            <strong style="font-size:20px;font-weight:700;color:#fff">87%</strong>
+            <span style="display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.4)">Resolución</span>
           </div>
         </div>
         <p class="hero-subtitle">
@@ -856,6 +907,7 @@
         <p class="hero-claim">Trabajamos con inmobiliarias, clínicas, transportistas y restaurantes en Chile, Argentina y México.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contacto">Quiero mi agente de IA</a>
+          <a class="hero-demo-link" href="#casos">Ver demo</a>
         </div>
         <ul class="hero-bullets">
           <li>Implementación en semanas, no meses</li>
@@ -870,10 +922,10 @@
         gap:1rem;
         align-items:center;
         justify-content:center;
-        justify-self:start;
+        justify-self:end;
         width:100%;
-        max-width:440px;
-        padding:2rem .5rem 2rem 0;
+        max-width:420px;
+        padding:2rem 0 2rem 0;
         position:relative;
         z-index:2;
         overflow:visible;
