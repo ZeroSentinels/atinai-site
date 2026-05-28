@@ -94,6 +94,7 @@
       background: var(--dark);
       padding: 88px 0 56px;
       isolation: isolate;
+      font-family: 'Manrope', sans-serif;
     }
 
     #home.hero::before,
@@ -144,7 +145,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 18px;
+      gap: 14px;
     }
 
     #home .hero-right {
@@ -184,13 +185,50 @@
 
     #home .hero-title {
       margin: 0;
-      max-width: 12ch;
+      max-width: 15ch;
       color: #FFFFFF;
       font-family: 'Manrope', sans-serif;
-      font-size: clamp(42px, 5vw, 72px);
-      line-height: 0.98;
+      font-size: clamp(36px, 4.5vw, 60px);
+      line-height: 1.02;
       font-weight: 800;
       letter-spacing: -0.05em;
+    }
+
+    #home .hero-inline-metrics {
+      display: inline-flex;
+      align-items: stretch;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      margin: 2px 0 6px;
+    }
+
+    #home .hero-inline-metrics-item {
+      min-width: 120px;
+      padding: 0 18px;
+      display: grid;
+      gap: 3px;
+    }
+
+    #home .hero-inline-metrics-item + .hero-inline-metrics-item {
+      border-left: 1px solid rgba(245, 200, 66, 0.16);
+    }
+
+    #home .hero-inline-metrics strong {
+      color: #FFFFFF;
+      font-family: 'Manrope', sans-serif;
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    #home .hero-inline-metrics span {
+      color: rgba(255, 255, 255, 0.52);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
     .hero-title-highlight {
@@ -199,21 +237,22 @@
 
     #home .hero-subtitle,
     #home .hero-claim {
-      max-width: 640px;
+      max-width: 34ch;
       margin: 0;
       color: rgba(255, 255, 255, 0.55);
       font-size: 18px;
-      line-height: 1.65;
+      line-height: 1.55;
     }
 
     #home .hero-claim {
+      max-width: 38ch;
       font-size: 17px;
     }
 
     #home .hero-actions {
       display: flex;
       justify-content: center;
-      margin-top: 4px;
+      margin-top: 8px;
     }
 
     #home .hero-actions .btn.btn-primary {
@@ -222,6 +261,8 @@
       border-radius: 50px;
       border: 1px solid rgba(255, 232, 173, 0.3);
       box-shadow: 0 18px 34px rgba(245, 200, 66, 0.18);
+      white-space: nowrap;
+      font-weight: 500;
     }
 
     #home .hero-bullets {
@@ -261,7 +302,7 @@
     }
 
     .hero-panel-dashboard {
-      padding: 16px;
+      padding: 14px;
     }
 
     .hero-panel-top {
@@ -584,14 +625,13 @@
     }
 
     @media (max-width: 1024px) {
-      #home .hero-container {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        gap: 36px;
+      section#home {
+        grid-template-columns: 1fr !important;
       }
 
       #home .hero-right {
         max-width: 520px;
+        padding: 0 1rem 3rem !important;
       }
 
       #home .hero-title {
@@ -646,12 +686,17 @@
     }
 
     @media (max-width: 768px) {
-      section#home {
-        grid-template-columns: 1fr !important;
+      section#home .hero-inline-metrics {
+        gap: 12px;
       }
 
-      section#home .hero-right {
-        padding: 0 1rem 3rem !important;
+      section#home .hero-inline-metrics-item {
+        min-width: 104px;
+        padding: 0 12px;
+      }
+
+      section#home .hero-inline-metrics-item + .hero-inline-metrics-item {
+        border-left: none;
       }
     }
   </style>
@@ -760,8 +805,8 @@
     <!-- HERO / HOME -->
     <section id="home" class="hero" style="
       display:grid;
-      grid-template-columns:minmax(0,1.08fr) minmax(360px,440px);
-      column-gap:clamp(24px,3vw,44px);
+      grid-template-columns:minmax(0,1fr) minmax(360px,440px);
+      gap:48px;
       min-height:100vh;
       background:#080808;
       position:relative;
@@ -780,22 +825,37 @@
         text-align:center;
         justify-self:end;
         width:100%;
-        max-width:760px;
-        padding:4rem 1.5rem 4rem 2rem;
+        max-width:720px;
+        padding:4rem 1rem 4rem 2rem;
         position:relative;
         z-index:2;
       ">
         <span class="hero-tag"><span class="hero-tag-dot"></span>AGENTES DE IA · AUTOMATIZACIÓN · ESTRATEGIA</span>
         <h1 class="hero-title">
           Agentes de IA que <span class="hero-title-highlight">venden</span>,<br />
-          responden y automatizan tu negocio 24/7
+          responden y automatizan tu<br />
+          negocio 24/7
         </h1>
+        <div class="hero-inline-metrics" aria-label="Métricas destacadas">
+          <div class="hero-inline-metrics-item">
+            <strong>32%</strong>
+            <span>Conversión</span>
+          </div>
+          <div class="hero-inline-metrics-item">
+            <strong>24/7</strong>
+            <span>Atención</span>
+          </div>
+          <div class="hero-inline-metrics-item">
+            <strong>87%</strong>
+            <span>Resolución</span>
+          </div>
+        </div>
         <p class="hero-subtitle">
           Implementamos agentes conversacionales a medida. Más leads, menos tareas manuales, atención siempre encendida.
         </p>
         <p class="hero-claim">Trabajamos con inmobiliarias, clínicas, transportistas y restaurantes en Chile, Argentina y México.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#contacto">Quiero impulsar mi negocio</a>
+          <a class="btn btn-primary" href="#contacto">Quiero mi agente de IA</a>
         </div>
         <ul class="hero-bullets">
           <li>Implementación en semanas, no meses</li>
@@ -818,6 +878,42 @@
         z-index:2;
         overflow:visible;
       ">
+        <div class="hero-panel chat-panel hero-panel-chat" aria-label="Chat animado del agente de Atinai" style="position:static; width:100%; max-width:420px; flex-shrink:0; margin:0 auto;">
+          <div class="hero-chat-header">
+            <div class="hero-chat-meta">
+              <span class="hero-chat-avatar">AI</span>
+              <div class="hero-chat-title">
+                <strong>Agente Atinai</strong>
+                <span class="hero-chat-status" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="hero-chat-tags">
+              <span>LEADS</span>
+              <span>CRM</span>
+              <span>SOPORTE</span>
+            </div>
+          </div>
+          <div class="hero-chat-stream">
+            <div class="hero-msg hero-msg-bot" id="heroMsg1">Hola 👋 ¿En qué puedo ayudarte hoy?</div>
+            <div class="hero-msg hero-msg-user" id="heroMsg2">Quiero cotizar un agente para mi negocio</div>
+            <div class="hero-typing" id="heroTyping" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="hero-msg hero-msg-bot" id="heroMsg3">¡Perfecto! Te preparo una propuesta personalizada en segundos.</div>
+          </div>
+          <div class="hero-chat-input">
+            <input type="text" value="Escribe tu mensaje..." readonly aria-label="Entrada simulada del chat" />
+            <button type="button" aria-label="Enviar mensaje">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h12"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
         <div class="hero-panel panel hero-panel-dashboard" aria-label="Dashboard animado de automatización" style="position:static; width:100%; max-width:420px; flex-shrink:0; margin:0 auto;">
           <div class="hero-panel-top">
             <div class="hero-window-dots" aria-hidden="true">
@@ -857,42 +953,6 @@
               <span class="hero-bar"></span>
               <span class="hero-bar"></span>
             </div>
-          </div>
-        </div>
-
-        <div class="hero-panel chat-panel hero-panel-chat" aria-label="Chat animado del agente de Atinai" style="position:static; width:100%; max-width:420px; flex-shrink:0; margin:0 auto;">
-          <div class="hero-chat-header">
-            <div class="hero-chat-meta">
-              <span class="hero-chat-avatar">AI</span>
-              <div class="hero-chat-title">
-                <strong>Agente Atinai</strong>
-                <span class="hero-chat-status" aria-hidden="true"></span>
-              </div>
-            </div>
-            <div class="hero-chat-tags">
-              <span>LEADS</span>
-              <span>CRM</span>
-              <span>SOPORTE</span>
-            </div>
-          </div>
-          <div class="hero-chat-stream">
-            <div class="hero-msg hero-msg-bot" id="heroMsg1">Hola 👋 ¿En qué puedo ayudarte hoy?</div>
-            <div class="hero-msg hero-msg-user" id="heroMsg2">Quiero cotizar un agente para mi negocio</div>
-            <div class="hero-typing" id="heroTyping" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="hero-msg hero-msg-bot" id="heroMsg3">¡Perfecto! Te preparo una propuesta personalizada en segundos.</div>
-          </div>
-          <div class="hero-chat-input">
-            <input type="text" value="Escribe tu mensaje..." readonly aria-label="Entrada simulada del chat" />
-            <button type="button" aria-label="Enviar mensaje">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M5 12h12"></path>
-                <path d="m13 6 6 6-6 6"></path>
-              </svg>
-            </button>
           </div>
         </div>
       </div>
