@@ -11,7 +11,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -34,9 +34,626 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
+    :root {
+      --gold: #F5C842;
+      --dark: #080808;
+      --surface: #111111;
+      --surface2: #1A1A1A;
+    }
+
     html { scroll-behavior: smooth; }
-    /* offset para header sticky */
     section[id] { scroll-margin-top: 96px; }
+
+    .site-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .site-brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #F5C842 0%, #B8942A 100%);
+      color: #0D0D0D;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 0 10px 22px rgba(245, 200, 66, 0.18);
+      flex: none;
+    }
+
+    .site-brand-text {
+      color: #FFFFFF;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.75);
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 1;
+      color: #FFFFFF;
+    }
+
+    .mobile-menu-links .nav-link {
+      display: block;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    #home.hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      background: var(--dark);
+      padding: 88px 0 56px;
+      isolation: isolate;
+    }
+
+    #home.hero::before,
+    #home.hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(90px);
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #home.hero::before {
+      width: 280px;
+      height: 280px;
+      left: 6%;
+      top: 12%;
+      background: var(--gold);
+      animation: heroOrbFloatLeft 14s ease-in-out infinite;
+    }
+
+    #home.hero::after {
+      width: 340px;
+      height: 340px;
+      right: 8%;
+      bottom: 10%;
+      background: #E2B63C;
+      animation: heroOrbFloatRight 17s ease-in-out infinite;
+    }
+
+    #home .hero-container {
+      max-width: 1160px;
+      min-height: calc(100vh - 132px);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(380px, 440px);
+      gap: 56px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    #home .hero-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 18px;
+    }
+
+    #home .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      width: 100%;
+      max-width: 440px;
+      margin-inline: auto;
+    }
+
+    #home .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 0.5px solid rgba(245, 200, 66, 0.35);
+      background: rgba(245, 200, 66, 0.06);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 10px rgba(245, 200, 66, 0.45);
+      animation: heroTagPulse 1.6s ease-in-out infinite;
+      flex: none;
+    }
+
+    #home .hero-title {
+      margin: 0;
+      max-width: 12ch;
+      color: #FFFFFF;
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(42px, 5vw, 72px);
+      line-height: 0.98;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-title-highlight {
+      color: var(--gold);
+    }
+
+    #home .hero-subtitle,
+    #home .hero-claim {
+      max-width: 640px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    #home .hero-claim {
+      font-size: 17px;
+    }
+
+    #home .hero-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    #home .hero-actions .btn.btn-primary {
+      background: var(--gold);
+      color: #1a1000;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 232, 173, 0.3);
+      box-shadow: 0 18px 34px rgba(245, 200, 66, 0.18);
+    }
+
+    #home .hero-bullets {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 6px 0 0;
+      padding: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 15px;
+    }
+
+    #home .hero-bullets li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    #home .hero-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.56em;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 12px rgba(245, 200, 66, 0.4);
+    }
+
+    .hero-panel {
+      width: 100%;
+      border-radius: 16px;
+      border: 0.5px solid rgba(245, 200, 66, 0.15);
+      background: var(--surface);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+      overflow: hidden;
+    }
+
+    .hero-panel-dashboard {
+      padding: 16px;
+    }
+
+    .hero-panel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .hero-window-dots {
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .hero-window-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      display: block;
+    }
+
+    .hero-window-dots span:nth-child(1) { background: #FF5F57; }
+    .hero-window-dots span:nth-child(2) { background: #FEBC2E; }
+    .hero-window-dots span:nth-child(3) { background: #28C840; }
+
+    .hero-dashboard-badge {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(245, 200, 66, 0.08);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .hero-metric-card {
+      padding: 12px 10px;
+      border-radius: 12px;
+      background: var(--surface2);
+      border: 0.5px solid rgba(245, 200, 66, 0.08);
+    }
+
+    .hero-metric-card strong,
+    .hero-metric-card span {
+      display: block;
+    }
+
+    .hero-metric-card strong {
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-metric-card span {
+      margin-top: 5px;
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-chart-wrap {
+      height: 90px;
+      padding: 6px 0 0;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(245, 200, 66, 0.04), rgba(255, 255, 255, 0));
+      margin-bottom: 12px;
+    }
+
+    #lineChart {
+      width: 100%;
+      height: 90px;
+      display: block;
+    }
+
+    .hero-dashboard-bottom {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr);
+      gap: 14px;
+      align-items: end;
+    }
+
+    .hero-donut-wrap {
+      width: 70px;
+      height: 70px;
+      margin-inline: auto;
+    }
+
+    #donutChart {
+      width: 70px;
+      height: 70px;
+      display: block;
+    }
+
+    .hero-bars {
+      height: 80px;
+      display: flex;
+      align-items: flex-end;
+      gap: 7px;
+      padding: 0 2px;
+    }
+
+    .hero-bar {
+      flex: 1;
+      background: var(--gold);
+      border-radius: 3px 3px 0 0;
+      min-height: 16px;
+      box-shadow: 0 0 12px rgba(245, 200, 66, 0.14);
+    }
+
+    .hero-panel-chat {
+      padding: 16px;
+    }
+
+    .hero-chat-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .hero-chat-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .hero-chat-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #F5C842 0%, #B8942A 100%);
+      color: #0D0D0D;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      flex: none;
+    }
+
+    .hero-chat-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hero-chat-title strong {
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .hero-chat-status {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #28C840;
+      box-shadow: 0 0 10px rgba(40, 200, 64, 0.45);
+      flex: none;
+    }
+
+    .hero-chat-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .hero-chat-tags span {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(245, 200, 66, 0.08);
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-chat-stream {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .hero-msg {
+      max-width: 88%;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 0.5px solid rgba(245, 200, 66, 0.08);
+      background: var(--surface2);
+      color: #FFFFFF;
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .hero-msg.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-msg-user {
+      margin-left: auto;
+      background: rgba(245, 200, 66, 0.1);
+      color: #F9E6A6;
+    }
+
+    .hero-typing {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      width: fit-content;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--surface2);
+      border: 0.5px solid rgba(245, 200, 66, 0.08);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .hero-typing.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-typing span {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--gold);
+      animation: typingBlink 1.2s ease-in-out infinite;
+    }
+
+    .hero-typing span:nth-child(2) { animation-delay: 0.15s; }
+    .hero-typing span:nth-child(3) { animation-delay: 0.3s; }
+
+    .hero-chat-input {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 42px;
+      gap: 10px;
+    }
+
+    .hero-chat-input input {
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 0.5px solid rgba(245, 200, 66, 0.12);
+      background: var(--surface2);
+      color: rgba(255, 255, 255, 0.4);
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+    }
+
+    .hero-chat-input button {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold);
+      color: #1a1000;
+      box-shadow: 0 10px 24px rgba(245, 200, 66, 0.16);
+    }
+
+    .hero-chat-input svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    @keyframes heroOrbFloatLeft {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(26px, 18px, 0) scale(1.08); }
+    }
+
+    @keyframes heroOrbFloatRight {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(-22px, -24px, 0) scale(1.06); }
+    }
+
+    @keyframes heroTagPulse {
+      0%, 100% { transform: scale(1); opacity: 0.72; }
+      50% { transform: scale(1.28); opacity: 1; }
+    }
+
+    @keyframes typingBlink {
+      0%, 80%, 100% { opacity: 0.34; transform: translateY(0); }
+      40% { opacity: 1; transform: translateY(-3px); }
+    }
+
+    @keyframes orb1 {
+      to { transform: translate(60px, 50px); }
+    }
+
+    @keyframes orb2 {
+      to { transform: translate(-50px, -60px); }
+    }
+
+    @media (max-width: 1024px) {
+      #home .hero-container {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        gap: 36px;
+      }
+
+      #home .hero-right {
+        max-width: 520px;
+      }
+
+      #home .hero-title {
+        max-width: 14ch;
+      }
+    }
+
+    @media (max-width: 640px) {
+      #home.hero {
+        min-height: auto;
+        padding: 72px 0 42px;
+      }
+
+      #home .hero-container {
+        padding: 0 16px;
+        gap: 28px;
+      }
+
+      #home .hero-title {
+        font-size: 38px;
+      }
+
+      #home .hero-subtitle,
+      #home .hero-claim {
+        font-size: 15px;
+      }
+
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-dashboard-bottom {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-donut-wrap {
+        margin: 0;
+      }
+
+      .hero-chat-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-chat-tags {
+        justify-content: flex-start;
+      }
+
+      .hero-msg {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section#home {
+        grid-template-columns: 1fr !important;
+      }
+
+      section#home .hero-right {
+        padding: 0 1rem 3rem !important;
+      }
+    }
   </style>
 
   <!-- n8n Chat CSS -->
@@ -103,18 +720,18 @@
   <!-- NAV -->
   <header class="sticky top-0 z-40 backdrop-blur bg-vanilla-50/80 border-b border-crema-100">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-2 font-semibold tracking-tight" aria-label="Inicio Atinai">
-        <span class="inline-block w-9 h-9 rounded-xl2 bg-vanilla-200 shadow-soft"></span>
-        <span>Atinai</span>
+      <a href="#home" class="site-brand font-semibold tracking-tight" aria-label="Inicio Atinai">
+        <span class="site-brand-mark">AT</span>
+        <span class="site-brand-text">Atinai</span>
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
-        <a href="#ia" class="hover:underline">Agentes</a>
-        <a href="#beneficios" class="hover:underline">Beneficios</a>
-        <a href="#servicios" class="hover:underline">Servicios</a>
-        <a href="#precios" class="hover:underline">Planes</a>
-        <a href="#proceso" class="hover:underline">Proceso</a>
-        <a href="#casos" class="hover:underline">Casos</a>
-        <a href="#contacto" class="hover:underline">Contacto</a>
+        <a href="#ia" class="nav-link">Agentes</a>
+        <a href="#beneficios" class="nav-link">Beneficios</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#precios" class="nav-link">Planes</a>
+        <a href="#proceso" class="nav-link">Proceso</a>
+        <a href="#casos" class="nav-link">Casos</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
       </nav>
       <a href="#contacto" class="hidden md:inline-flex px-4 py-2 rounded-xl2 bg-ink text-vanilla-50 text-sm font-semibold hover:opacity-90 shadow-soft">Quiero impulsar mi negocio</a>
       <button class="mobile-menu-toggle md:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">
@@ -125,13 +742,13 @@
     </div>
     <div class="mobile-menu md:hidden" id="mobile-menu">
       <nav class="mobile-menu-links" aria-label="Principal">
-        <a href="#ia">Agentes</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#precios">Planes</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#casos">Casos</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#ia" class="nav-link">Agentes</a>
+        <a href="#beneficios" class="nav-link">Beneficios</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#precios" class="nav-link">Planes</a>
+        <a href="#proceso" class="nav-link">Proceso</a>
+        <a href="#casos" class="nav-link">Casos</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
       </nav>
       <a href="#contacto" class="btn btn-primary mobile-menu-cta">Quiero impulsar mi negocio</a>
     </div>
@@ -141,52 +758,133 @@
 
 
     <!-- HERO / HOME -->
-    <section id="home" class="hero">
-      <div class="hero-container">
-        <div class="hero-left">
-          <span class="hero-tag">AGENTES DE IA · AUTOMATIZACIÓN · ESTRATEGIA</span>
-          <h1 class="hero-title">
-            Agentes de IA que venden,<br />
-            responden y automatizan tu negocio 24/7
-          </h1>
-          <p class="hero-subtitle">
-            Implementamos agentes conversacionales a medida. Más leads, menos tareas manuales, atención siempre encendida.
-          </p>
-          <p class="hero-claim">Trabajamos con inmobiliarias, clínicas, transportistas y restaurantes en Chile, Argentina y México.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contacto">Quiero impulsar mi negocio</a>
-          </div>
-          <ul class="hero-bullets">
-            <li>Implementación en semanas, no meses</li>
-            <li>Agente entrenado con tu negocio</li>
-            <li>Soporte y mejora continua incluidos</li>
-          </ul>
+    <section id="home" class="hero" style="
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      min-height:100vh;
+      background:#080808;
+      position:relative;
+      overflow:hidden;
+      align-items:center;
+    ">
+      <div style="position:absolute; width:500px; height:500px; border-radius:50%; background:#F5C842; filter:blur(90px); opacity:0.12; top:-150px; left:-150px; animation:orb1 8s ease-in-out infinite alternate; pointer-events:none;"></div>
+      <div style="position:absolute; width:350px; height:350px; border-radius:50%; background:#F5C842; filter:blur(90px); opacity:0.10; bottom:-100px; right:150px; animation:orb2 10s ease-in-out infinite alternate; pointer-events:none;"></div>
+
+      <div class="hero-left" style="
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        padding:4rem 3rem 4rem 4rem;
+        position:relative;
+        z-index:2;
+      ">
+        <span class="hero-tag"><span class="hero-tag-dot"></span>AGENTES DE IA · AUTOMATIZACIÓN · ESTRATEGIA</span>
+        <h1 class="hero-title">
+          Agentes de IA que <span class="hero-title-highlight">venden</span>,<br />
+          responden y automatizan tu negocio 24/7
+        </h1>
+        <p class="hero-subtitle">
+          Implementamos agentes conversacionales a medida. Más leads, menos tareas manuales, atención siempre encendida.
+        </p>
+        <p class="hero-claim">Trabajamos con inmobiliarias, clínicas, transportistas y restaurantes en Chile, Argentina y México.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contacto">Quiero impulsar mi negocio</a>
         </div>
-        <div class="hero-right">
-          <div class="hero-image-wrapper">
-            <img class="hero-image" src="assets/img/banner-principal-tech.png" alt="Panel de automatización con agentes de IA, flujos conversacionales y analítica" />
-            <div class="hero-chat-bubble">
-              <span class="hero-chat-name">Agente Atinai</span>
-              <span>Hola 👋 ¿En qué puedo ayudarte hoy?</span>
+        <ul class="hero-bullets">
+          <li>Implementación en semanas, no meses</li>
+          <li>Agente entrenado con tu negocio</li>
+          <li>Soporte y mejora continua incluidos</li>
+        </ul>
+      </div>
+
+      <div class="hero-right" style="
+        display:flex;
+        flex-direction:column;
+        gap:1rem;
+        align-items:center;
+        justify-content:center;
+        padding:2rem 2rem 2rem 1rem;
+        position:relative;
+        z-index:2;
+        overflow:visible;
+      ">
+        <div class="hero-panel panel hero-panel-dashboard" aria-label="Dashboard animado de automatización" style="position:static; width:100%; max-width:420px; flex-shrink:0; margin:0 auto;">
+          <div class="hero-panel-top">
+            <div class="hero-window-dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <span class="hero-dashboard-badge">AUTOMATIZACIÓN ACTIVA</span>
+          </div>
+          <div class="hero-metrics">
+            <div class="hero-metric-card">
+              <strong>32%</strong>
+              <span>Conversión</span>
+            </div>
+            <div class="hero-metric-card">
+              <strong>24/7</strong>
+              <span>Atención</span>
+            </div>
+            <div class="hero-metric-card">
+              <strong>87%</strong>
+              <span>Resolución</span>
             </div>
           </div>
-          <div class="impact-card">
-            <span class="impact-badge">+32% conversión</span>
-            <h3>Resultados reales con inteligencia artificial</h3>
-            <ol>
-              <li>
-                <strong>Leads y clientes captados</strong>
-                <span>El agente responde, agenda y deriva consultas sin saturar tu equipo.</span>
-              </li>
-              <li>
-                <strong>Ahorro operativo</strong>
-                <span>Hasta 87% de consultas resueltas sin intervención humana.</span>
-              </li>
-              <li>
-                <strong>Experiencia optimizada</strong>
-                <span>Diseño a medida, rápido, accesible y optimizado para conversión.</span>
-              </li>
-            </ol>
+          <div class="hero-chart-wrap">
+            <canvas id="lineChart" width="408" height="90" aria-hidden="true"></canvas>
+          </div>
+          <div class="hero-dashboard-bottom">
+            <div class="hero-donut-wrap">
+              <canvas id="donutChart" width="70" height="70" aria-hidden="true"></canvas>
+            </div>
+            <div class="hero-bars" id="heroBars" aria-hidden="true">
+              <span class="hero-bar"></span>
+              <span class="hero-bar"></span>
+              <span class="hero-bar"></span>
+              <span class="hero-bar"></span>
+              <span class="hero-bar"></span>
+              <span class="hero-bar"></span>
+              <span class="hero-bar"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-panel chat-panel hero-panel-chat" aria-label="Chat animado del agente de Atinai" style="position:static; width:100%; max-width:420px; flex-shrink:0; margin:0 auto;">
+          <div class="hero-chat-header">
+            <div class="hero-chat-meta">
+              <span class="hero-chat-avatar">AI</span>
+              <div class="hero-chat-title">
+                <strong>Agente Atinai</strong>
+                <span class="hero-chat-status" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="hero-chat-tags">
+              <span>LEADS</span>
+              <span>CRM</span>
+              <span>SOPORTE</span>
+            </div>
+          </div>
+          <div class="hero-chat-stream">
+            <div class="hero-msg hero-msg-bot" id="heroMsg1">Hola 👋 ¿En qué puedo ayudarte hoy?</div>
+            <div class="hero-msg hero-msg-user" id="heroMsg2">Quiero cotizar un agente para mi negocio</div>
+            <div class="hero-typing" id="heroTyping" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="hero-msg hero-msg-bot" id="heroMsg3">¡Perfecto! Te preparo una propuesta personalizada en segundos.</div>
+          </div>
+          <div class="hero-chat-input">
+            <input type="text" value="Escribe tu mensaje..." readonly aria-label="Entrada simulada del chat" />
+            <button type="button" aria-label="Enviar mensaje">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h12"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -1075,6 +1773,182 @@
       window.addEventListener('resize', () => {
         if (window.innerWidth >= 768) closeMenu();
       });
+    })();
+  </script>
+  <script>
+    (function () {
+      const lineCanvas = document.getElementById('lineChart');
+      const donutCanvas = document.getElementById('donutChart');
+      const bars = Array.from(document.querySelectorAll('#heroBars .hero-bar'));
+      const msg1 = document.getElementById('heroMsg1');
+      const msg2 = document.getElementById('heroMsg2');
+      const msg3 = document.getElementById('heroMsg3');
+      const typing = document.getElementById('heroTyping');
+
+      if (lineCanvas) {
+        const ctx = lineCanvas.getContext('2d');
+        let frameCount = 0;
+        let t = 0;
+        let smoothNoise = 0;
+        const points = [];
+        const maxPoints = 24;
+
+        const nextPoint = () => {
+          smoothNoise += (Math.random() - 0.5) * 0.01;
+          smoothNoise = Math.max(-0.04, Math.min(0.04, smoothNoise));
+          const wave = Math.sin(t) * 0.15 + Math.sin(t * 0.25) * 0.06 + 0.5 + smoothNoise;
+          return Math.max(0.12, Math.min(0.88, wave));
+        };
+
+        for (let i = 0; i < maxPoints; i += 1) {
+          points.push(nextPoint());
+          t += 0.096;
+        }
+
+        const drawLineChart = () => {
+          const dpr = window.devicePixelRatio || 1;
+          const width = lineCanvas.clientWidth || lineCanvas.width;
+          const height = lineCanvas.clientHeight || lineCanvas.height;
+          if (lineCanvas.width !== Math.round(width * dpr) || lineCanvas.height !== Math.round(height * dpr)) {
+            lineCanvas.width = Math.round(width * dpr);
+            lineCanvas.height = Math.round(height * dpr);
+          }
+
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          ctx.clearRect(0, 0, width, height);
+
+          const gradient = ctx.createLinearGradient(0, 0, 0, height);
+          gradient.addColorStop(0, 'rgba(245, 200, 66, 0.26)');
+          gradient.addColorStop(1, 'rgba(245, 200, 66, 0)');
+
+          ctx.beginPath();
+          points.forEach((point, index) => {
+            const x = (width / (points.length - 1)) * index;
+            const y = height - point * height;
+            if (index === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          });
+          ctx.lineTo(width, height);
+          ctx.lineTo(0, height);
+          ctx.closePath();
+          ctx.fillStyle = gradient;
+          ctx.fill();
+
+          ctx.beginPath();
+          points.forEach((point, index) => {
+            const x = (width / (points.length - 1)) * index;
+            const y = height - point * height;
+            if (index === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          });
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = '#F5C842';
+          ctx.stroke();
+        };
+
+        const lineLoop = () => {
+          frameCount += 1;
+          t += 0.0008;
+          if (frameCount % 120 === 0) {
+            points.push(nextPoint());
+            if (points.length > maxPoints) points.shift();
+          }
+          drawLineChart();
+          requestAnimationFrame(lineLoop);
+        };
+
+        lineLoop();
+      }
+
+      if (donutCanvas) {
+        const ctx = donutCanvas.getContext('2d');
+        let angle = 0;
+
+        const drawDonut = () => {
+          const size = donutCanvas.width;
+          const center = size / 2;
+          ctx.clearRect(0, 0, size, size);
+
+          ctx.lineCap = 'round';
+
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+          ctx.lineWidth = 10;
+          ctx.arc(center, center, 24, 0, Math.PI * 2);
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.strokeStyle = '#F5C842';
+          ctx.lineWidth = 10;
+          ctx.arc(center, center, 24, angle, angle + Math.PI * 2 * 0.87);
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(245,200,66,0.14)';
+          ctx.lineWidth = 6;
+          ctx.arc(center, center, 15, 0, Math.PI * 2);
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(245,200,66,0.45)';
+          ctx.lineWidth = 6;
+          ctx.arc(center, center, 15, -angle, -angle + Math.PI * 2 * 0.6);
+          ctx.stroke();
+
+          angle += 0.012;
+          requestAnimationFrame(drawDonut);
+        };
+
+        drawDonut();
+      }
+
+      if (bars.length) {
+        const baseHeights = [40, 60, 45, 80, 55, 90, 70];
+        const states = baseHeights.map((base, index) => ({
+          base,
+          phase: index * 0.9,
+          speed: 0.004 + Math.random() * 0.005
+        }));
+
+        const barsLoop = () => {
+          states.forEach((state, index) => {
+            state.phase += state.speed;
+            const delta = Math.sin(state.phase * 60) * 8;
+            const nextHeight = Math.max(18, Math.min(100, state.base + delta));
+            bars[index].style.height = `${nextHeight}%`;
+          });
+          requestAnimationFrame(barsLoop);
+        };
+
+        barsLoop();
+      }
+
+      if (msg1 && msg2 && msg3 && typing) {
+        let chatTimers = [];
+
+        const hideAll = () => {
+          [msg1, msg2, msg3, typing].forEach((element) => element.classList.remove('is-visible'));
+        };
+
+        const queue = (callback, delay) => {
+          const id = window.setTimeout(callback, delay);
+          chatTimers.push(id);
+        };
+
+        const runChatLoop = () => {
+          chatTimers.forEach((id) => window.clearTimeout(id));
+          chatTimers = [];
+          hideAll();
+          queue(() => msg1.classList.add('is-visible'), 400);
+          queue(() => msg2.classList.add('is-visible'), 1600);
+          queue(() => typing.classList.add('is-visible'), 2600);
+          queue(() => typing.classList.remove('is-visible'), 3800);
+          queue(() => msg3.classList.add('is-visible'), 3900);
+        };
+
+        runChatLoop();
+        window.setInterval(runChatLoop, 7000);
+      }
     })();
   </script>
 </body>
