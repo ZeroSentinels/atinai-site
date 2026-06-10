@@ -1,4 +1,27 @@
 {
+  "headers": [
+    {
+      "source": "/index.md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Vary", "value": "Accept" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/",
@@ -6,10 +29,21 @@
         {
           "type": "header",
           "key": "accept",
-          "value": ".*text/markdown.*"
+          "value": "(?:.*)?text/markdown(?:.*)?"
         }
       ],
-      "destination": "/api/markdown?page=index"
+      "destination": "/index.md"
+    },
+    {
+      "source": "/index",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(?:.*)?text/markdown(?:.*)?"
+        }
+      ],
+      "destination": "/index.md"
     },
     {
       "source": "/index.html",
@@ -17,32 +51,10 @@
         {
           "type": "header",
           "key": "accept",
-          "value": ".*text/markdown.*"
+          "value": "(?:.*)?text/markdown(?:.*)?"
         }
       ],
-      "destination": "/api/markdown?page=index"
-    },
-    {
-      "source": "/pricing",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": ".*text/markdown.*"
-        }
-      ],
-      "destination": "/api/markdown?page=pricing"
-    },
-    {
-      "source": "/pricing.html",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": ".*text/markdown.*"
-        }
-      ],
-      "destination": "/api/markdown?page=pricing"
+      "destination": "/index.md"
     }
   ]
 }

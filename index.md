@@ -1,92 +1,89 @@
-# Atinai
+# Atinai — IA que vende, responde y automatiza 24/7
 
-> Agencia de agentes de IA, automatización y diseño web para pymes en Chile, Argentina y México.
+Implementamos agentes conversacionales a medida. Más leads, menos tareas manuales, atención siempre encendida.
 
-Atinai implementa agentes conversacionales a medida con n8n para vender, responder y automatizar operaciones 24/7. Integramos CRM, WhatsApp, formularios, email, agendas y herramientas de backoffice.
+Trabajamos con inmobiliarias, clínicas, transportistas y restaurantes en Chile, Argentina y México.
 
-## Cobertura
+**32%** Conversión · **24/7** Atención · **87%** Resolución
 
-- Chile
-- Argentina
-- México
+---
 
-## Qué hace Atinai
+## Agentes de IA
 
-### Agentes de IA
+Automatizamos tareas y conversaciones con IA accesible para pymes en LATAM.
 
-- **Agente Leads**: responde consultas, califica oportunidades y deriva a WhatsApp o CRM con contexto.
-- **Asistente de soporte**: resuelve preguntas frecuentes, reduce carga operativa y mantiene atención 24/7.
-- **Agentes internos**: automatizan tareas repetitivas y consultas internas para equipos.
+### Agente Leads
+Responde preguntas, deriva y agenda reuniones directo en tu CRM.
+- Problema: leads sin respuesta
+- Solución: califica, agenda y escala a WhatsApp con contexto
+- Resultado: más demos, más ventas, sin perder el trato humano
 
-Más detalle: [Agentes de IA](https://www.atinai.com/#ia)
+### Asistente de Soporte
+Autoservicio con handoff humano y documentación automática.
+- Problema: tickets repetitivos
+- Solución: reduce tiempos y carga operativa
+- Resultado: SLAs más bajos y CSAT alto
+
+### Agentes Internos
+Bots para equipos: reportes, integraciones y tareas de backoffice.
+- Problema: procesos lentos y manuales
+- Solución: ejecuta, notifica y documenta automáticamente
+- Resultado: más tiempo para lo estratégico
+
+---
+
+## Servicios
+
+### Agentes a medida
+Conversacionales, soporte, recomendadores y bots internos conectados a tus sistemas.
 
 ### Diseño web y estrategia digital
+Sitios modernos, rápidos y optimizados para conversión con SEO técnico y analítica integrada.
 
-- Sitios modernos y rápidos orientados a conversión
-- Estrategia digital para adquisición y crecimiento
-- Infraestructura web para agentes, formularios y seguimiento
+### Plan de crecimiento
+Narrativa de marca, journey de usuario, campañas y automatizaciones de marketing.
 
-Más detalle: [Servicios](https://www.atinai.com/#servicios)
+---
 
-## Beneficios para el negocio
+## Planes de Agentes de IA
 
-- Más leads calificados
-- Menos tareas manuales
-- Soporte 24/7
-- Implementación en semanas, no meses
-- Agente entrenado con el negocio
-- Soporte y mejora continua incluidos
+| Plan | Precio mensual | Setup | Conversaciones/mes |
+|---|---|---|---|
+| Agente FAQ | USD 49 | USD 149 | 500 |
+| Agente Leads | USD 99 | USD 199 | 1.500 |
+| Agente Completo | USD 179 | USD 299 | 5.000 |
+| Agente Business | Desde USD 399 | A cotizar | Ilimitado |
 
-Más detalle: [Beneficios](https://www.atinai.com/#beneficios)
+Todos los planes incluyen onboarding guiado. Sin contrato de permanencia.
 
-## Industrias con las que trabaja
+---
 
-- Inmobiliarias
-- Clínicas
-- Transportistas
-- Restaurantes
+## Proceso
 
-## Proceso de trabajo
+1. **Diagnóstico** — Objetivos, KPIs, casos de uso y datos disponibles
+2. **Arquitectura** — Flujos, prompts, guardrails e integraciones
+3. **Desarrollo** — MVP en semanas listo para testear
+4. **Entrenamiento** — Dataset curado y QA
+5. **Soporte** — Monitoreo, reportes y mejora continua
 
-1. Definición de objetivos y KPIs
-2. Diseño de flujos e integraciones
-3. Implementación de MVP en semanas
-4. Carga de datos y QA
-5. Mejora continua
+---
 
-Más detalle: [Proceso](https://www.atinai.com/#proceso)
+## Clientes
 
-## Planes y precios
+- Transportes Bieler — Transporte, Chile
+- Turkish Kebab — Restaurantes, Chile
+- Ecobombilla — E-commerce, Chile
+- Dataseed — Datos e IA, Chile
+- Ferretería Santos — Ferretería, Chile
 
-### Planes de agentes de IA
+> "Atinai lanzó nuestra nueva web y un agente que responde leads en minutos. Aumentamos la conversión en un 30% sin aumentar la carga del equipo." — Stephan Bieler, Gerente General, Transportes Bieler
 
-- **Agente FAQ**: USD 49/mes + USD 149 setup único
-- **Agente Leads**: USD 99/mes + USD 199 setup único
-- **Agente Completo**: USD 179/mes + USD 299 setup único
-- **Agente Business**: desde USD 399/mes, setup según proyecto
-
-### Infraestructura web para tu agente
-
-- **Plan Launch**: USD 29/mes
-- **Plan Growth**: USD 59/mes
-- **Plan E-commerce**: USD 119/mes
-- **Plan Suite**: USD 249/mes
-
-Más detalle: [Planes](https://www.atinai.com/#precios) y [Pricing](https://www.atinai.com/pricing.html)
-
-## Casos y confianza
-
-- Empresas en transporte, gastronomía y otras pymes ya trabajan con Atinai.
-- Testimonio destacado: Atinai lanzó una nueva web y un agente que responde leads en minutos, aumentando la conversión sin aumentar la carga del equipo.
-
-Más detalle: [Casos](https://www.atinai.com/#casos)
+---
 
 ## Contacto
 
-- Email: [info@atinai.com](mailto:info@atinai.com)
-- Formulario: [https://www.atinai.com/#contacto](https://www.atinai.com/#contacto)
+- Email: info@atinai.com
+- Web: https://www.atinai.com/#contacto
 - Chat en vivo: disponible 24/7 en el sitio
-
-## Sobre el agente del sitio
-
-El sitio incluye un agente conversacional real conectado con n8n. El chat responde preguntas sobre servicios, precios, implementación, integraciones y deriva leads a WhatsApp con contexto.
+- Respuesta en menos de 24 horas
+- Llamada de diagnóstico sin costo
