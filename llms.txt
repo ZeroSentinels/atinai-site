@@ -1,0 +1,21 @@
+# Atinai
+
+> Atinai es una agencia de agentes de IA, automatización y diseño web para pymes en Chile, Argentina y México.
+
+Implementamos agentes conversacionales a medida con n8n, integrados con CRM, WhatsApp y herramientas de backoffice. Trabajamos con inmobiliarias, clínicas, transportistas y restaurantes.
+
+## Servicios
+
+- [Agentes de IA](https://www.atinai.com/#ia): Agente Leads, Asistente de Soporte, Agentes Internos
+- [Diseño web y estrategia digital](https://www.atinai.com/#servicios)
+- [Planes y precios](https://www.atinai.com/#precios): desde USD 49/mes
+
+## Contacto
+
+- Email: info@atinai.com
+- Formulario: https://www.atinai.com/#contacto
+- Chat en vivo: disponible 24/7 en el sitio
+
+## Sobre el agente del sitio
+
+El sitio incluye un agente conversacional real (n8n) accesible mediante el widget de chat en la esquina inferior derecha. Responde preguntas sobre servicios, precios y deriva leads a WhatsApp con contexto.

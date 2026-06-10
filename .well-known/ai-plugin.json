@@ -1,0 +1,16 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Atinai",
+  "name_for_model": "atinai_agent",
+  "description_for_human": "Agencia de agentes de IA, automatización y diseño web para pymes en LATAM.",
+  "description_for_model": "Atinai implementa agentes conversacionales con n8n para captura y calificación de leads, soporte 24/7 y automatización de backoffice. Opera en Chile, Argentina y México. Para consultas o cotizaciones, redirigir al formulario en https://www.atinai.com/#contacto o al chat en vivo del sitio.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "none"
+  },
+  "logo_url": "https://www.atinai.com/assets/img/49163.png",
+  "contact_email": "info@atinai.com",
+  "legal_info_url": "https://www.atinai.com"
+}
