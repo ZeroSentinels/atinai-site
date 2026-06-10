@@ -265,6 +265,74 @@ html[data-theme="light"] .faq-answer {
   color: var(--text-muted) !important;
 }
 
+html[data-theme="light"] .pricing-card,
+html[data-theme="light"] .pricing-block,
+html[data-theme="light"] .pricing-annual,
+html[data-theme="light"] .pricing-cta,
+html[data-theme="light"] .plan-card,
+html[data-theme="light"] .block,
+html[data-theme="light"] .annual-card,
+html[data-theme="light"] .cta-card {
+  background: linear-gradient(180deg, rgba(255, 250, 241, 0.96), rgba(245, 235, 216, 0.98)) !important;
+  border-color: rgba(172, 124, 18, 0.18) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+html[data-theme="light"] .pricing-card.featured,
+html[data-theme="light"] .pricing-card-agent-featured,
+html[data-theme="light"] .plan-card.is-featured {
+  background: linear-gradient(180deg, rgba(216, 154, 0, 0.12), rgba(255, 250, 241, 0.98) 28%, rgba(245, 235, 216, 0.98)) !important;
+  border-color: rgba(172, 124, 18, 0.28) !important;
+}
+
+html[data-theme="light"] .pricing-note,
+html[data-theme="light"] .pricing-badge,
+html[data-theme="light"] .plan-badge,
+html[data-theme="light"] .pricing-chip,
+html[data-theme="light"] .addon-item,
+html[data-theme="light"] .pricing-addon-list li {
+  background: rgba(216, 154, 0, 0.08) !important;
+  border-color: rgba(172, 124, 18, 0.18) !important;
+  color: var(--accent-strong) !important;
+}
+
+html[data-theme="light"] .pricing-title,
+html[data-theme="light"] .pricing-section-title,
+html[data-theme="light"] .pricing-block-title,
+html[data-theme="light"] .pricing-cta-title,
+html[data-theme="light"] .pricing-name,
+html[data-theme="light"] .plan-name,
+html[data-theme="light"] .block-title,
+html[data-theme="light"] .cta-title,
+html[data-theme="light"] .price-usd,
+html[data-theme="light"] .pricing-price-usd {
+  color: var(--text) !important;
+}
+
+html[data-theme="light"] .pricing-subtitle,
+html[data-theme="light"] .pricing-desc,
+html[data-theme="light"] .pricing-block-text,
+html[data-theme="light"] .pricing-inline-note,
+html[data-theme="light"] .pricing-features,
+html[data-theme="light"] .pricing-price-clp,
+html[data-theme="light"] .pricing-price-note,
+html[data-theme="light"] .plan-desc,
+html[data-theme="light"] .price-clp,
+html[data-theme="light"] .plan-features,
+html[data-theme="light"] .block-text {
+  color: var(--text-muted) !important;
+}
+
+html[data-theme="light"] .pricing-price-usd-premium {
+  color: var(--accent-strong) !important;
+}
+
+html[data-theme="light"] .pricing-features li::before,
+html[data-theme="light"] .plan-features li::before,
+html[data-theme="light"] .pricing-addon-list li::before {
+  box-shadow: 0 0 10px rgba(216, 154, 0, 0.16) !important;
+}
+
 html[data-theme="light"] #n8n-chat {
   --chat--color-primary:#D89A00;
   --chat--color-primary-shade-50:#BE8800;
