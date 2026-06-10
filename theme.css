@@ -246,6 +246,25 @@ html[data-theme="light"] .btn-primary {
   box-shadow: 0 12px 26px rgba(216, 154, 0, 0.16);
 }
 
+html[data-theme="light"] .faq-item {
+  background: linear-gradient(180deg, rgba(255, 250, 241, 0.96), rgba(245, 235, 216, 0.98)) !important;
+  border-color: rgba(172, 124, 18, 0.18) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+html[data-theme="light"] .faq-item summary {
+  color: var(--text) !important;
+}
+
+html[data-theme="light"] .faq-item summary::after {
+  background: rgba(216, 154, 0, 0.12) !important;
+  color: var(--accent-strong) !important;
+}
+
+html[data-theme="light"] .faq-answer {
+  color: var(--text-muted) !important;
+}
+
 html[data-theme="light"] #n8n-chat {
   --chat--color-primary:#D89A00;
   --chat--color-primary-shade-50:#BE8800;
