@@ -3,6 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('atinai-theme');
+        var theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (_) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.style.colorScheme = 'dark';
+      }
+    })();
+  </script>
   <title>Atinai | Planes y Precios de Agentes de IA y Automatización</title>
   <meta name="description" content="Revisa los planes y precios de Atinai para agentes de IA, automatización e infraestructura web. Opciones desde USD 29/mes para pymes en LATAM." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -340,8 +353,15 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
+  <div class="theme-toggle-shell">
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a tema claro">
+      <span class="theme-toggle-mark" aria-hidden="true"></span>
+      <span class="theme-toggle-label" data-theme-label>Tema claro</span>
+    </button>
+  </div>
   <section class="pricing-section">
     <div class="container">
       <header class="section-header">
@@ -456,5 +476,6 @@
       </div>
     </div>
   </section>
+  <script src="theme.js"></script>
 </body>
 </html>

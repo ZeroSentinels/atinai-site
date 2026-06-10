@@ -3,6 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('atinai-theme');
+        var theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (_) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.style.colorScheme = 'dark';
+      }
+    })();
+  </script>
   <title>Atinai | Agentes de IA, Automatización y Diseño Web para Pymes</title>
   <meta name="description" content="Atinai implementa agentes de IA, automatización y diseño web para pymes en Chile, Argentina y México. Captura más leads, responde 24/7 y escala operaciones." />
   <!-- AI Discovery -->
@@ -907,6 +920,7 @@
       box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,184,0,0.12);
     }
   </style>
+  <link rel="stylesheet" href="theme.css" />
 </head>
 
 <body class="bg-vanilla-50 text-ink">
@@ -926,12 +940,18 @@
         <a href="#casos" class="nav-link">Casos</a>
         <a href="#contacto" class="nav-link">Contacto</a>
       </nav>
-      <a href="#contacto" class="hidden md:inline-flex px-4 py-2 rounded-xl2 bg-ink text-vanilla-50 text-sm font-semibold hover:opacity-90 shadow-soft">Quiero impulsar mi negocio</a>
-      <button class="mobile-menu-toggle md:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="flex items-center gap-3">
+        <button class="theme-toggle theme-toggle-inline" type="button" data-theme-toggle aria-label="Cambiar a tema claro">
+          <span class="theme-toggle-mark" aria-hidden="true"></span>
+          <span class="theme-toggle-label" data-theme-label>Tema claro</span>
+        </button>
+        <a href="#contacto" class="hidden md:inline-flex px-4 py-2 rounded-xl2 bg-ink text-vanilla-50 text-sm font-semibold hover:opacity-90 shadow-soft">Quiero impulsar mi negocio</a>
+        <button class="mobile-menu-toggle md:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
     <div class="mobile-menu md:hidden" id="mobile-menu">
       <nav class="mobile-menu-links" aria-label="Principal">
@@ -2205,10 +2225,11 @@
           queue(() => msg3.classList.add('is-visible'), 3900);
         };
 
-        runChatLoop();
-        window.setInterval(runChatLoop, 7000);
-      }
-    })();
+      runChatLoop();
+      window.setInterval(runChatLoop, 7000);
+    }
+  })();
   </script>
+  <script src="theme.js"></script>
 </body>
 </html>
