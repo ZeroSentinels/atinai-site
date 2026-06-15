@@ -530,17 +530,24 @@
       z-index: 1;
     }
 
+    @property --hero-donut-progress {
+      syntax: "<angle>";
+      inherits: false;
+      initial-value: 24deg;
+    }
+
     .hero-dashboard-donut {
+      --hero-donut-progress: 24deg;
       width: 116px;
       height: 116px;
       border-radius: 50%;
       background:
         radial-gradient(circle at center, #111111 0 34px, transparent 35px),
-        conic-gradient(#F5C842 0 312deg, rgba(255, 255, 255, 0.08) 312deg 360deg);
+        conic-gradient(#F5C842 0 var(--hero-donut-progress), rgba(255, 255, 255, 0.08) var(--hero-donut-progress) 360deg);
       display: grid;
       place-items: center;
       position: relative;
-      animation: heroDashboardSpin 9s linear infinite;
+      animation: heroDashboardFill 3.8s ease-in-out infinite;
     }
 
     .hero-dashboard-donut::before {
@@ -549,6 +556,15 @@
       inset: 14px;
       border-radius: 50%;
       border: 1px solid rgba(245, 200, 66, 0.16);
+    }
+
+    .hero-dashboard-donut > div {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 4px;
+      place-items: center;
+      text-align: center;
     }
 
     .hero-dashboard-donut strong {
@@ -609,9 +625,10 @@
       50% { transform: scaleY(1.08); opacity: 1; }
     }
 
-    @keyframes heroDashboardSpin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    @keyframes heroDashboardFill {
+      0%, 18% { --hero-donut-progress: 24deg; }
+      58%, 82% { --hero-donut-progress: 312deg; }
+      100% { --hero-donut-progress: 24deg; }
     }
 
     .surface-card {
