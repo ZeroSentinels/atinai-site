@@ -32,6 +32,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Manrope', 'Inter', 'ui-sans-serif', 'system-ui'] },
+          colors: {
+            vanilla: { 50: '#FFFBF2', 100: '#FFF3D6', 200: '#FFE8AD', 300: '#FFD97A' },
+            crema: { 50: '#F8F5F0', 100: '#EFE7DC', 200: '#E4D8C7', 300: '#D6C3A9' },
+            ink: '#111827',
+            midnight: '#0F172A'
+          },
+          boxShadow: { soft: '0 12px 34px rgba(0,0,0,0.07)' },
+          borderRadius: { xl2: '1.25rem' }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
   <style>
     :root {
       --crema: #0c0c0c;
@@ -301,13 +321,48 @@
   </style>
   <link rel="stylesheet" href="theme.css" />
 </head>
-<body>
-  <div class="theme-toggle-shell">
-    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a tema claro">
-      <span class="theme-toggle-mark" aria-hidden="true"></span>
-      <span class="theme-toggle-label" data-theme-label>Tema claro</span>
-    </button>
-  </div>
+<body class="bg-vanilla-50 text-ink">
+  <header class="sticky top-0 z-40 backdrop-blur bg-vanilla-50/80 border-b border-crema-100">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="site-brand font-semibold tracking-tight" aria-label="Inicio Atinai">
+        <span class="site-brand-mark" aria-hidden="true"></span>
+        <span class="site-brand-text">Atinai</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
+        <a href="/agentes.html" class="nav-link">Agentes</a>
+        <a href="/#beneficios" class="nav-link">Beneficios</a>
+        <a href="/servicios.html" class="nav-link">Servicios</a>
+        <a href="/#precios" class="nav-link">Planes</a>
+        <a href="/#proceso" class="nav-link">Proceso</a>
+        <a href="/#casos" class="nav-link">Casos</a>
+        <a href="/#contacto" class="nav-link">Contacto</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <button class="theme-toggle theme-toggle-inline" type="button" data-theme-toggle aria-label="Cambiar a tema claro">
+          <span class="theme-toggle-mark" aria-hidden="true"></span>
+          <span class="theme-toggle-label" data-theme-label>Tema claro</span>
+        </button>
+        <a href="/#contacto" class="hidden md:inline-flex px-4 py-2 rounded-xl2 bg-ink text-vanilla-50 text-sm font-semibold hover:opacity-90 shadow-soft">Quiero impulsar mi negocio</a>
+        <button class="mobile-menu-toggle md:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu md:hidden" id="mobile-menu">
+      <nav class="mobile-menu-links" aria-label="Principal">
+        <a href="/agentes.html" class="nav-link">Agentes</a>
+        <a href="/#beneficios" class="nav-link">Beneficios</a>
+        <a href="/servicios.html" class="nav-link">Servicios</a>
+        <a href="/#precios" class="nav-link">Planes</a>
+        <a href="/#proceso" class="nav-link">Proceso</a>
+        <a href="/#casos" class="nav-link">Casos</a>
+        <a href="/#contacto" class="nav-link">Contacto</a>
+      </nav>
+      <a href="/#contacto" class="btn btn-primary mobile-menu-cta">Quiero impulsar mi negocio</a>
+    </div>
+  </header>
 
   <main class="page-shell">
     <div class="container">
@@ -419,6 +474,244 @@
     </div>
   </main>
 
+  <div id="n8n-chat"></div>
+
   <script src="theme.js"></script>
+  <script type="module">
+    let chat = null;
+    let chatBootPromise = null;
+    const chatRoot = document.getElementById('n8n-chat');
+    const urlRegex = /https?:\/\/[^\s<]+/g;
+    const urlTest = /https?:\/\/[^\s<]+/;
+
+    function linkifyTextNode(node) {
+      const text = node.textContent;
+      if (!text || !urlTest.test(text)) return;
+      const frag = document.createDocumentFragment();
+      let lastIndex = 0;
+      text.replace(urlRegex, (url, index) => {
+        if (index > lastIndex) frag.append(text.slice(lastIndex, index));
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = url;
+        frag.appendChild(link);
+        lastIndex = index + url.length;
+        return url;
+      });
+      if (lastIndex < text.length) frag.append(text.slice(lastIndex));
+      node.parentNode.replaceChild(frag, node);
+    }
+
+    function linkifyChat(container) {
+      if (!container) return;
+      const walker = document.createTreeWalker(
+        container,
+        NodeFilter.SHOW_TEXT,
+        {
+          acceptNode: (node) => {
+            const parent = node.parentElement;
+            if (!parent) return NodeFilter.FILTER_REJECT;
+            if (parent.closest('a, script, style, textarea, input, button')) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            return urlTest.test(node.textContent || '')
+              ? NodeFilter.FILTER_ACCEPT
+              : NodeFilter.FILTER_REJECT;
+          }
+        }
+      );
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(linkifyTextNode);
+    }
+
+    function setupChatEnhancements() {
+      if (!chatRoot || chatRoot.dataset.linkifyReady === 'true') return;
+      const observer = new MutationObserver(() => linkifyChat(chatRoot));
+      observer.observe(chatRoot, { childList: true, subtree: true });
+      chatRoot.dataset.linkifyReady = 'true';
+      linkifyChat(chatRoot);
+    }
+
+    function bootChat() {
+      if (chatBootPromise) return chatBootPromise;
+      chatBootPromise = import('https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js')
+        .then(({ createChat }) => {
+          chat = createChat({
+            webhookUrl: 'https://smartialab.app.n8n.cloud/webhook/5326e2ba-0e9a-4f0f-b3b2-1347140ce359/chat',
+            target: '#n8n-chat',
+            mode: 'window',
+            loadPreviousSession: true,
+            enableStreaming: false,
+            showWelcomeScreen: false,
+            initialMessages: [
+              '👋 ¡Hola! Soy el agente de Atinai.',
+              'Cuéntame qué necesitas y te ayudo de inmediato.'
+            ],
+            i18n: {
+              en: {
+                title: 'Atinai - Agente de IA',
+                subtitle: '¿En qué te ayudo hoy?',
+                getStarted: 'Nueva conversación',
+                inputPlaceholder: 'Escribí tu mensaje.'
+              }
+            },
+            metadata: {
+              source: 'atinai-site',
+              cmp: new URLSearchParams(location.search).get('cmp') || undefined
+            }
+          });
+          setupChatEnhancements();
+          return chat;
+        })
+        .catch((error) => {
+          console.error('No se pudo inicializar el chat de Atinai.', error);
+          return null;
+        });
+
+      return chatBootPromise;
+    }
+
+    function findChatToggle() {
+      const selectors = [
+        '#n8n-chat .chat-window-toggle',
+        '#n8n-chat button[class*="toggle"]',
+        '#n8n-chat [class*="chat-window-toggle"]',
+        '#n8n-chat button',
+        '#n8n-chat [role="button"]',
+        '#n8n-chat [data-testid*="toggle"]'
+      ];
+
+      for (const selector of selectors) {
+        const element = document.querySelector(selector);
+        if (element) return element;
+      }
+
+      return null;
+    }
+
+    function isElementVisible(element) {
+      if (!element) return false;
+      const styles = window.getComputedStyle(element);
+      if (styles.display === 'none' || styles.visibility === 'hidden') return false;
+      return element.getClientRects().length > 0;
+    }
+
+    function isChatWindowOpen() {
+      const chatWindow = document.querySelector('#n8n-chat .chat-window');
+      return isElementVisible(chatWindow);
+    }
+
+    function focusChatInput() {
+      const input = document.querySelector(
+        '#n8n-chat textarea, #n8n-chat input:not([type="hidden"]), #n8n-chat [contenteditable="true"]'
+      );
+      if (!isChatWindowOpen() || !input || typeof input.focus !== 'function' || !isElementVisible(input)) return false;
+      input.focus();
+      return true;
+    }
+
+    function clickChatToggle() {
+      const toggle = findChatToggle();
+      if (!toggle) return false;
+
+      try {
+        toggle.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true }));
+        toggle.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+        toggle.click();
+        toggle.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+        toggle.dispatchEvent(new MouseEvent('pointerup', { bubbles: true }));
+        return true;
+      } catch (_) {
+        try {
+          toggle.click();
+          return true;
+        } catch (_) {
+          return false;
+        }
+      }
+    }
+
+    async function openChatWindow() {
+      if (isChatWindowOpen()) {
+        requestAnimationFrame(focusChatInput);
+        return;
+      }
+
+      await bootChat();
+
+      const start = performance.now();
+      while (performance.now() - start < 4000) {
+        if (clickChatToggle()) {
+          requestAnimationFrame(focusChatInput);
+          return;
+        }
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+      }
+
+      location.href = '/#contacto';
+    }
+
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-open-chat]');
+      if (!trigger) return;
+      e.preventDefault();
+      openChatWindow();
+    }, true);
+
+    bootChat();
+
+    const qs = new URLSearchParams(location.search);
+    if (qs.get('openChat') === '1') {
+      requestAnimationFrame(() => openChatWindow());
+    }
+  </script>
+  <script>
+    (function () {
+      const header = document.querySelector('header');
+      if (!header) return;
+      const root = document.documentElement;
+      const mq = window.matchMedia('(max-width: 768px)');
+      const update = () => {
+        if (!mq.matches) {
+          root.style.removeProperty('--header-height');
+          return;
+        }
+        const height = Math.ceil(header.getBoundingClientRect().height);
+        root.style.setProperty('--header-height', `${height}px`);
+      };
+      const schedule = () => requestAnimationFrame(update);
+      update();
+      window.addEventListener('resize', schedule);
+      window.addEventListener('orientationchange', schedule);
+    })();
+
+    (function () {
+      const header = document.querySelector('header');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (!header || !toggle || !menu) return;
+
+      const closeMenu = () => {
+        header.classList.remove('menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      };
+
+      toggle.addEventListener('click', () => {
+        const isOpen = header.classList.toggle('menu-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      menu.addEventListener('click', (event) => {
+        if (event.target.closest('a')) closeMenu();
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) closeMenu();
+      });
+    })();
+  </script>
 </body>
 </html>
