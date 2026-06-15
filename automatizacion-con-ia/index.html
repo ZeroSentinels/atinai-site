@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('atinai-theme');
+        var theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (_) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.style.colorScheme = 'dark';
+      }
+    })();
+  </script>
+  <title>Automatización con IA para empresas | Atinai</title>
+  <meta name="description" content="Atinai implementa automatización con IA para empresas: flujos con n8n, integración con CRM, WhatsApp, email y procesos operativos de backoffice." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://atinai.com/automatizacion-con-ia" />
+  <meta property="og:title" content="Automatización con IA para empresas | Atinai" />
+  <meta property="og:description" content="Automatiza procesos comerciales y operativos con IA, n8n, CRM, WhatsApp y reglas de negocio claras." />
+  <meta property="og:url" content="https://atinai.com/automatizacion-con-ia" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://atinai.com/assets/img/49163.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Automatización con IA para empresas | Atinai" />
+  <meta name="twitter:description" content="Flujos automatizados con IA y n8n para ventas, soporte, seguimiento y tareas internas." />
+  <meta name="twitter:image" content="https://atinai.com/assets/img/49163.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --crema: #0c0c0c;
+      --card: linear-gradient(180deg, rgba(21, 21, 21, 0.92), rgba(10, 10, 10, 0.96));
+      --text: #f6efdf;
+      --text-muted: #b8ab8a;
+      --primary: #f5b800;
+      --primary-text: #0c0c0c;
+      --chip-bg: rgba(245, 184, 0, 0.14);
+      --chip-text: #ffd76a;
+      --shadow-soft: 0 28px 70px rgba(0, 0, 0, 0.45);
+      --shadow-glow: 0 0 0 1px rgba(245, 184, 0, 0.08), 0 18px 48px rgba(245, 184, 0, 0.14);
+      --border: rgba(245, 184, 0, 0.18);
+      --border-strong: rgba(245, 184, 0, 0.38);
+      --radius: 28px;
+      --bg-panel-strong: rgba(16, 16, 16, 0.92);
+      --accent: #f5b800;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Manrope', system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(245, 184, 0, 0.18), transparent 26%),
+        radial-gradient(circle at 84% 10%, rgba(245, 184, 0, 0.12), transparent 20%),
+        linear-gradient(180deg, #121212 0%, #0c0c0c 44%, #090909 100%);
+      color: var(--text);
+    }
+    a { color: inherit; }
+    .page-shell { min-height: 100vh; padding: 88px 24px 72px; }
+    .container { max-width: 1120px; margin: 0 auto; display: grid; gap: 24px; }
+    .topbar, .hero-card, .surface-card, .cta-card { background: var(--card); border: 1px solid var(--border); box-shadow: var(--shadow-soft); backdrop-filter: blur(16px); }
+    .topbar { border-radius: 999px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .site-brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; }
+    .site-brand-mark { width: 36px; height: 36px; border-radius: 999px; background: linear-gradient(135deg, #f5c842, #b8942a); box-shadow: 0 10px 24px rgba(245, 184, 0, 0.22); }
+    .nav { display: flex; gap: 10px 18px; flex-wrap: wrap; align-items: center; }
+    .nav-link { text-decoration: none; font-size: 14px; color: rgba(246, 239, 223, 0.74); }
+    .nav-link:hover, .nav-link.is-active { color: var(--text); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; border-radius: 999px; border: 1px solid transparent; font-size: 14px; font-weight: 700; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, #ffd863 100%); color: var(--primary-text); box-shadow: 0 18px 34px rgba(245, 184, 0, 0.24); }
+    .btn-secondary { background: rgba(15, 15, 15, 0.82); color: var(--text); border-color: var(--border); box-shadow: var(--shadow-soft); }
+    .hero-card, .cta-card { border-radius: var(--radius); padding: clamp(28px, 4vw, 40px); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr); gap: 24px; align-items: start; }
+    .eyebrow { display: inline-flex; width: fit-content; padding: 8px 12px; border-radius: 999px; background: var(--chip-bg); border: 1px solid var(--border); color: var(--chip-text); font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+    h1 { margin: 16px 0 14px; font-size: clamp(34px, 5vw, 58px); line-height: 1.02; }
+    h2 { margin: 0; font-size: 24px; line-height: 1.15; }
+    p, li { color: var(--text-muted); font-size: 15px; line-height: 1.75; }
+    .hero-copy { display: grid; gap: 16px; }
+    .stat-grid, .content-grid { display: grid; gap: 16px; }
+    .stat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .metric { padding: 16px; border-radius: 18px; background: rgba(245, 184, 0, 0.06); border: 1px solid rgba(245, 184, 0, 0.12); }
+    .metric strong { display: block; font-size: 22px; color: var(--text); }
+    .metric span { display: block; margin-top: 6px; color: var(--text-muted); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .surface-card { border-radius: 24px; padding: 24px; display: grid; gap: 14px; }
+    .surface-card ul { margin: 0; padding-left: 18px; display: grid; gap: 10px; }
+    .link-list { display: grid; gap: 10px; }
+    .link-list a { color: var(--chip-text); text-decoration: none; font-weight: 700; }
+    .link-list a:hover { text-decoration: underline; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    footer { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--text-muted); font-size: 13px; padding-top: 8px; }
+    @media (min-width: 860px) { .content-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 859px) { .hero-grid, .stat-grid { grid-template-columns: 1fr; } }
+  </style>
+  <link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+  <div class="theme-toggle-shell">
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a tema claro">
+      <span class="theme-toggle-mark" aria-hidden="true"></span>
+      <span class="theme-toggle-label" data-theme-label>Tema claro</span>
+    </button>
+  </div>
+  <main class="page-shell">
+    <div class="container">
+      <header class="topbar">
+        <a href="/" class="site-brand" aria-label="Ir al inicio de Atinai">
+          <span class="site-brand-mark" aria-hidden="true"></span>
+          <span class="site-brand-text">Atinai</span>
+        </a>
+        <nav class="nav" aria-label="Principal">
+          <a class="nav-link" href="/">Inicio</a>
+          <a class="nav-link" href="/servicios">Servicios</a>
+          <a class="nav-link is-active" href="/automatizacion-con-ia">Automatización IA</a>
+          <a class="nav-link" href="/agentes-de-ia">Agentes de IA</a>
+          <a class="nav-link" href="/power-bi">Power BI</a>
+          <a class="nav-link" href="/contacto">Contacto</a>
+        </nav>
+        <a class="btn btn-primary" href="/contacto">Agendar llamada</a>
+      </header>
+
+      <section class="hero-card">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Automatización con IA</span>
+            <h1>Automatización con IA para ordenar procesos, acelerar respuestas y reducir trabajo manual.</h1>
+            <p>Implementamos flujos que conectan formularios, CRM, WhatsApp, email, agendas y tareas internas. La automatización con IA sirve cuando una empresa necesita velocidad sin perder trazabilidad ni contexto.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="/contacto">Hablar sobre automatización</a>
+              <a class="btn btn-secondary" href="/">Volver a la home</a>
+            </div>
+          </div>
+          <div class="stat-grid">
+            <div class="metric"><strong>CRM</strong><span>Calificación automática</span></div>
+            <div class="metric"><strong>n8n</strong><span>Integración y orquestación</span></div>
+            <div class="metric"><strong>24/7</strong><span>Seguimiento continuo</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <article class="surface-card">
+          <h2>Qué tipo de automatizaciones implementamos</h2>
+          <p>Diseñamos automatizaciones con IA para ventas, soporte y backoffice. Cada flujo se define sobre eventos reales: un lead nuevo, una consulta repetida, una actualización de estado o una necesidad de reporte.</p>
+          <ul>
+            <li>Enrutamiento de leads con scoring y derivación a ejecutivo.</li>
+            <li>Seguimiento automático por WhatsApp y correo según intención.</li>
+            <li>Actualización de CRM, agendas y documentos sin carga manual.</li>
+            <li>Alertas internas y handoff humano cuando el caso lo requiere.</li>
+          </ul>
+        </article>
+        <article class="surface-card">
+          <h2>Cómo se implementa en Atinai</h2>
+          <p>Partimos con un diagnóstico de cuellos de botella, diseñamos la arquitectura y luego probamos con un MVP rápido. La automatización queda documentada, conectada y medible para evitar dependencias opacas.</p>
+          <div class="link-list">
+            <a href="/agentes-de-ia">Complementar con agentes de IA</a>
+            <a href="/power-bi">Medir resultados con Power BI</a>
+            <a href="/contacto">Solicitar propuesta</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="cta-card">
+        <h2>Automatizar no es sumar bots: es diseñar un sistema operativo más claro.</h2>
+        <p>Si hoy tu equipo copia datos entre herramientas o responde consultas repetidas, una automatización bien planteada puede liberar tiempo y mejorar la experiencia del cliente desde la primera semana.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/contacto">Ir a contacto</a>
+          <a class="btn btn-secondary" href="/">Home de Atinai</a>
+        </div>
+      </section>
+
+      <footer>
+        <span>Atinai · IA aplicada a ventas, soporte y operación.</span>
+        <span><a href="/contacto">Contacto</a> · <a href="/">Home</a></span>
+      </footer>
+    </div>
+  </main>
+  <script src="theme.js"></script>
+</body>
+</html>
