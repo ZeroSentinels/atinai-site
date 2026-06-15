@@ -264,14 +264,14 @@
     }
 
     .hero-dashboard-card {
-      padding: 16px;
+      padding: 18px;
       border-radius: 24px;
       background: linear-gradient(180deg, rgba(17, 17, 17, 0.96), rgba(12, 12, 12, 0.98));
       border: 1px solid rgba(245, 184, 0, 0.16);
       box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(245, 184, 0, 0.06);
       display: grid;
-      gap: 14px;
-      max-width: 430px;
+      gap: 16px;
+      max-width: 540px;
       margin-left: auto;
       position: relative;
       overflow: hidden;
@@ -324,26 +324,48 @@
       text-transform: uppercase;
     }
 
+    .hero-dashboard-heading {
+      display: grid;
+      gap: 3px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-dashboard-heading strong {
+      color: #FFFFFF;
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .hero-dashboard-heading span {
+      color: rgba(255, 255, 255, 0.52);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     .hero-dashboard-kpis {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
       position: relative;
       z-index: 1;
     }
 
     .hero-dashboard-kpi {
-      padding: 14px 12px;
+      padding: 15px 14px;
       border-radius: 18px;
       background: rgba(245, 184, 0, 0.06);
       border: 1px solid rgba(245, 184, 0, 0.12);
       display: grid;
-      gap: 4px;
+      gap: 6px;
     }
 
     .hero-dashboard-kpi strong {
       color: #FFFFFF;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 800;
       line-height: 1;
     }
@@ -356,8 +378,14 @@
       text-transform: uppercase;
     }
 
+    .hero-dashboard-kpi small {
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
     .hero-dashboard-chart {
-      min-height: 180px;
+      min-height: 224px;
       border-radius: 22px;
       background:
         linear-gradient(180deg, rgba(245, 200, 66, 0.12), rgba(245, 200, 66, 0.01) 65%),
@@ -380,9 +408,73 @@
       pointer-events: none;
     }
 
+    .hero-dashboard-chart-meta {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .hero-dashboard-chart-meta strong {
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .hero-dashboard-chart-meta span {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-dashboard-legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .hero-dashboard-legend i {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-dashboard-legend i::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #F5C842;
+      box-shadow: 0 0 10px rgba(245, 200, 66, 0.22);
+    }
+
+    .hero-dashboard-legend i:nth-child(2)::before {
+      background: #F6EFDF;
+    }
+
+    .hero-dashboard-legend i:nth-child(3)::before {
+      background: rgba(245, 200, 66, 0.45);
+    }
+
     .hero-dashboard-line {
       position: absolute;
-      inset: 0 0 46px 0;
+      inset: 30px 0 46px 0;
       width: 200%;
       animation: heroDashboardPan 9s linear infinite;
       opacity: 0.95;
@@ -431,18 +523,18 @@
 
     .hero-dashboard-bottom {
       display: grid;
-      grid-template-columns: 112px minmax(0, 1fr);
+      grid-template-columns: 128px minmax(0, 1fr);
       gap: 14px;
       position: relative;
       z-index: 1;
     }
 
     .hero-dashboard-donut {
-      width: 112px;
-      height: 112px;
+      width: 128px;
+      height: 128px;
       border-radius: 50%;
       background:
-        radial-gradient(circle at center, #111111 0 35px, transparent 36px),
+        radial-gradient(circle at center, #111111 0 39px, transparent 40px),
         conic-gradient(#F5C842 0 312deg, rgba(255, 255, 255, 0.08) 312deg 360deg);
       display: grid;
       place-items: center;
@@ -464,6 +556,16 @@
       font-weight: 800;
       position: relative;
       z-index: 1;
+    }
+
+    .hero-dashboard-donut small {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .hero-dashboard-list {
@@ -583,6 +685,17 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .hero-dashboard-chart-meta {
+        position: static;
+        padding: 14px 14px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-dashboard-legend {
+        justify-content: flex-start;
+      }
     }
   </style>
   <style>
@@ -696,21 +809,44 @@
               </div>
               <span class="hero-dashboard-badge">Power BI en vivo</span>
             </div>
+            <div class="hero-dashboard-heading">
+              <strong>Panel consolidado de operaciones</strong>
+              <span>Ventas, stock y revenue por filial</span>
+            </div>
             <div class="hero-dashboard-kpis">
               <div class="hero-dashboard-kpi">
-                <strong>+32%</strong>
-                <span>Conversión</span>
+                <strong>1.248</strong>
+                <span>Stock disponible</span>
+                <small>SKU monitoreados en tiempo real</small>
               </div>
               <div class="hero-dashboard-kpi">
-                <strong>18</strong>
-                <span>Flujos activos</span>
+                <strong>USD 284K</strong>
+                <span>Ingreso por ventas</span>
+                <small>Acumulado mensual por canales</small>
               </div>
               <div class="hero-dashboard-kpi">
-                <strong>24/7</strong>
-                <span>Monitoreo</span>
+                <strong>USD 91K</strong>
+                <span>Revenue neto</span>
+                <small>Margen actualizado por operación</small>
+              </div>
+              <div class="hero-dashboard-kpi">
+                <strong>6</strong>
+                <span>Filiales activas</span>
+                <small>Sucursales conectadas al tablero</small>
               </div>
             </div>
             <div class="hero-dashboard-chart" aria-hidden="true">
+              <div class="hero-dashboard-chart-meta">
+                <div>
+                  <strong>Rendimiento comercial</strong>
+                  <span>Últimos 90 días</span>
+                </div>
+                <div class="hero-dashboard-legend">
+                  <i>Ventas</i>
+                  <i>Revenue</i>
+                  <i>Stock</i>
+                </div>
+              </div>
               <svg class="hero-dashboard-line" viewBox="0 0 860 220" preserveAspectRatio="none">
                 <path d="M0 180 C70 170 100 168 140 158 S240 136 286 142 S362 152 430 126 S522 74 574 82 S660 98 718 86 S802 58 860 68 L860 220 L0 220 Z"></path>
                 <path d="M0 180 C70 170 100 168 140 158 S240 136 286 142 S362 152 430 126 S522 74 574 82 S660 98 718 86 S802 58 860 68"></path>
@@ -726,20 +862,23 @@
             </div>
             <div class="hero-dashboard-bottom">
               <div class="hero-dashboard-donut">
-                <strong>87%</strong>
+                <div>
+                  <strong>87%</strong>
+                  <small>Forecast</small>
+                </div>
               </div>
               <div class="hero-dashboard-list">
                 <div class="hero-dashboard-row">
-                  <span>Pipeline automatizado</span>
-                  <strong>+14 leads/día</strong>
+                  <span>Filial Santiago</span>
+                  <strong>USD 124K</strong>
                 </div>
                 <div class="hero-dashboard-row">
-                  <span>Reportes Power BI</span>
-                  <strong>Actualización live</strong>
+                  <span>Filial Buenos Aires</span>
+                  <strong>USD 98K</strong>
                 </div>
                 <div class="hero-dashboard-row">
-                  <span>Canales conectados</span>
-                  <strong>CRM · Web · WhatsApp</strong>
+                  <span>Filial Ciudad de México</span>
+                  <strong>USD 62K</strong>
                 </div>
               </div>
             </div>
