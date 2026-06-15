@@ -22,26 +22,56 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/power-bi",
+      "destination": "/servicios",
+      "permanent": true
+    },
+    {
+      "source": "/power-bi.html",
+      "destination": "/servicios",
+      "permanent": true
+    },
+    {
+      "source": "/automatizacion-con-ia",
+      "destination": "/agentes",
+      "permanent": true
+    },
+    {
+      "source": "/automatizacion-con-ia.html",
+      "destination": "/agentes",
+      "permanent": true
+    },
+    {
+      "source": "/agentes-de-ia",
+      "destination": "/agentes",
+      "permanent": true
+    },
+    {
+      "source": "/agentes-de-ia.html",
+      "destination": "/agentes",
+      "permanent": true
+    },
+    {
+      "source": "/contacto",
+      "destination": "/#contacto",
+      "permanent": true
+    },
+    {
+      "source": "/contacto.html",
+      "destination": "/#contacto",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/servicios",
       "destination": "/servicios.html"
     },
     {
-      "source": "/automatizacion-con-ia",
-      "destination": "/automatizacion-con-ia.html"
-    },
-    {
-      "source": "/agentes-de-ia",
-      "destination": "/agentes-de-ia.html"
-    },
-    {
-      "source": "/power-bi",
-      "destination": "/power-bi.html"
-    },
-    {
-      "source": "/contacto",
-      "destination": "/contacto.html"
+      "source": "/agentes",
+      "destination": "/agentes.html"
     },
     {
       "source": "/",
