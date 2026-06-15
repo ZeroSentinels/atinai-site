@@ -263,6 +263,206 @@
       text-transform: uppercase;
     }
 
+    .hero-agent-card {
+      padding: 16px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(17, 17, 17, 0.96), rgba(12, 12, 12, 0.98));
+      border: 1px solid rgba(245, 184, 0, 0.16);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(245, 184, 0, 0.06);
+      display: grid;
+      gap: 14px;
+      max-width: 430px;
+      margin-left: auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-agent-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -80px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(245, 184, 0, 0.18), rgba(245, 184, 0, 0));
+      pointer-events: none;
+    }
+
+    .hero-chat-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-chat-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .hero-chat-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #F5C842 0%, #B8942A 100%);
+      color: #0D0D0D;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      flex: none;
+    }
+
+    .hero-chat-title {
+      display: grid;
+      gap: 4px;
+    }
+
+    .hero-chat-title strong {
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+
+    .hero-chat-status {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #28C840;
+      box-shadow: 0 0 10px rgba(40, 200, 64, 0.45);
+      display: inline-block;
+    }
+
+    .hero-chat-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+      max-width: 180px;
+    }
+
+    .hero-chat-tags span {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(245, 200, 66, 0.08);
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-chat-stream {
+      display: grid;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-msg {
+      max-width: 88%;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 0.5px solid rgba(245, 200, 66, 0.08);
+      background: #1A1A1A;
+      color: #FFFFFF;
+      font-size: 17px;
+      line-height: 1.4;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .hero-msg.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-msg-user {
+      margin-left: auto;
+      background: rgba(245, 200, 66, 0.12);
+      color: #F9E6A6;
+    }
+
+    .hero-typing {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(245, 200, 66, 0.06);
+      border: 0.5px solid rgba(245, 200, 66, 0.08);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .hero-typing.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-typing span {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(245, 200, 66, 0.55);
+      animation: heroTypingBlink 1s infinite ease-in-out;
+    }
+
+    .hero-typing span:nth-child(2) { animation-delay: 0.16s; }
+    .hero-typing span:nth-child(3) { animation-delay: 0.32s; }
+
+    .hero-chat-input {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 54px;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-chat-input input {
+      height: 50px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 0.5px solid rgba(245, 200, 66, 0.18);
+      background: #121212;
+      color: rgba(255, 255, 255, 0.72);
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+    }
+
+    .hero-chat-input button {
+      width: 54px;
+      height: 54px;
+      border: 0;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: #1a1000;
+      box-shadow: 0 10px 24px rgba(245, 200, 66, 0.16);
+    }
+
+    .hero-chat-input svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    @keyframes heroTypingBlink {
+      0%, 80%, 100% { opacity: 0.25; transform: translateY(0); }
+      40% { opacity: 1; transform: translateY(-2px); }
+    }
+
     .surface-card {
       border-radius: 24px;
       padding: 24px;
@@ -316,6 +516,25 @@
       .hero-grid,
       .stat-grid {
         grid-template-columns: 1fr;
+      }
+
+      .hero-agent-card {
+        margin-left: 0;
+        max-width: none;
+      }
+
+      .hero-chat-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-chat-tags {
+        justify-content: flex-start;
+        max-width: none;
+      }
+
+      .hero-msg {
+        max-width: 100%;
       }
     }
   </style>
@@ -421,18 +640,39 @@
               <a class="btn btn-secondary" href="/agentes.html">Ver soluciones de agentes</a>
             </div>
           </div>
-          <div class="stat-grid">
-            <div class="metric">
-              <strong>IA</strong>
-              <span>Ventas y soporte</span>
+          <div class="hero-agent-card" aria-label="Chat animado del agente de Atinai">
+            <div class="hero-chat-header">
+              <div class="hero-chat-meta">
+                <span class="hero-chat-avatar">AI</span>
+                <div class="hero-chat-title">
+                  <strong>Agente<br />Atinai</strong>
+                  <span class="hero-chat-status" aria-hidden="true"></span>
+                </div>
+              </div>
+              <div class="hero-chat-tags">
+                <span>LEADS</span>
+                <span>CRM</span>
+                <span>SOPORTE</span>
+              </div>
             </div>
-            <div class="metric">
-              <strong>n8n</strong>
-              <span>Automatización</span>
+            <div class="hero-chat-stream">
+              <div class="hero-msg hero-msg-bot" id="landingHeroMsg1">Hola 👋 ¿En qué puedo ayudarte hoy?</div>
+              <div class="hero-msg hero-msg-user" id="landingHeroMsg2">Quiero cotizar un agente para mi negocio</div>
+              <div class="hero-typing" id="landingHeroTyping" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="hero-msg hero-msg-bot" id="landingHeroMsg3">¡Perfecto! Te preparo una propuesta personalizada en segundos.</div>
             </div>
-            <div class="metric">
-              <strong>BI</strong>
-              <span>Datos y reportes</span>
+            <div class="hero-chat-input">
+              <input type="text" value="Escribe tu mensaje..." readonly aria-label="Entrada simulada del chat" />
+              <button type="button" aria-label="Enviar mensaje">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h12"></path>
+                  <path d="m13 6 6 6-6 6"></path>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -738,6 +978,30 @@
       window.addEventListener('resize', () => {
         if (window.innerWidth >= 768) closeMenu();
       });
+    })();
+
+    (function () {
+      const msg1 = document.getElementById('landingHeroMsg1');
+      const msg2 = document.getElementById('landingHeroMsg2');
+      const msg3 = document.getElementById('landingHeroMsg3');
+      const typing = document.getElementById('landingHeroTyping');
+      if (!msg1 || !msg2 || !msg3 || !typing) return;
+
+      const nodes = [msg1, msg2, msg3, typing];
+      const show = (node) => node.classList.add('is-visible');
+      const hide = (node) => node.classList.remove('is-visible');
+
+      const runLoop = () => {
+        nodes.forEach(hide);
+        window.setTimeout(() => show(msg1), 400);
+        window.setTimeout(() => show(msg2), 1600);
+        window.setTimeout(() => show(typing), 2600);
+        window.setTimeout(() => hide(typing), 3800);
+        window.setTimeout(() => show(msg3), 3900);
+      };
+
+      runLoop();
+      window.setInterval(runLoop, 7000);
     })();
   </script>
 </body>
