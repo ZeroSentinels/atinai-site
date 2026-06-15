@@ -555,7 +555,8 @@
       position: absolute;
       inset: 14px;
       border-radius: 50%;
-      border: 1px solid rgba(245, 200, 66, 0.16);
+      background: #111111;
+      box-shadow: inset 0 0 0 1px rgba(245, 200, 66, 0.12);
     }
 
     .hero-dashboard-donut > div {
@@ -886,7 +887,7 @@
             <div class="hero-dashboard-bottom">
               <div class="hero-dashboard-donut">
                 <div>
-                  <strong>87%</strong>
+                  <strong id="servicesForecastValue">7%</strong>
                   <small>Forecast</small>
                 </div>
               </div>
@@ -1209,6 +1210,37 @@
       window.addEventListener('resize', () => {
         if (window.innerWidth >= 768) closeMenu();
       });
+    })();
+
+    (function () {
+      const value = document.getElementById('servicesForecastValue');
+      if (!value) return;
+
+      const duration = 3800;
+      const minValue = 7;
+      const maxValue = 87;
+
+      const lerp = (start, end, progress) => start + (end - start) * progress;
+
+      const render = (time) => {
+        const phase = (time % duration) / duration;
+        let currentValue;
+
+        if (phase < 0.18) {
+          currentValue = minValue;
+        } else if (phase < 0.58) {
+          currentValue = lerp(minValue, maxValue, (phase - 0.18) / 0.4);
+        } else if (phase < 0.82) {
+          currentValue = maxValue;
+        } else {
+          currentValue = lerp(maxValue, minValue, (phase - 0.82) / 0.18);
+        }
+
+        value.textContent = `${Math.round(currentValue)}%`;
+        window.requestAnimationFrame(render);
+      };
+
+      window.requestAnimationFrame(render);
     })();
 
   </script>
