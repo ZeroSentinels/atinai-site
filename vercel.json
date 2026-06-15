@@ -24,6 +24,26 @@
   ],
   "rewrites": [
     {
+      "source": "/servicios",
+      "destination": "/servicios.html"
+    },
+    {
+      "source": "/automatizacion-con-ia",
+      "destination": "/automatizacion-con-ia.html"
+    },
+    {
+      "source": "/agentes-de-ia",
+      "destination": "/agentes-de-ia.html"
+    },
+    {
+      "source": "/power-bi",
+      "destination": "/power-bi.html"
+    },
+    {
+      "source": "/contacto",
+      "destination": "/contacto.html"
+    },
+    {
       "source": "/",
       "has": [
         {
