@@ -453,6 +453,8 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      box-shadow: none;
+      transition: background 220ms ease, color 220ms ease, box-shadow 220ms ease;
     }
 
     .hero-dashboard-legend i::before {
@@ -472,16 +474,10 @@
       background: rgba(245, 200, 66, 0.45);
     }
 
-    .hero-dashboard-legend i {
-      animation: heroDashboardLegendCycle 9s infinite ease-in-out;
-    }
-
-    .hero-dashboard-legend i:nth-child(2) {
-      animation-delay: 3s;
-    }
-
-    .hero-dashboard-legend i:nth-child(3) {
-      animation-delay: 6s;
+    .hero-dashboard-legend i.is-active {
+      background: rgba(245, 200, 66, 0.12);
+      color: #F6EFDF;
+      box-shadow: inset 0 0 0 1px rgba(245, 200, 66, 0.16), 0 0 18px rgba(245, 200, 66, 0.08);
     }
 
     .hero-dashboard-viz {
@@ -497,17 +493,18 @@
       opacity: 0;
       visibility: hidden;
       transform: translateY(10px) scale(0.985);
-      animation: heroDashboardStageCycle 9s infinite ease-in-out;
-    }
-
-    .hero-dashboard-stage.is-revenue {
-      animation-delay: 3s;
+      transition: opacity 220ms ease, transform 220ms ease, visibility 220ms ease;
     }
 
     .hero-dashboard-stage.is-stock {
-      animation-delay: 6s;
       background: linear-gradient(180deg, rgba(12, 12, 12, 0.9), rgba(12, 12, 12, 0.98));
       border-radius: 14px;
+    }
+
+    .hero-dashboard-stage.is-active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
     }
 
     .hero-dashboard-area-plot,
@@ -679,42 +676,6 @@
     @keyframes heroDashboardBar {
       0%, 100% { transform: scaleY(0.88); opacity: 0.78; }
       50% { transform: scaleY(1.08); opacity: 1; }
-    }
-
-    @keyframes heroDashboardStageCycle {
-      0%, 6% {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px) scale(0.985);
-      }
-      10%, 28% {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0) scale(1);
-      }
-      33%, 100% {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-8px) scale(0.99);
-      }
-    }
-
-    @keyframes heroDashboardLegendCycle {
-      0%, 6% {
-        background: rgba(255, 255, 255, 0.04);
-        color: rgba(255, 255, 255, 0.62);
-        box-shadow: none;
-      }
-      10%, 28% {
-        background: rgba(245, 200, 66, 0.12);
-        color: #F6EFDF;
-        box-shadow: inset 0 0 0 1px rgba(245, 200, 66, 0.16), 0 0 18px rgba(245, 200, 66, 0.08);
-      }
-      33%, 100% {
-        background: rgba(255, 255, 255, 0.04);
-        color: rgba(255, 255, 255, 0.62);
-        box-shadow: none;
-      }
     }
 
     .surface-card {
@@ -951,24 +912,24 @@
                   <span>Últimos 90 días</span>
                 </div>
                 <div class="hero-dashboard-legend">
-                  <i>Ventas</i>
-                  <i>Revenue</i>
-                  <i>Stock</i>
+                  <i class="is-active" data-chart-metric="sales">Ventas</i>
+                  <i data-chart-metric="revenue">Revenue</i>
+                  <i data-chart-metric="stock">Stock</i>
                 </div>
               </div>
               <div class="hero-dashboard-viz">
-                <div class="hero-dashboard-stage is-sales">
+                <div class="hero-dashboard-stage is-sales is-active" data-chart-stage="sales">
                   <svg class="hero-dashboard-area-plot" viewBox="0 0 860 220" preserveAspectRatio="none">
                     <path d="M0 180 C70 170 100 168 140 158 S240 136 286 142 S362 152 430 126 S522 74 574 82 S660 98 718 86 S802 58 860 68 L860 220 L0 220 Z"></path>
                     <path d="M0 180 C70 170 100 168 140 158 S240 136 286 142 S362 152 430 126 S522 74 574 82 S660 98 718 86 S802 58 860 68"></path>
                   </svg>
                 </div>
-                <div class="hero-dashboard-stage is-revenue">
+                <div class="hero-dashboard-stage is-revenue" data-chart-stage="revenue">
                   <svg class="hero-dashboard-line-plot" viewBox="0 0 860 220" preserveAspectRatio="none">
                     <path d="M0 162 L92 162 L184 148 L276 148 L368 126 L460 126 L552 112 L644 112 L736 90 L860 90"></path>
                   </svg>
                 </div>
-                <div class="hero-dashboard-stage is-stock">
+                <div class="hero-dashboard-stage is-stock" data-chart-stage="stock">
                   <div class="hero-dashboard-stock-frame">
                     <div class="hero-dashboard-bars">
                       <span></span>
@@ -1309,6 +1270,30 @@
       window.addEventListener('resize', () => {
         if (window.innerWidth >= 768) closeMenu();
       });
+    })();
+
+    (function () {
+      const metrics = Array.from(document.querySelectorAll('[data-chart-metric]'));
+      const stages = Array.from(document.querySelectorAll('[data-chart-stage]'));
+      if (metrics.length && stages.length) {
+        const order = ['sales', 'revenue', 'stock'];
+        let activeIndex = 0;
+
+        const setActive = (key) => {
+          metrics.forEach((metric) => {
+            metric.classList.toggle('is-active', metric.dataset.chartMetric === key);
+          });
+          stages.forEach((stage) => {
+            stage.classList.toggle('is-active', stage.dataset.chartStage === key);
+          });
+        };
+
+        setActive(order[activeIndex]);
+        window.setInterval(() => {
+          activeIndex = (activeIndex + 1) % order.length;
+          setActive(order[activeIndex]);
+        }, 3000);
+      }
     })();
 
     (function () {
