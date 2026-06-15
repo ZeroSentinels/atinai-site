@@ -547,7 +547,6 @@
       display: grid;
       place-items: center;
       position: relative;
-      animation: heroDashboardFill 3.8s ease-in-out infinite;
     }
 
     .hero-dashboard-donut::before {
@@ -624,12 +623,6 @@
     @keyframes heroDashboardBar {
       0%, 100% { transform: scaleY(0.88); opacity: 0.78; }
       50% { transform: scaleY(1.08); opacity: 1; }
-    }
-
-    @keyframes heroDashboardFill {
-      0%, 18% { --hero-donut-progress: 24deg; }
-      58%, 82% { --hero-donut-progress: 312deg; }
-      100% { --hero-donut-progress: 24deg; }
     }
 
     .surface-card {
@@ -1213,8 +1206,9 @@
     })();
 
     (function () {
+      const donut = document.querySelector('.hero-dashboard-donut');
       const value = document.getElementById('servicesForecastValue');
-      if (!value) return;
+      if (!donut || !value) return;
 
       const duration = 3800;
       const minValue = 7;
@@ -1236,6 +1230,7 @@
           currentValue = lerp(maxValue, minValue, (phase - 0.82) / 0.18);
         }
 
+        donut.style.setProperty('--hero-donut-progress', `${(currentValue / 100) * 360}deg`);
         value.textContent = `${Math.round(currentValue)}%`;
         window.requestAnimationFrame(render);
       };
