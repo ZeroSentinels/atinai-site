@@ -13,7 +13,7 @@ Trabajamos con inmobiliarias, clínicas, transportistas y restaurantes en Chile,
 Automatizamos tareas y conversaciones con IA accesible para pymes en LATAM.
 
 ### Agente Leads
-Responde preguntas, deriva y agenda reuniones directo en tu CRM.
+Responde preguntas, deriva y agenda reuniones directo en tus sistemas comerciales.
 - Problema: leads sin respuesta
 - Solución: califica, agenda y escala a WhatsApp con contexto
 - Resultado: más demos, más ventas, sin perder el trato humano

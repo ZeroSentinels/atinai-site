@@ -12,7 +12,7 @@ Disenamos sistemas conversacionales para captar leads, responder dudas, califica
 
 - Agentes para ventas, soporte y atencion 24/7
 - Automatizacion de mensajes, handoff y tareas operativas
-- Integraciones con CRM, formularios, agendas, WhatsApp y email
+- Integraciones con formularios, agendas, WhatsApp y email
 - Monitoreo continuo para optimizar rendimiento y conversion
 
 ### Diseno web y estrategia digital

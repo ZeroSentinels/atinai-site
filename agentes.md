@@ -8,11 +8,11 @@ Esta pagina reune automatizacion con IA, agentes conversacionales, procesos oper
 
 ### Automatizacion con IA
 
-Disenamos flujos que conectan formularios, CRM, WhatsApp, email, agenda y tareas operativas.
+Disenamos flujos que conectan formularios, WhatsApp, email, agenda y tareas operativas.
 
 - Lead routing con scoring y derivacion automatica
 - Seguimiento post-consulta por intencion o etapa
-- Actualizacion de CRM, agendas y documentos
+- Actualizacion de agendas y documentos
 - Escalamiento humano cuando el caso lo necesita
 
 ### Agentes inteligentes
@@ -37,7 +37,7 @@ Llevamos procesos manuales a flujos reproducibles para reducir demoras, errores 
 
 Conectamos agentes y automatizaciones con herramientas que tu negocio ya usa.
 
-- CRM, formularios, email y agendas
+- Formularios, email y agendas
 - WhatsApp y canales de contacto comerciales
 - Planillas, tableros y herramientas de trabajo
 - Conexiones a medida cuando el caso lo requiere
