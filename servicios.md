@@ -24,10 +24,13 @@ Diseñamos sistemas conversacionales para captar leads, responder dudas, calific
 
 Construimos sitios modernos, rápidos y preparados para capturar demanda.
 
+También preparamos sitios web para ser descubiertos e interpretados correctamente por ChatGPT, Claude, Gemini, Perplexity y futuros agentes autónomos.
+
 - Landings orientadas a conversión y captación
 - Arquitectura de contenido para SEO y performance
 - Diseño responsive con consistencia de marca
 - Implementación técnica lista para campañas y analítica
+- AI Discoverability, Markdown for Agents, metadata estructurada, SEO técnico y Agent Readiness
 
 ### Power BI como parte del servicio
 
