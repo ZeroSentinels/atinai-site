@@ -43,6 +43,58 @@
       ]
     },
     {
+      "source": "/servicios",
+      "headers": [
+        { "key": "Vary", "value": "Accept" }
+      ]
+    },
+    {
+      "source": "/servicios.html",
+      "headers": [
+        { "key": "Vary", "value": "Accept" }
+      ]
+    },
+    {
+      "source": "/servicios/index.html",
+      "headers": [
+        { "key": "Vary", "value": "Accept" }
+      ]
+    },
+    {
+      "source": "/servicios.md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Vary", "value": "Accept" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/agentes",
+      "headers": [
+        { "key": "Vary", "value": "Accept" }
+      ]
+    },
+    {
+      "source": "/agentes.html",
+      "headers": [
+        { "key": "Vary", "value": "Accept" }
+      ]
+    },
+    {
+      "source": "/agentes/index.html",
+      "headers": [
+        { "key": "Vary", "value": "Accept" }
+      ]
+    },
+    {
+      "source": "/agentes.md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Vary", "value": "Accept" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
       "source": "/.well-known/api-catalog",
       "headers": [
         { "key": "Content-Type", "value": "application/linkset+json; charset=utf-8" },
@@ -107,14 +159,6 @@
   ],
   "rewrites": [
     {
-      "source": "/servicios",
-      "destination": "/servicios.html"
-    },
-    {
-      "source": "/agentes",
-      "destination": "/agentes.html"
-    },
-    {
       "source": "/",
       "has": [
         {
@@ -124,6 +168,80 @@
         }
       ],
       "destination": "/index.md"
+    },
+    {
+      "source": "/servicios",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(?:.*)?text/markdown(?:.*)?"
+        }
+      ],
+      "destination": "/servicios.md"
+    },
+    {
+      "source": "/servicios.html",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(?:.*)?text/markdown(?:.*)?"
+        }
+      ],
+      "destination": "/servicios.md"
+    },
+    {
+      "source": "/servicios/index.html",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(?:.*)?text/markdown(?:.*)?"
+        }
+      ],
+      "destination": "/servicios.md"
+    },
+    {
+      "source": "/agentes",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(?:.*)?text/markdown(?:.*)?"
+        }
+      ],
+      "destination": "/agentes.md"
+    },
+    {
+      "source": "/agentes.html",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(?:.*)?text/markdown(?:.*)?"
+        }
+      ],
+      "destination": "/agentes.md"
+    },
+    {
+      "source": "/agentes/index.html",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(?:.*)?text/markdown(?:.*)?"
+        }
+      ],
+      "destination": "/agentes.md"
+    },
+    {
+      "source": "/servicios",
+      "destination": "/servicios.html"
+    },
+    {
+      "source": "/agentes",
+      "destination": "/agentes.html"
     },
     {
       "source": "/index",

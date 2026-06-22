@@ -24,6 +24,12 @@ El proyecto está conectado a Vercel. Cada push a `main` genera un **Production 
 - `www.atinai.com` → **Primary**  
 - `atinai.com` → redirige a `www`
 
+## Alcance de AI Discoverability
+- DNS-AID queda fuera de alcance por ahora.
+- No se implementan cambios de DNS ni registros SVCB/HTTPS.
+- No se crean registros `_agents`, `_index._agents`, `_a2a._agents` ni variantes similares.
+- Esto solo debería reconsiderarse cuando exista un agente público real y documentado.
+
 ## Cómo actualizar el sitio
 ### Opción A: editar desde GitHub Web
 1. Abrí `index.html`, clic en **✏️ Edit**.

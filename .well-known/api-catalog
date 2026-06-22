@@ -22,6 +22,16 @@
           "href": "https://atinai.com/index.md",
           "type": "text/markdown",
           "title": "Resumen publico en Markdown de la homepage"
+        },
+        {
+          "href": "https://atinai.com/servicios.md",
+          "type": "text/markdown",
+          "title": "Resumen publico en Markdown de servicios"
+        },
+        {
+          "href": "https://atinai.com/agentes.md",
+          "type": "text/markdown",
+          "title": "Resumen publico en Markdown de agentes"
         }
       ]
     }
