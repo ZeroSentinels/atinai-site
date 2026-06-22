@@ -55,6 +55,14 @@ Sitios modernos, rápidos y optimizados para conversión con SEO técnico y anal
 
 Narrativa de marca, journey de usuario, campañas y automatizaciones de marketing.
 
+## Secciones principales
+
+- [Servicios de Atinai](https://atinai.com/servicios)
+- [Agentes de IA de Atinai](https://atinai.com/agentes)
+- [Planes y precios de Atinai](https://atinai.com/#precios)
+- [Casos y confianza de Atinai](https://atinai.com/#casos)
+- [Contacto comercial de Atinai](https://atinai.com/#contacto)
+
 ## Planes de Agentes de IA
 
 | Plan | Precio mensual | Setup | Conversaciones/mes |
