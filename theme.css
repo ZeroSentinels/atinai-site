@@ -168,16 +168,44 @@ html[data-theme="light"] .nav-link:hover {
   color: var(--text);
 }
 
-html[data-theme="light"] section#home {
-  background: linear-gradient(180deg, #fffcf6 0%, #fbf7ee 56%, #f6ecd8 100%) !important;
+html[data-theme="light"] #home.hero {
+  background:
+    radial-gradient(circle at top left, rgba(216, 154, 0, 0.10), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(216, 154, 0, 0.08), transparent 26%),
+    linear-gradient(180deg, #fffdf8 0%, #fbf7ee 58%, #f4ead7 100%) !important;
+}
+
+html[data-theme="light"] #home.hero::before,
+html[data-theme="light"] #home.hero::after {
+  opacity: 0.06 !important;
+}
+
+html[data-theme="light"] #home .hero-tag {
+  background: rgba(255, 249, 240, 0.92) !important;
+  border-color: rgba(172, 124, 18, 0.18) !important;
+  color: #987545 !important;
 }
 
 html[data-theme="light"] #home .hero-title,
 html[data-theme="light"] #home .hero-inline-metrics strong,
-html[data-theme="light"] .hero-metric-card strong,
-html[data-theme="light"] .hero-chat-title strong,
-html[data-theme="light"] .hero-msg {
-  color: var(--text);
+html[data-theme="light"] #home .hero-chat-title strong,
+html[data-theme="light"] #home .hero-msg,
+html[data-theme="light"] #home .hero-metric-card strong {
+  color: var(--text) !important;
+}
+
+html[data-theme="light"] #home .hero-title-highlight,
+html[data-theme="light"] #home .hero-dashboard-badge {
+  color: var(--accent-strong) !important;
+}
+
+html[data-theme="light"] #home .hero-dashboard-badge {
+  background: rgba(216, 154, 0, 0.08) !important;
+}
+
+html[data-theme="light"] #home .hero-tag-dot,
+html[data-theme="light"] #home .hero-bullets li::before {
+  background-color: var(--accent) !important;
 }
 
 html[data-theme="light"] #home .hero-subtitle,
@@ -185,10 +213,10 @@ html[data-theme="light"] #home .hero-claim,
 html[data-theme="light"] #home .hero-bullets,
 html[data-theme="light"] #home .hero-demo-link,
 html[data-theme="light"] #home .hero-inline-metrics span,
-html[data-theme="light"] .hero-metric-card span,
-html[data-theme="light"] .hero-chat-tags span,
-html[data-theme="light"] .hero-chat-input input {
-  color: rgba(27, 23, 16, 0.68);
+html[data-theme="light"] #home .hero-metric-card span,
+html[data-theme="light"] #home .hero-chat-tags span,
+html[data-theme="light"] #home .hero-chat-input input {
+  color: rgba(27, 23, 16, 0.72) !important;
 }
 
 html[data-theme="light"] #home .hero-inline-metrics strong {
@@ -213,37 +241,51 @@ html[data-theme="light"] #home .hero-demo-link::before {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
 }
 
-html[data-theme="light"] .hero-panel {
-  background: rgba(255, 250, 241, 0.9);
-  border-color: rgba(172, 124, 18, 0.18);
-  box-shadow: var(--shadow-panel);
+html[data-theme="light"] #home .hero-panel {
+  background: linear-gradient(180deg, rgba(255, 251, 244, 0.98), rgba(247, 239, 225, 0.98)) !important;
+  border-color: rgba(172, 124, 18, 0.18) !important;
+  box-shadow: 0 22px 46px rgba(82, 60, 12, 0.10) !important;
 }
 
-html[data-theme="light"] .hero-metric-card,
-html[data-theme="light"] .hero-msg,
-html[data-theme="light"] .hero-typing,
-html[data-theme="light"] .hero-chat-input input {
-  background: rgba(245, 235, 216, 0.92);
-  border-color: rgba(172, 124, 18, 0.16);
+html[data-theme="light"] #home .hero-metric-card,
+html[data-theme="light"] #home .hero-msg,
+html[data-theme="light"] #home .hero-typing,
+html[data-theme="light"] #home .hero-chat-input input,
+html[data-theme="light"] #home .hero-chat-tags span {
+  background: rgba(250, 242, 228, 0.98) !important;
+  border-color: rgba(172, 124, 18, 0.16) !important;
 }
 
-html[data-theme="light"] .hero-msg-user {
-  background: rgba(216, 154, 0, 0.12);
-  color: #7a5700;
+html[data-theme="light"] #home .hero-msg-user {
+  background: rgba(216, 154, 0, 0.14) !important;
+  color: #7a5700 !important;
 }
 
-html[data-theme="light"] .hero-chat-avatar {
-  color: #201502;
+html[data-theme="light"] #home .hero-chat-avatar {
+  color: #201502 !important;
 }
 
-html[data-theme="light"] .hero-chart-wrap {
-  background: linear-gradient(180deg, rgba(216, 154, 0, 0.06), rgba(255, 255, 255, 0));
+html[data-theme="light"] #home .hero-chart-wrap {
+  background: linear-gradient(180deg, rgba(216, 154, 0, 0.08), rgba(255, 255, 255, 0)) !important;
+  border-bottom-color: rgba(172, 124, 18, 0.22) !important;
 }
 
-html[data-theme="light"] .hero-chat-input button,
+html[data-theme="light"] #home .hero-chat-header {
+  border-bottom-color: rgba(172, 124, 18, 0.14) !important;
+}
+
+html[data-theme="light"] #home .hero-demo-link {
+  background: rgba(255, 251, 244, 0.95) !important;
+  border-color: rgba(172, 124, 18, 0.18) !important;
+  box-shadow: 0 10px 24px rgba(82, 60, 12, 0.06) !important;
+}
+
+html[data-theme="light"] #home .hero-chat-input button,
 html[data-theme="light"] #home .hero-actions .btn.btn-primary,
 html[data-theme="light"] .btn-primary {
-  box-shadow: 0 12px 26px rgba(216, 154, 0, 0.16);
+  background: linear-gradient(135deg, #d89a00 0%, #efc245 100%) !important;
+  color: #1a1000 !important;
+  box-shadow: 0 12px 26px rgba(216, 154, 0, 0.16) !important;
 }
 
 html[data-theme="light"] .faq-item {
