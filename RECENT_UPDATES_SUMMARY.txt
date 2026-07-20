@@ -1,0 +1,53 @@
+Atinai Site - Recent Updates Summary
+===================================
+
+Scope: Mobile optimization, header/menu behavior, chat widget visibility, and pricing/add-ons tweaks.
+
+Recent updates applied
+----------------------
+1) Mobile header behavior
+- Header forced to fixed on mobile (max-width: 768px) with safe-area padding.
+- Dynamic CSS variable --header-height set via JS to offset content on mobile.
+- Scroll margin for anchored sections updated on mobile.
+
+2) Mobile chat widget (n8n) visibility
+- Mobile positioning hardened using n8n variables and real selectors:
+  --chat--window--right, --chat--window--bottom, --chat--window--width
+- chat-window-wrapper and chat-window toggle constrained to viewport in mobile.
+- Min touch target size enforced (>= 44px).
+- Android overflow and offscreen issues fixed with max-width + fixed positioning.
+
+3) Mobile layout fixes
+- Prevent horizontal scroll on mobile (overflow-x hidden, max-width 100%).
+- Images constrained to max-width: 100% on mobile.
+- Buttons/inputs set to min height 44px on mobile.
+
+4) Mobile hamburger menu
+- Added mobile menu toggle button in header.
+- Added mobile menu panel with links + CTA in header.
+- JS toggles menu-open state, closes on link click and on resize.
+- Menu styles are mobile-only and do not affect desktop.
+
+5) Pricing section adjustments
+- Prices shown only in USD (CLP removed).
+- Plan name changed to "Plan E-commerce".
+- Alignment fixes for text and CTA alignment in cards.
+- Add-ons list simplified to bullet list and removed "Horas extra".
+
+Key files updated
+-----------------
+- index.html
+  * Mobile menu markup
+  * Pricing content adjustments
+  * Mobile header height JS
+- styles.css
+  * Mobile-only header fixes
+  * Mobile chat widget positioning
+  * Mobile menu styles
+  * Mobile overflow/typography controls
+
+Notes
+-----
+- All mobile-specific changes live under @media (max-width: 768px) (and max-device-width fallback).
+- Desktop layout remains unchanged.
+
