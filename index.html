@@ -264,13 +264,13 @@
 
     #home .hero-stage {
       width: 100%;
-      max-width: 1380px;
+      max-width: 1440px;
       min-height: calc(100vh - 144px);
       margin: 0 auto;
       padding: 0 clamp(20px, 3vw, 48px);
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(620px, 1.1fr);
-      gap: clamp(8px, 1.4vw, 20px);
+      grid-template-columns: minmax(0, 1fr) minmax(660px, 1.02fr);
+      gap: clamp(20px, 2.6vw, 44px);
       align-items: center;
       position: relative;
       z-index: 1;
@@ -284,7 +284,7 @@
       text-align: left;
       gap: 18px;
       width: 100%;
-      max-width: 620px;
+      max-width: 660px;
       align-self: center;
     }
 
@@ -292,12 +292,11 @@
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      gap: 0;
+      gap: 20px;
       width: 100%;
       max-width: 760px;
-      justify-self: start;
+      justify-self: end;
       position: relative;
-      padding: 32px 0 28px;
     }
 
     #home .hero-tag {
@@ -327,10 +326,10 @@
 
     #home .hero-title {
       margin: 0;
-      max-width: 8.6ch;
+      max-width: 8.8ch;
       color: #FFFFFF;
       font-family: 'Manrope', sans-serif;
-      font-size: clamp(50px, 6vw, 92px);
+      font-size: clamp(48px, 5.8vw, 88px);
       line-height: 0.98;
       font-weight: 800;
       letter-spacing: -0.05em;
@@ -380,7 +379,7 @@
 
     #home .hero-subtitle,
     #home .hero-claim {
-      max-width: 34ch;
+      max-width: 36ch;
       margin: 0;
       color: rgba(255, 255, 255, 0.55);
       font-size: 18px;
@@ -388,7 +387,7 @@
     }
 
     #home .hero-claim {
-      max-width: 38ch;
+      max-width: 40ch;
       font-size: 16px;
     }
 
@@ -472,20 +471,14 @@
     }
 
     #home .hero-chat-card {
-      width: min(100%, 740px);
-      max-width: 740px;
-      margin-left: 0;
-      position: relative;
-      z-index: 2;
+      max-width: 720px;
+      margin-left: auto;
     }
 
     #home .hero-dashboard-card {
-      width: min(82%, 520px);
-      max-width: 520px;
-      margin-top: -30px;
-      margin-left: 44px;
-      position: relative;
-      z-index: 1;
+      width: calc(100% - 96px);
+      max-width: 620px;
+      margin-left: auto;
     }
 
     .hero-panel-dashboard {
@@ -814,8 +807,8 @@
 
     @media (max-width: 1180px) {
       #home .hero-stage {
-        grid-template-columns: minmax(0, 0.96fr) minmax(540px, 1.04fr);
-        gap: 18px;
+        grid-template-columns: minmax(0, 1fr) minmax(540px, 0.98fr);
+        gap: 32px;
       }
 
       #home .hero-title {
@@ -837,7 +830,6 @@
       #home .hero-right {
         max-width: 620px;
         justify-self: center;
-        padding: 0;
       }
 
       #home .hero-chat-card,
@@ -845,7 +837,6 @@
         width: 100%;
         max-width: none;
         margin-left: 0;
-        margin-top: 0;
       }
 
       #home .hero-bullets {
