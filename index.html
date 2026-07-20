@@ -158,10 +158,10 @@
 
   <style>
     :root {
-      --gold: #F5C842;
-      --dark: #080808;
-      --surface: #111111;
-      --surface2: #1A1A1A;
+      --gold: #D7AA22;
+      --dark: #171411;
+      --surface: rgba(255, 252, 246, 0.94);
+      --surface2: #F8F1E5;
     }
 
     html { scroll-behavior: smooth; }
@@ -190,32 +190,35 @@
     }
 
     .site-brand-text {
-      color: #FFFFFF;
+      color: #1F1A14;
       font-weight: 700;
       letter-spacing: -0.02em;
     }
 
     .nav-link {
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(31, 26, 20, 0.72);
       transition: opacity 0.2s ease, color 0.2s ease;
     }
 
     .nav-link:hover {
       opacity: 1;
-      color: #FFFFFF;
+      color: #1F1A14;
     }
 
     .mobile-menu-links .nav-link {
       display: block;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(31, 26, 20, 0.72);
     }
 
     #home.hero {
       position: relative;
       overflow: hidden;
-      min-height: 100vh;
-      background: var(--dark);
-      padding: 88px 0 56px;
+      min-height: calc(100vh - 72px);
+      background:
+        radial-gradient(circle at top left, rgba(215, 170, 34, 0.10), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(215, 170, 34, 0.10), transparent 30%),
+        linear-gradient(180deg, #FFFCF7 0%, #F8F1E8 100%);
+      padding: 40px 0 56px;
       isolation: isolate;
       font-family: 'Manrope', sans-serif;
     }
@@ -226,37 +229,37 @@
       position: absolute;
       border-radius: 999px;
       filter: blur(90px);
-      opacity: 0.15;
+      opacity: 0.08;
       pointer-events: none;
       z-index: 0;
     }
 
     #home.hero::before {
-      width: 280px;
-      height: 280px;
-      left: 6%;
-      top: 12%;
+      width: 320px;
+      height: 320px;
+      left: 4%;
+      top: 10%;
       background: var(--gold);
       animation: heroOrbFloatLeft 14s ease-in-out infinite;
     }
 
     #home.hero::after {
-      width: 340px;
-      height: 340px;
-      right: 8%;
-      bottom: 10%;
+      width: 300px;
+      height: 300px;
+      right: 7%;
+      bottom: 6%;
       background: #E2B63C;
       animation: heroOrbFloatRight 17s ease-in-out infinite;
     }
 
     #home .hero-container {
-      max-width: 1160px;
-      min-height: calc(100vh - 132px);
+      max-width: 1180px;
+      min-height: calc(100vh - 168px);
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 32px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(380px, 440px);
-      gap: 56px;
+      grid-template-columns: minmax(0, 1fr) minmax(390px, 440px);
+      gap: 44px;
       align-items: center;
       position: relative;
       z-index: 1;
@@ -268,14 +271,15 @@
       align-items: flex-start;
       justify-content: center;
       text-align: left;
-      gap: 16px;
+      gap: 18px;
+      max-width: 470px;
     }
 
     #home .hero-right {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 18px;
+      gap: 16px;
       width: 100%;
       max-width: 440px;
       margin-inline: auto;
@@ -287,9 +291,9 @@
       gap: 10px;
       padding: 8px 16px;
       border-radius: 999px;
-      border: 0.5px solid rgba(245, 200, 66, 0.35);
-      background: rgba(245, 200, 66, 0.06);
-      color: var(--gold);
+      border: 1px solid rgba(215, 170, 34, 0.24);
+      background: rgba(255, 249, 240, 0.72);
+      color: #A48962;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -309,7 +313,7 @@
     #home .hero-title {
       margin: 0;
       max-width: none;
-      color: #FFFFFF;
+      color: #1B1713;
       font-family: 'Manrope', sans-serif;
       font-size: clamp(36px, 4.2vw, 62px);
       line-height: 1.06;
@@ -338,18 +342,18 @@
     }
 
     #home .hero-inline-metrics strong {
-      color: #FFFFFF;
+      color: #1F1A14;
       font-family: 'Manrope', sans-serif;
-      font-size: 22px;
+      font-size: 28px;
       line-height: 1;
       font-weight: 700;
       letter-spacing: -0.03em;
     }
 
     #home .hero-inline-metrics span {
-      color: rgba(255, 255, 255, 0.52);
+      color: rgba(123, 107, 84, 0.88);
       font-size: 10px;
-      font-weight: 500;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
@@ -362,9 +366,9 @@
     #home .hero-claim {
       max-width: 100%;
       margin: 0;
-      color: rgba(255, 255, 255, 0.55);
+      color: #6F665A;
       font-size: 15px;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     #home .hero-claim {
@@ -383,34 +387,32 @@
 
     #home .hero-actions .btn.btn-primary {
       background: var(--gold);
-      color: #1a1000;
+      color: #FFFFFF;
       border-radius: 50px;
-      border: 1px solid rgba(255, 232, 173, 0.3);
-      box-shadow: 0 18px 34px rgba(245, 200, 66, 0.18);
+      border: 1px solid rgba(215, 170, 34, 0.22);
+      box-shadow: 0 18px 34px rgba(215, 170, 34, 0.16);
       white-space: nowrap;
-      font-weight: 500;
+      font-weight: 700;
     }
 
     #home .hero-demo-link {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      color: rgba(255, 255, 255, 0.72);
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(215, 170, 34, 0.22);
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: 0 12px 30px rgba(69, 52, 20, 0.05);
+      color: #6B6458;
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 600;
       text-decoration: none;
     }
 
     #home .hero-demo-link::before {
-      content: "";
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      border: 1px solid rgba(245, 200, 66, 0.22);
-      background:
-        linear-gradient(135deg, rgba(245, 200, 66, 0.08), rgba(245, 200, 66, 0.02));
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-      flex: none;
+      display: none;
     }
 
     #home .hero-bullets {
@@ -419,7 +421,7 @@
       gap: 10px;
       margin: 4px 0 0;
       padding: 0;
-      color: rgba(255, 255, 255, 0.78);
+      color: #6F665A;
       font-size: 15px;
     }
 
@@ -442,15 +444,16 @@
 
     .hero-panel {
       width: 100%;
-      border-radius: 16px;
-      border: 0.5px solid rgba(245, 200, 66, 0.15);
+      border-radius: 22px;
+      border: 1px solid rgba(215, 170, 34, 0.18);
       background: var(--surface);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+      box-shadow: 0 24px 60px rgba(71, 56, 28, 0.10);
       overflow: hidden;
+      backdrop-filter: blur(8px);
     }
 
     .hero-panel-dashboard {
-      padding: 14px;
+      padding: 18px;
     }
 
     .hero-panel-top {
@@ -480,7 +483,7 @@
     .hero-dashboard-badge {
       padding: 7px 12px;
       border-radius: 999px;
-      background: rgba(245, 200, 66, 0.08);
+      background: rgba(215, 170, 34, 0.08);
       color: var(--gold);
       font-size: 10px;
       font-weight: 700;
@@ -498,9 +501,9 @@
 
     .hero-metric-card {
       padding: 12px 10px;
-      border-radius: 12px;
+      border-radius: 14px;
       background: var(--surface2);
-      border: 0.5px solid rgba(245, 200, 66, 0.08);
+      border: 1px solid rgba(215, 170, 34, 0.10);
     }
 
     .hero-metric-card strong,
@@ -509,7 +512,7 @@
     }
 
     .hero-metric-card strong {
-      color: #FFFFFF;
+      color: #2D261E;
       font-weight: 700;
       font-size: 18px;
       line-height: 1.1;
@@ -518,7 +521,7 @@
 
     .hero-metric-card span {
       margin-top: 5px;
-      color: rgba(255, 255, 255, 0.46);
+      color: rgba(123, 107, 84, 0.92);
       font-size: 0.6rem;
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -526,43 +529,44 @@
     }
 
     .hero-chart-wrap {
-      height: 90px;
-      padding: 6px 0 0;
+      height: 78px;
+      padding: 4px 0 14px;
       border-radius: 12px;
-      background: linear-gradient(180deg, rgba(245, 200, 66, 0.04), rgba(255, 255, 255, 0));
-      margin-bottom: 12px;
+      background: linear-gradient(180deg, rgba(215, 170, 34, 0.06), rgba(255, 255, 255, 0));
+      border-bottom: 1px solid rgba(215, 170, 34, 0.24);
+      margin-bottom: 14px;
     }
 
     #lineChart {
       width: 100%;
-      height: 90px;
+      height: 60px;
       display: block;
     }
 
     .hero-dashboard-bottom {
       display: grid;
-      grid-template-columns: 90px minmax(0, 1fr);
+      grid-template-columns: 76px minmax(0, 1fr);
       gap: 14px;
       align-items: end;
     }
 
     .hero-donut-wrap {
-      width: 70px;
-      height: 70px;
+      width: 54px;
+      height: 54px;
       margin-inline: auto;
     }
 
     #donutChart {
-      width: 70px;
-      height: 70px;
+      width: 54px;
+      height: 54px;
       display: block;
     }
 
     .hero-bars {
-      height: 80px;
+      height: 48px;
       display: flex;
       align-items: flex-end;
-      gap: 7px;
+      gap: 6px;
       padding: 0 2px;
     }
 
@@ -575,7 +579,7 @@
     }
 
     .hero-panel-chat {
-      padding: 16px;
+      padding: 18px;
     }
 
     .hero-chat-header {
@@ -584,6 +588,8 @@
       justify-content: space-between;
       gap: 10px;
       margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(215, 170, 34, 0.14);
     }
 
     .hero-chat-meta {
@@ -609,14 +615,12 @@
     }
 
     .hero-chat-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
+      display: grid;
+      gap: 3px;
     }
 
     .hero-chat-title strong {
-      color: #FFFFFF;
+      color: #2D261E;
       font-size: 14px;
       font-weight: 700;
     }
@@ -630,6 +634,15 @@
       flex: none;
     }
 
+    .hero-chat-status-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #33B852;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
     .hero-chat-tags {
       display: flex;
       flex-wrap: wrap;
@@ -640,8 +653,8 @@
     .hero-chat-tags span {
       padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(245, 200, 66, 0.08);
-      color: rgba(255, 255, 255, 0.68);
+      background: #FBF4E8;
+      color: #A78F67;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.1em;
@@ -658,9 +671,9 @@
       max-width: 88%;
       padding: 12px 14px;
       border-radius: 14px;
-      border: 0.5px solid rgba(245, 200, 66, 0.08);
-      background: var(--surface2);
-      color: #FFFFFF;
+      border: 1px solid rgba(215, 170, 34, 0.12);
+      background: #FBF4E8;
+      color: #2D261E;
       font-size: 14px;
       line-height: 1.5;
       opacity: 0;
@@ -675,8 +688,8 @@
 
     .hero-msg-user {
       margin-left: auto;
-      background: rgba(245, 200, 66, 0.1);
-      color: #F9E6A6;
+      background: #FFF1CB;
+      color: #8A6916;
     }
 
     .hero-typing {
@@ -686,8 +699,8 @@
       width: fit-content;
       padding: 10px 14px;
       border-radius: 999px;
-      background: var(--surface2);
-      border: 0.5px solid rgba(245, 200, 66, 0.08);
+      background: #FBF4E8;
+      border: 1px solid rgba(215, 170, 34, 0.12);
       opacity: 0;
       transform: translateY(12px);
       transition: opacity 0.35s ease, transform 0.35s ease;
@@ -719,9 +732,9 @@
       height: 42px;
       padding: 0 14px;
       border-radius: 999px;
-      border: 0.5px solid rgba(245, 200, 66, 0.12);
-      background: var(--surface2);
-      color: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(215, 170, 34, 0.16);
+      background: #FBF4E8;
+      color: #8E7A5A;
       font-family: 'Manrope', sans-serif;
       font-size: 13px;
     }
@@ -735,8 +748,8 @@
       align-items: center;
       justify-content: center;
       background: var(--gold);
-      color: #1a1000;
-      box-shadow: 0 10px 24px rgba(245, 200, 66, 0.16);
+      color: #FFFFFF;
+      box-shadow: 0 10px 24px rgba(215, 170, 34, 0.18);
     }
 
     .hero-chat-input svg {
@@ -773,13 +786,13 @@
     }
 
     @media (max-width: 1024px) {
-      section#home {
-        grid-template-columns: 1fr !important;
+      #home .hero-container {
+        grid-template-columns: 1fr;
       }
 
       #home .hero-right {
         max-width: 520px;
-        padding: 0 1rem 3rem !important;
+        padding: 0 0 2rem;
       }
 
       #home .hero-title {
@@ -790,7 +803,7 @@
     @media (max-width: 640px) {
       #home.hero {
         min-height: auto;
-        padding: 72px 0 42px;
+        padding: 28px 0 42px;
       }
 
       #home .hero-container {
@@ -969,55 +982,29 @@
 
 
     <!-- HERO / HOME -->
-    <section id="home" class="hero" style="
-      display:grid;
-      grid-template-columns:minmax(0, 1fr) minmax(340px, 410px);
-      column-gap:clamp(16px, 2vw, 32px);
-      min-height:100vh;
-      background:#080808;
-      position:relative;
-      overflow:hidden;
-      align-items:center;
-      padding:0 clamp(16px, 3vw, 48px);
-    ">
+    <section id="home" class="hero">
       <div style="position:absolute; width:500px; height:500px; border-radius:50%; background:#F5C842; filter:blur(90px); opacity:0.12; top:-150px; left:-150px; animation:orb1 8s ease-in-out infinite alternate; pointer-events:none;"></div>
       <div style="position:absolute; width:350px; height:350px; border-radius:50%; background:#F5C842; filter:blur(90px); opacity:0.10; bottom:-100px; right:150px; animation:orb2 10s ease-in-out infinite alternate; pointer-events:none;"></div>
-
-      <div class="hero-left" style="
-        display:flex;
-        flex-direction:column;
-        align-items:flex-start;
-        justify-content:flex-start;
-        align-self:start;
-        text-align:left;
-        justify-self:center;
-        gap:14px;
-        width:100%;
-        max-width:560px;
-        padding:2.75rem 2rem 3rem 2rem;
-        position:relative;
-        z-index:2;
-      ">
+      <div class="hero-container">
+      <div class="hero-left">
         <span class="hero-tag"><span class="hero-tag-dot"></span>AGENTES DE IA · AUTOMATIZACIÓN · ESTRATEGIA</span>
         <h1 class="hero-title">
           IA que <span class="hero-title-highlight">vende</span>,<br />
           responde y<br />
           automatiza 24/7
         </h1>
-        <div class="hero-inline-metrics" aria-label="Métricas destacadas" style="display:flex; gap:24px; margin:16px 0 20px; align-items:center;">
-          <div>
-            <strong style="font-size:20px;font-weight:700;color:#fff">32%</strong>
-            <span style="display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.4)">Conversión</span>
+        <div class="hero-inline-metrics" aria-label="Métricas destacadas">
+          <div class="hero-inline-metrics-item">
+            <strong>32%</strong>
+            <span>Conversión</span>
           </div>
-          <div style="width:1px;height:32px;background:rgba(255,255,255,0.12)"></div>
-          <div>
-            <strong style="font-size:20px;font-weight:700;color:#fff">24/7</strong>
-            <span style="display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.4)">Atención</span>
+          <div class="hero-inline-metrics-item">
+            <strong>24/7</strong>
+            <span>Atención</span>
           </div>
-          <div style="width:1px;height:32px;background:rgba(255,255,255,0.12)"></div>
-          <div>
-            <strong style="font-size:20px;font-weight:700;color:#fff">87%</strong>
-            <span style="display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.4)">Resolución</span>
+          <div class="hero-inline-metrics-item">
+            <strong>87%</strong>
+            <span>Resolución</span>
           </div>
         </div>
         <p class="hero-subtitle">
@@ -1035,27 +1022,14 @@
         </ul>
       </div>
 
-      <div class="hero-right" style="
-        display:flex;
-        flex-direction:column;
-        gap:1rem;
-        align-items:center;
-        justify-content:center;
-        justify-self:end;
-        width:100%;
-        max-width:420px;
-        padding:2rem 0 2rem 0;
-        position:relative;
-        z-index:2;
-        overflow:visible;
-      ">
-        <div class="hero-panel chat-panel hero-panel-chat" aria-label="Chat animado del agente de Atinai" style="position:static; width:100%; max-width:420px; flex-shrink:0; margin:0 auto;">
+      <div class="hero-right">
+        <div class="hero-panel chat-panel hero-panel-chat" aria-label="Chat animado del agente de Atinai">
           <div class="hero-chat-header">
             <div class="hero-chat-meta">
               <span class="hero-chat-avatar">AI</span>
               <div class="hero-chat-title">
                 <strong>Agente Atinai</strong>
-                <span class="hero-chat-status" aria-hidden="true"></span>
+                <span class="hero-chat-status-label"><span class="hero-chat-status" aria-hidden="true"></span>En línea</span>
               </div>
             </div>
             <div class="hero-chat-tags">
@@ -1085,7 +1059,7 @@
           </div>
         </div>
 
-        <div class="hero-panel panel hero-panel-dashboard" aria-label="Dashboard animado de automatización" style="position:static; width:100%; max-width:420px; flex-shrink:0; margin:0 auto;">
+        <div class="hero-panel panel hero-panel-dashboard" aria-label="Dashboard animado de automatización">
           <div class="hero-panel-top">
             <div class="hero-window-dots" aria-hidden="true">
               <span></span>
@@ -1096,7 +1070,7 @@
           </div>
           <div class="hero-metrics">
             <div class="hero-metric-card">
-              <strong data-hero-metric="conversion">27%</strong>
+              <strong data-hero-metric="conversion">32%</strong>
               <span>Conversión</span>
             </div>
             <div class="hero-metric-card">
@@ -1104,7 +1078,7 @@
               <span>Atención</span>
             </div>
             <div class="hero-metric-card">
-              <strong data-hero-metric="resolution">73%</strong>
+              <strong data-hero-metric="resolution">87%</strong>
               <span>Resolución</span>
             </div>
           </div>
@@ -1126,6 +1100,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
 
@@ -2028,38 +2003,9 @@
       const typing = document.getElementById('heroTyping');
 
       if (conversionMetric && attentionMetric && resolutionMetric) {
-        const metricRanges = {
-          conversion: { start: 27, end: 32 },
-          resolution: { start: 73, end: 87 }
-        };
-        const cycleDuration = 4200;
-        const holdDuration = 1200;
-        const totalDuration = cycleDuration + holdDuration;
-        const easeOutCubic = (value) => 1 - Math.pow(1 - value, 3);
-
+        conversionMetric.textContent = '32%';
         attentionMetric.textContent = '24/7';
-
-        const metricLoop = (now) => {
-          const phase = now % totalDuration;
-          const progress = Math.min(1, phase / cycleDuration);
-          const eased = easeOutCubic(progress);
-
-          const conversionValue = Math.round(
-            metricRanges.conversion.start +
-            (metricRanges.conversion.end - metricRanges.conversion.start) * eased
-          );
-          const resolutionValue = Math.round(
-            metricRanges.resolution.start +
-            (metricRanges.resolution.end - metricRanges.resolution.start) * eased
-          );
-
-          conversionMetric.textContent = `${conversionValue}%`;
-          resolutionMetric.textContent = `${resolutionValue}%`;
-
-          requestAnimationFrame(metricLoop);
-        };
-
-        requestAnimationFrame(metricLoop);
+        resolutionMetric.textContent = '87%';
       }
 
       if (lineCanvas) {
