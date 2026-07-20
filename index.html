@@ -262,23 +262,41 @@
       z-index: 1;
     }
 
+    #home .hero-stage {
+      width: 100%;
+      max-width: 1440px;
+      min-height: calc(100vh - 144px);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 3vw, 48px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(660px, 1.02fr);
+      gap: clamp(20px, 2.6vw, 44px);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
     #home .hero-left {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
       text-align: left;
-      gap: 16px;
+      gap: 18px;
+      width: 100%;
+      max-width: 660px;
+      align-self: center;
     }
 
     #home .hero-right {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 18px;
+      align-items: stretch;
+      gap: 20px;
       width: 100%;
-      max-width: 440px;
-      margin-inline: auto;
+      max-width: 760px;
+      justify-self: end;
+      position: relative;
     }
 
     #home .hero-tag {
@@ -308,11 +326,11 @@
 
     #home .hero-title {
       margin: 0;
-      max-width: none;
+      max-width: 8.8ch;
       color: #FFFFFF;
       font-family: 'Manrope', sans-serif;
-      font-size: clamp(36px, 4.2vw, 62px);
-      line-height: 1.06;
+      font-size: clamp(48px, 5.8vw, 88px);
+      line-height: 0.98;
       font-weight: 800;
       letter-spacing: -0.05em;
     }
@@ -323,18 +341,19 @@
       justify-content: flex-start;
       flex-wrap: wrap;
       gap: 0;
-      margin: 4px 0 8px;
+      margin: 10px 0 8px;
     }
 
     #home .hero-inline-metrics-item {
-      min-width: 120px;
-      padding: 0 18px;
+      min-width: 132px;
+      padding: 0 22px 0 0;
       display: grid;
       gap: 3px;
     }
 
     #home .hero-inline-metrics-item + .hero-inline-metrics-item {
       border-left: 1px solid rgba(245, 200, 66, 0.16);
+      padding-left: 22px;
     }
 
     #home .hero-inline-metrics strong {
@@ -360,16 +379,16 @@
 
     #home .hero-subtitle,
     #home .hero-claim {
-      max-width: 100%;
+      max-width: 36ch;
       margin: 0;
       color: rgba(255, 255, 255, 0.55);
-      font-size: 15px;
-      line-height: 1.55;
+      font-size: 18px;
+      line-height: 1.6;
     }
 
     #home .hero-claim {
-      max-width: 100%;
-      font-size: 15px;
+      max-width: 40ch;
+      font-size: 16px;
     }
 
     #home .hero-actions {
@@ -416,11 +435,13 @@
     #home .hero-bullets {
       list-style: none;
       display: grid;
-      gap: 10px;
-      margin: 4px 0 0;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px 18px;
+      margin: 8px 0 0;
       padding: 0;
       color: rgba(255, 255, 255, 0.78);
-      font-size: 15px;
+      font-size: 14px;
+      max-width: 720px;
     }
 
     #home .hero-bullets li {
@@ -447,6 +468,17 @@
       background: var(--surface);
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
       overflow: hidden;
+    }
+
+    #home .hero-chat-card {
+      max-width: 720px;
+      margin-left: auto;
+    }
+
+    #home .hero-dashboard-card {
+      width: calc(100% - 96px);
+      max-width: 620px;
+      margin-left: auto;
     }
 
     .hero-panel-dashboard {
@@ -652,6 +684,7 @@
       display: grid;
       gap: 10px;
       margin-bottom: 14px;
+      min-height: 208px;
     }
 
     .hero-msg {
@@ -661,7 +694,7 @@
       border: 0.5px solid rgba(245, 200, 66, 0.08);
       background: var(--surface2);
       color: #FFFFFF;
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.5;
       opacity: 0;
       transform: translateY(12px);
@@ -772,18 +805,42 @@
       to { transform: translate(-50px, -60px); }
     }
 
-    @media (max-width: 1024px) {
-      section#home {
-        grid-template-columns: 1fr !important;
-      }
-
-      #home .hero-right {
-        max-width: 520px;
-        padding: 0 1rem 3rem !important;
+    @media (max-width: 1180px) {
+      #home .hero-stage {
+        grid-template-columns: minmax(0, 1fr) minmax(540px, 0.98fr);
+        gap: 32px;
       }
 
       #home .hero-title {
-        max-width: 12ch;
+        font-size: clamp(42px, 5vw, 72px);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      #home .hero-stage {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      #home .hero-left {
+        max-width: 700px;
+      }
+
+      #home .hero-right {
+        max-width: 620px;
+        justify-self: center;
+      }
+
+      #home .hero-chat-card,
+      #home .hero-dashboard-card {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+      }
+
+      #home .hero-bullets {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -793,14 +850,14 @@
         padding: 72px 0 42px;
       }
 
-      #home .hero-container {
+      #home .hero-stage {
         padding: 0 16px;
         gap: 28px;
       }
 
       #home .hero-title {
         font-size: 38px;
-        max-width: 12ch;
+        max-width: 10ch;
       }
 
       #home .hero-subtitle,
@@ -969,87 +1026,48 @@
 
 
     <!-- HERO / HOME -->
-    <section id="home" class="hero" style="
-      display:grid;
-      grid-template-columns:minmax(0, 1fr) minmax(340px, 410px);
-      column-gap:clamp(16px, 2vw, 32px);
-      min-height:100vh;
-      background:#080808;
-      position:relative;
-      overflow:hidden;
-      align-items:center;
-      padding:0 clamp(16px, 3vw, 48px);
-    ">
+    <section id="home" class="hero">
       <div style="position:absolute; width:500px; height:500px; border-radius:50%; background:#F5C842; filter:blur(90px); opacity:0.12; top:-150px; left:-150px; animation:orb1 8s ease-in-out infinite alternate; pointer-events:none;"></div>
       <div style="position:absolute; width:350px; height:350px; border-radius:50%; background:#F5C842; filter:blur(90px); opacity:0.10; bottom:-100px; right:150px; animation:orb2 10s ease-in-out infinite alternate; pointer-events:none;"></div>
-
-      <div class="hero-left" style="
-        display:flex;
-        flex-direction:column;
-        align-items:flex-start;
-        justify-content:flex-start;
-        align-self:start;
-        text-align:left;
-        justify-self:center;
-        gap:14px;
-        width:100%;
-        max-width:560px;
-        padding:2.75rem 2rem 3rem 2rem;
-        position:relative;
-        z-index:2;
-      ">
-        <span class="hero-tag"><span class="hero-tag-dot"></span>AGENTES DE IA · AUTOMATIZACIÓN · ESTRATEGIA</span>
-        <h1 class="hero-title">
-          IA que <span class="hero-title-highlight">vende</span>,<br />
-          responde y<br />
-          automatiza 24/7
-        </h1>
-        <div class="hero-inline-metrics" aria-label="Métricas destacadas" style="display:flex; gap:24px; margin:16px 0 20px; align-items:center;">
-          <div>
-            <strong style="font-size:20px;font-weight:700;color:#fff">32%</strong>
-            <span style="display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.4)">Conversión</span>
+      <div class="hero-stage">
+        <div class="hero-left">
+          <span class="hero-tag"><span class="hero-tag-dot"></span>AGENTES DE IA · AUTOMATIZACIÓN · ESTRATEGIA</span>
+          <h1 class="hero-title">
+            IA que <span class="hero-title-highlight">vende</span>,<br />
+            responde y<br />
+            automatiza 24/7
+          </h1>
+          <div class="hero-inline-metrics" aria-label="Métricas destacadas">
+            <div class="hero-inline-metrics-item">
+              <strong>32%</strong>
+              <span>Conversión</span>
+            </div>
+            <div class="hero-inline-metrics-item">
+              <strong>24/7</strong>
+              <span>Atención</span>
+            </div>
+            <div class="hero-inline-metrics-item">
+              <strong>87%</strong>
+              <span>Resolución</span>
+            </div>
           </div>
-          <div style="width:1px;height:32px;background:rgba(255,255,255,0.12)"></div>
-          <div>
-            <strong style="font-size:20px;font-weight:700;color:#fff">24/7</strong>
-            <span style="display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.4)">Atención</span>
+          <p class="hero-subtitle">
+            Implementamos agentes conversacionales a medida. Más leads, menos tareas manuales, atención siempre encendida.
+          </p>
+          <p class="hero-claim">Trabajamos con inmobiliarias, clínicas, transportistas y restaurantes en Chile, Argentina y México.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto">Quiero mi agente de IA</a>
+            <a class="hero-demo-link" href="#casos">Ver demo</a>
           </div>
-          <div style="width:1px;height:32px;background:rgba(255,255,255,0.12)"></div>
-          <div>
-            <strong style="font-size:20px;font-weight:700;color:#fff">87%</strong>
-            <span style="display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.4)">Resolución</span>
-          </div>
+          <ul class="hero-bullets">
+            <li>Implementación en semanas, no meses</li>
+            <li>Agente entrenado con tu negocio</li>
+            <li>Soporte y mejora continua incluidos</li>
+          </ul>
         </div>
-        <p class="hero-subtitle">
-          Implementamos agentes conversacionales a medida. Más leads, menos tareas manuales, atención siempre encendida.
-        </p>
-        <p class="hero-claim">Trabajamos con inmobiliarias, clínicas, transportistas y restaurantes en Chile, Argentina y México.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contacto">Quiero mi agente de IA</a>
-          <a class="hero-demo-link" href="#casos">Ver demo</a>
-        </div>
-        <ul class="hero-bullets">
-          <li>Implementación en semanas, no meses</li>
-          <li>Agente entrenado con tu negocio</li>
-          <li>Soporte y mejora continua incluidos</li>
-        </ul>
-      </div>
 
-      <div class="hero-right" style="
-        display:flex;
-        flex-direction:column;
-        gap:1rem;
-        align-items:center;
-        justify-content:center;
-        justify-self:end;
-        width:100%;
-        max-width:420px;
-        padding:2rem 0 2rem 0;
-        position:relative;
-        z-index:2;
-        overflow:visible;
-      ">
-        <div class="hero-panel chat-panel hero-panel-chat" aria-label="Chat animado del agente de Atinai" style="position:static; width:100%; max-width:420px; flex-shrink:0; margin:0 auto;">
+        <div class="hero-right">
+          <div class="hero-panel chat-panel hero-panel-chat hero-chat-card" aria-label="Chat animado del agente de Atinai">
           <div class="hero-chat-header">
             <div class="hero-chat-meta">
               <span class="hero-chat-avatar">AI</span>
@@ -1085,7 +1103,7 @@
           </div>
         </div>
 
-        <div class="hero-panel panel hero-panel-dashboard" aria-label="Dashboard animado de automatización" style="position:static; width:100%; max-width:420px; flex-shrink:0; margin:0 auto;">
+          <div class="hero-panel panel hero-panel-dashboard hero-dashboard-card" aria-label="Dashboard animado de automatización">
           <div class="hero-panel-top">
             <div class="hero-window-dots" aria-hidden="true">
               <span></span>
@@ -1126,6 +1144,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
 
