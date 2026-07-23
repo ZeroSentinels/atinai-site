@@ -955,6 +955,31 @@
       color:var(--chat--input--color)!important;
       border:1px solid rgba(245,184,0,0.12)!important;
     }
+    #n8n-chat textarea{
+      resize:none!important;
+      scrollbar-width:thin;
+      scrollbar-color:var(--chat--color-medium) var(--chat--input--background);
+    }
+    #n8n-chat textarea::-webkit-scrollbar{
+      width:12px;
+      height:12px;
+      background:var(--chat--input--background);
+    }
+    #n8n-chat textarea::-webkit-scrollbar-track,
+    #n8n-chat textarea::-webkit-scrollbar-corner{
+      background:var(--chat--input--background);
+    }
+    #n8n-chat textarea::-webkit-scrollbar-thumb{
+      background:var(--chat--color-medium);
+      border-radius:999px;
+      border:2px solid var(--chat--input--background);
+    }
+    #n8n-chat textarea::-webkit-scrollbar-button{
+      background:var(--chat--input--background);
+      height:0;
+      width:0;
+      display:none;
+    }
     #n8n-chat :is(textarea,input:not([type="hidden"]))::placeholder{
       color:var(--chat--input--placeholder--color)!important;
     }
