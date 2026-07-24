@@ -424,6 +424,28 @@ html[data-theme="light"] .btn-primary {
   box-shadow: 0 12px 26px rgba(216, 154, 0, 0.16) !important;
 }
 
+html[data-theme="light"] .logo-item {
+  background: linear-gradient(180deg, rgba(255, 250, 241, 0.98), rgba(245, 235, 216, 0.98)) !important;
+  border-color: rgba(172, 124, 18, 0.16) !important;
+  color: var(--text) !important;
+  box-shadow: 0 16px 32px rgba(82, 60, 12, 0.08) !important;
+}
+
+html[data-theme="light"] .logo-item:hover {
+  box-shadow: 0 18px 36px rgba(82, 60, 12, 0.12) !important;
+}
+
+html[data-theme="light"] .logo-meta {
+  color: rgba(97, 88, 74, 0.82) !important;
+}
+
+html[data-theme="light"] .logo-item-placeholder {
+  background: linear-gradient(135deg, rgba(216, 154, 0, 0.08), rgba(255, 248, 236, 0.96)) !important;
+  border-color: rgba(172, 124, 18, 0.24) !important;
+  color: var(--text-soft) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.66) !important;
+}
+
 html[data-theme="light"] .faq-item {
   background: linear-gradient(180deg, rgba(255, 250, 241, 0.96), rgba(245, 235, 216, 0.98)) !important;
   border-color: rgba(172, 124, 18, 0.18) !important;
