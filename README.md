@@ -30,6 +30,16 @@ El proyecto está conectado a Vercel. Cada push a `main` genera un **Production 
 - No se crean registros `_agents`, `_index._agents`, `_a2a._agents` ni variantes similares.
 - Esto solo debería reconsiderarse cuando exista un agente público real y documentado.
 
+## CSS de Tailwind
+
+Tailwind se sirve como CSS estático y no utiliza el CDN en producción. Después de agregar o cambiar clases en las páginas HTML, recompilá el archivo minificado:
+
+```bash
+npx --yes tailwindcss@3.4.17 -c tailwind.config.js -i assets/css/tailwind.input.css -o assets/css/tailwind.min.css --minify
+```
+
+El archivo generado debe quedar incluido en el commit porque Vercel publica el sitio sin ejecutar un build.
+
 ## Cómo actualizar el sitio
 ### Opción A: editar desde GitHub Web
 1. Abrí `index.html`, clic en **✏️ Edit**.
