@@ -41,19 +41,28 @@ Bots para equipos con foco en reportes, integraciones y tareas de backoffice.
 - Solución: ejecuta, notifica y documenta automáticamente
 - Resultado: más tiempo para lo estratégico
 
+## Impacto operativo
+
+Conectamos experiencia, automatización y datos para mejorar una parte concreta del negocio.
+
+- **Ventas:** captura, calificación y seguimiento sin sumar pasos manuales.
+- **Operaciones:** menos carga administrativa, menos errores y mejor trazabilidad.
+- **Atención:** autoservicio para lo frecuente y derivación con contexto cuando importa.
+- **Decisiones:** indicadores claros para priorizar la siguiente iteración.
+
 ## Servicios
 
 ### Agentes a medida
 
-Conversacionales, de soporte, recomendación y operación interna, conectados a tus sistemas.
+Conversaciones, soporte y operaciones conectadas a tu negocio.
 
-### Diseño web y estrategia digital
+### Automatización e integraciones
 
-Sitios modernos, rápidos y optimizados para conversión con SEO técnico y analítica integrada.
+Flujos que conectan herramientas, datos y equipos sin trabajo duplicado.
 
-### Plan de crecimiento
+### Web y experiencia digital
 
-Narrativa de marca, journey de usuario, campañas y automatizaciones de marketing.
+Sitios rápidos, medibles y preparados para convertir visitas en oportunidades.
 
 ## Secciones principales
 
