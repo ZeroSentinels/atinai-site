@@ -2796,8 +2796,8 @@ body textarea:focus {
 .client-carousel {
   overflow-x: auto;
   padding: 4px 2px 14px;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
+  scroll-behavior: auto;
+  scroll-snap-type: x proximity;
   scrollbar-width: none;
   cursor: grab;
   touch-action: auto;
@@ -2866,6 +2866,13 @@ body textarea:focus {
 
 .client-logo-frame-dark {
   background: #080808;
+}
+
+.client-logo-frame-dark img {
+  width: 132px;
+  max-width: 90%;
+  height: auto;
+  max-height: 86px;
 }
 
 .client-logo-frame img {

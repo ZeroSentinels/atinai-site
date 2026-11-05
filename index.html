@@ -841,7 +841,7 @@
             <span>Ferretería · Chile</span>
           </a>
           <a class="client-proof-item" href="https://www.milashouse.cl/" target="_blank" rel="noopener noreferrer">
-            <span class="client-logo-frame client-logo-frame-dark"><img src="assets/img/logo-milas-house-optimized.webp" alt="Mila's House" width="136" height="88" loading="lazy" decoding="async"></span>
+            <span class="client-logo-frame client-logo-frame-dark"><img src="assets/img/logo-milas-house-optimized.webp" alt="Mila's House" width="640" height="398" loading="lazy" decoding="async"></span>
             <strong>Mila's House</strong>
             <span>Alimentos · Chile</span>
           </a>
@@ -1223,43 +1223,69 @@
 
     (function () {
       const carousel = document.querySelector('[data-client-carousel]');
+      const track = carousel?.querySelector('.client-carousel-track');
       const previous = document.querySelector('[data-client-carousel-prev]');
       const next = document.querySelector('[data-client-carousel-next]');
-      if (!carousel || !previous || !next) return;
+      if (!carousel || !track || !previous || !next) return;
+
+      const originals = [...track.children];
+      const clones = originals.map((item) => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.tabIndex = -1;
+        clone.querySelectorAll('[tabindex], a, button').forEach((element) => {
+          element.tabIndex = -1;
+        });
+        track.appendChild(clone);
+        return clone;
+      });
 
       const scrollStep = () => Math.max(220, carousel.clientWidth * 0.72);
-      const updateControls = () => {
-        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-        previous.disabled = carousel.scrollLeft <= 2;
-        next.disabled = carousel.scrollLeft >= maxScroll - 2;
-      };
-
-      previous.addEventListener('click', () => {
-        carousel.scrollBy({ left: -scrollStep(), behavior: 'smooth' });
-      });
-      next.addEventListener('click', () => {
-        carousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
-      });
-      carousel.addEventListener('keydown', (event) => {
-        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-        event.preventDefault();
-        carousel.scrollBy({
-          left: event.key === 'ArrowLeft' ? -scrollStep() : scrollStep(),
-          behavior: 'smooth'
-        });
-      });
-
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let cycleWidth = 0;
       let pointerId = null;
       let startX = 0;
       let startScroll = 0;
       let suppressClick = false;
+      let hovering = false;
+      let focused = false;
+      let dragging = false;
+      let resumeAt = 0;
+
+      const measure = () => {
+        cycleWidth = clones[0].offsetLeft - originals[0].offsetLeft;
+      };
+      const pauseTemporarily = (duration = 3200) => {
+        resumeAt = performance.now() + duration;
+      };
+      const normalizePosition = () => {
+        if (!cycleWidth) return;
+        if (carousel.scrollLeft >= cycleWidth) carousel.scrollLeft -= cycleWidth;
+      };
+      const move = (direction) => {
+        pauseTemporarily();
+        if (direction < 0 && carousel.scrollLeft < scrollStep()) {
+          carousel.scrollLeft += cycleWidth;
+        }
+        carousel.scrollBy({ left: direction * scrollStep(), behavior: 'smooth' });
+      };
+
+      previous.addEventListener('click', () => move(-1));
+      next.addEventListener('click', () => move(1));
+      carousel.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        move(event.key === 'ArrowLeft' ? -1 : 1);
+      });
 
       carousel.addEventListener('pointerdown', (event) => {
+        pauseTemporarily();
         if (event.pointerType === 'touch') return;
         pointerId = event.pointerId;
         startX = event.clientX;
         startScroll = carousel.scrollLeft;
         suppressClick = false;
+        dragging = true;
         carousel.classList.add('is-dragging');
         carousel.setPointerCapture(pointerId);
       });
@@ -1274,7 +1300,9 @@
         if (event.pointerId !== pointerId) return;
         if (carousel.hasPointerCapture(pointerId)) carousel.releasePointerCapture(pointerId);
         pointerId = null;
+        dragging = false;
         carousel.classList.remove('is-dragging');
+        pauseTemporarily();
       };
       carousel.addEventListener('pointerup', stopDragging);
       carousel.addEventListener('pointercancel', stopDragging);
@@ -1285,16 +1313,23 @@
         suppressClick = false;
       }, true);
 
-      let frame = null;
-      carousel.addEventListener('scroll', () => {
-        if (frame) return;
-        frame = requestAnimationFrame(() => {
-          updateControls();
-          frame = null;
-        });
-      }, { passive: true });
-      window.addEventListener('resize', updateControls);
-      updateControls();
+      carousel.addEventListener('mouseenter', () => { hovering = true; });
+      carousel.addEventListener('mouseleave', () => { hovering = false; });
+      carousel.addEventListener('focusin', () => { focused = true; });
+      carousel.addEventListener('focusout', (event) => {
+        focused = carousel.contains(event.relatedTarget);
+      });
+
+      const autoAdvance = () => {
+        const paused = reducedMotion.matches || hovering || focused || dragging || document.hidden || performance.now() < resumeAt;
+        if (paused || !cycleWidth) return;
+        normalizePosition();
+        carousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
+      };
+
+      measure();
+      window.addEventListener('resize', measure);
+      window.setInterval(autoAdvance, 3000);
     })();
 
     (function () {
