@@ -101,10 +101,11 @@ Todos los planes incluyen onboarding guiado y no requieren contrato de permanenc
 
 > "Atinai lanzó nuestra nueva web y un agente que responde leads en minutos. Aumentamos la conversión en un 30% sin aumentar la carga del equipo." — Stephan Bieler, Gerente General, Transportes Bieler
 
+Trabajo realizado: nueva experiencia web y agente de respuesta a leads.
+
 ## Contacto
 
-- [Formulario de contacto de Atinai](https://www.atinai.com/#contacto)
-- [Chat en vivo de Atinai](https://www.atinai.com/#contacto)
+- [Solicitar un diagnóstico inicial](https://www.atinai.com/#contacto)
 - Email público: info@atinai.com
 - Respuesta en menos de 24 horas
 - Llamada de diagnóstico sin costo
