@@ -98,6 +98,7 @@ Todos los planes incluyen onboarding guiado y no requieren contrato de permanenc
 - Ecobombilla — E-commerce, Chile
 - Dataseed — Datos e IA, Chile
 - Ferretería Santos — Ferretería, Chile
+- Mila's House — Alimentos, Chile
 
 > "Atinai lanzó nuestra nueva web y un agente que responde leads en minutos. Aumentamos la conversión en un 30% sin aumentar la carga del equipo." — Stephan Bieler, Gerente General, Transportes Bieler
 

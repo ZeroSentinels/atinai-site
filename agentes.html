@@ -51,7 +51,7 @@
     }
   </script>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <style>
     :root {
       --crema: #0c0c0c;
@@ -804,12 +804,14 @@
     </div>
   </main>
 
+  <button class="chat-lazy-launcher" type="button" data-chat-launcher data-open-chat aria-label="Abrir chat con el agente de Atinai">AI</button>
   <div id="n8n-chat"></div>
 
   <script src="theme.js"></script>
   <script type="module">
     let chat = null;
     let chatBootPromise = null;
+    let chatStylesPromise = null;
     const chatRoot = document.getElementById('n8n-chat');
     const urlRegex = /https?:\/\/[^\s<]+/g;
     const urlTest = /https?:\/\/[^\s<]+/;
@@ -865,10 +867,29 @@
       linkifyChat(chatRoot);
     }
 
+    function loadChatStyles() {
+      if (chatStylesPromise) return chatStylesPromise;
+
+      chatStylesPromise = new Promise((resolve, reject) => {
+        const stylesheet = document.createElement('link');
+        stylesheet.rel = 'stylesheet';
+        stylesheet.href = 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css';
+        stylesheet.onload = resolve;
+        stylesheet.onerror = reject;
+        document.head.appendChild(stylesheet);
+      });
+
+      return chatStylesPromise;
+    }
+
     function bootChat() {
       if (chatBootPromise) return chatBootPromise;
-      chatBootPromise = import('https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js')
-        .then(({ createChat }) => {
+
+      chatBootPromise = Promise.all([
+        loadChatStyles(),
+        import('https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js')
+      ])
+        .then(([, { createChat }]) => {
           chat = createChat({
             webhookUrl: 'https://smartialab.app.n8n.cloud/webhook/5326e2ba-0e9a-4f0f-b3b2-1347140ce359/chat',
             target: '#n8n-chat',
@@ -893,6 +914,7 @@
               cmp: new URLSearchParams(location.search).get('cmp') || undefined
             }
           });
+          document.querySelector('[data-chat-launcher]')?.remove();
           setupChatEnhancements();
           return chat;
         })
@@ -990,8 +1012,6 @@
       e.preventDefault();
       openChatWindow();
     }, true);
-
-    bootChat();
 
     const qs = new URLSearchParams(location.search);
     if (qs.get('openChat') === '1') {

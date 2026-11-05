@@ -154,10 +154,7 @@
   </script>
 
   <link rel="stylesheet" href="styles.css" />
-
-
-  <!-- n8n Chat CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
 
   <!-- Overrides del theme del widget (scope en #n8n-chat) -->
   <style>
@@ -807,30 +804,48 @@
 
       <div class="client-proof">
         <div class="client-proof-heading">
-          <p>Proyectos y empresas que confiaron en nuestro trabajo</p>
-          <span>Chile · Diferentes industrias</span>
+          <div>
+            <p>Proyectos y empresas que confiaron en nuestro trabajo</p>
+            <span>Chile · Diferentes industrias</span>
+          </div>
+          <div class="client-carousel-controls" aria-label="Controles del carrusel de clientes">
+            <button type="button" data-client-carousel-prev aria-label="Ver clientes anteriores">←</button>
+            <button type="button" data-client-carousel-next aria-label="Ver más clientes">→</button>
+          </div>
         </div>
-        <div class="client-proof-grid">
+        <div class="client-carousel" data-client-carousel tabindex="0" role="region" aria-label="Clientes de Atinai">
+          <div class="client-carousel-track">
           <a class="client-proof-item" href="https://tbieler.cl/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/img/logo-transportes-bieler.svg" alt="Transportes Bieler" loading="lazy" decoding="async">
-            <span>Transporte</span>
+            <span class="client-logo-frame"><img src="assets/img/logo-transportes-bieler.svg" alt="Transportes Bieler" width="88" height="88" loading="lazy" decoding="async"></span>
+            <strong>Transportes Bieler</strong>
+            <span>Transporte · Chile</span>
           </a>
           <a class="client-proof-item" href="https://www.turkishkebab.cl/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/img/logo-turkish.png" alt="Turkish Kebab" loading="lazy" decoding="async">
-            <span>Restaurantes</span>
+            <span class="client-logo-frame"><img src="assets/img/logo-turkish-optimized.webp" alt="Turkish Kebab" width="320" height="320" loading="lazy" decoding="async"></span>
+            <strong>Turkish Kebab</strong>
+            <span>Restaurantes · Chile</span>
           </a>
           <a class="client-proof-item" href="https://ecobombilla.cl/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/img/ecobombilla-logo.png" alt="Ecobombilla" loading="lazy" decoding="async">
-            <span>E-commerce</span>
+            <span class="client-logo-frame"><img src="assets/img/ecobombilla-logo-optimized.webp" alt="Ecobombilla" width="320" height="213" loading="lazy" decoding="async"></span>
+            <strong>Ecobombilla</strong>
+            <span>E-commerce · Chile</span>
           </a>
           <a class="client-proof-item" href="https://dataseed.cl/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/img/logo-dataseed.png" alt="Dataseed" loading="lazy" decoding="async">
-            <span>Datos e IA</span>
+            <span class="client-logo-frame"><img src="assets/img/logo-dataseed-optimized.webp" alt="Dataseed" width="320" height="320" loading="lazy" decoding="async"></span>
+            <strong>Dataseed</strong>
+            <span>Datos e IA · Chile</span>
           </a>
           <a class="client-proof-item" href="https://ferreteriasantos.cl/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/img/santos.png" alt="Ferretería Santos" loading="lazy" decoding="async">
-            <span>Ferretería</span>
+            <span class="client-logo-frame"><img src="assets/img/santos-optimized.webp" alt="Ferretería Santos" width="320" height="320" loading="lazy" decoding="async"></span>
+            <strong>Ferretería Santos</strong>
+            <span>Ferretería · Chile</span>
           </a>
+          <a class="client-proof-item" href="https://www.milashouse.cl/" target="_blank" rel="noopener noreferrer">
+            <span class="client-logo-frame client-logo-frame-dark"><img src="assets/img/logo-milas-house-optimized.webp" alt="Mila's House" width="136" height="88" loading="lazy" decoding="async"></span>
+            <strong>Mila's House</strong>
+            <span>Alimentos · Chile</span>
+          </a>
+          </div>
         </div>
       </div>
     </section>
@@ -977,6 +992,8 @@
     </div>
   </footer>
 
+  <button class="chat-lazy-launcher" type="button" data-chat-launcher data-open-chat aria-label="Abrir chat con el agente de Atinai">AI</button>
+
   <!-- Contenedor del widget -->
   <div id="n8n-chat"></div>
 
@@ -984,6 +1001,7 @@
   <script type="module">
     let chat = null;
     let chatBootPromise = null;
+    let chatStylesPromise = null;
     const chatRoot = document.getElementById('n8n-chat');
     const urlRegex = /https?:\/\/[^\s<]+/g;
     const urlTest = /https?:\/\/[^\s<]+/;
@@ -1045,10 +1063,29 @@
       linkifyChat(chatRoot);
     }
 
+    function loadChatStyles() {
+      if (chatStylesPromise) return chatStylesPromise;
+
+      chatStylesPromise = new Promise((resolve, reject) => {
+        const stylesheet = document.createElement('link');
+        stylesheet.rel = 'stylesheet';
+        stylesheet.href = 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css';
+        stylesheet.onload = resolve;
+        stylesheet.onerror = reject;
+        document.head.appendChild(stylesheet);
+      });
+
+      return chatStylesPromise;
+    }
+
     function bootChat() {
       if (chatBootPromise) return chatBootPromise;
-      chatBootPromise = import('https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js')
-        .then(({ createChat }) => {
+
+      chatBootPromise = Promise.all([
+        loadChatStyles(),
+        import('https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js')
+      ])
+        .then(([, { createChat }]) => {
           chat = createChat({
             webhookUrl: 'https://smartialab.app.n8n.cloud/webhook/5326e2ba-0e9a-4f0f-b3b2-1347140ce359/chat',
             target: '#n8n-chat',
@@ -1073,6 +1110,7 @@
               cmp: new URLSearchParams(location.search).get('cmp') || undefined
             }
           });
+          document.querySelector('[data-chat-launcher]')?.remove();
           setupChatEnhancements();
           return chat;
         })
@@ -1172,8 +1210,6 @@
       openChatWindow();
     }, true);
 
-    bootChat();
-
     // Deep link para campañas: ?openChat=1
     const qs = new URLSearchParams(location.search);
     if (qs.get('openChat') === '1') {
@@ -1184,6 +1220,82 @@
   <!-- Script extra: año -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+      const carousel = document.querySelector('[data-client-carousel]');
+      const previous = document.querySelector('[data-client-carousel-prev]');
+      const next = document.querySelector('[data-client-carousel-next]');
+      if (!carousel || !previous || !next) return;
+
+      const scrollStep = () => Math.max(220, carousel.clientWidth * 0.72);
+      const updateControls = () => {
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        previous.disabled = carousel.scrollLeft <= 2;
+        next.disabled = carousel.scrollLeft >= maxScroll - 2;
+      };
+
+      previous.addEventListener('click', () => {
+        carousel.scrollBy({ left: -scrollStep(), behavior: 'smooth' });
+      });
+      next.addEventListener('click', () => {
+        carousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
+      });
+      carousel.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        carousel.scrollBy({
+          left: event.key === 'ArrowLeft' ? -scrollStep() : scrollStep(),
+          behavior: 'smooth'
+        });
+      });
+
+      let pointerId = null;
+      let startX = 0;
+      let startScroll = 0;
+      let suppressClick = false;
+
+      carousel.addEventListener('pointerdown', (event) => {
+        if (event.pointerType === 'touch') return;
+        pointerId = event.pointerId;
+        startX = event.clientX;
+        startScroll = carousel.scrollLeft;
+        suppressClick = false;
+        carousel.classList.add('is-dragging');
+        carousel.setPointerCapture(pointerId);
+      });
+      carousel.addEventListener('pointermove', (event) => {
+        if (event.pointerId !== pointerId) return;
+        const distance = event.clientX - startX;
+        if (Math.abs(distance) > 5) suppressClick = true;
+        carousel.scrollLeft = startScroll - distance;
+      });
+
+      const stopDragging = (event) => {
+        if (event.pointerId !== pointerId) return;
+        if (carousel.hasPointerCapture(pointerId)) carousel.releasePointerCapture(pointerId);
+        pointerId = null;
+        carousel.classList.remove('is-dragging');
+      };
+      carousel.addEventListener('pointerup', stopDragging);
+      carousel.addEventListener('pointercancel', stopDragging);
+      carousel.addEventListener('click', (event) => {
+        if (!suppressClick) return;
+        event.preventDefault();
+        event.stopPropagation();
+        suppressClick = false;
+      }, true);
+
+      let frame = null;
+      carousel.addEventListener('scroll', () => {
+        if (frame) return;
+        frame = requestAnimationFrame(() => {
+          updateControls();
+          frame = null;
+        });
+      }, { passive: true });
+      window.addEventListener('resize', updateControls);
+      updateControls();
+    })();
 
     (function () {
       const header = document.querySelector('header');
