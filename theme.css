@@ -55,10 +55,19 @@ html[data-theme="dark"] .nav-link:hover {
 }
 
 html[data-theme="dark"] #home.hero {
+  background: transparent !important;
+}
+
+html[data-theme="dark"] #home .hero-container {
   background:
-    radial-gradient(circle at top left, rgba(245, 184, 0, 0.16), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(245, 184, 0, 0.10), transparent 28%),
-    linear-gradient(180deg, #0d0d0f 0%, #111115 58%, #0b0b0d 100%) !important;
+    radial-gradient(circle at 8% 8%, rgba(245, 184, 0, 0.11), transparent 34%),
+    linear-gradient(145deg, rgba(17, 17, 19, 0.98), rgba(10, 10, 12, 0.98)) !important;
+  border-color: rgba(245, 184, 0, 0.16) !important;
+}
+
+html[data-theme="dark"] #home .hero-right {
+  background: rgba(5, 5, 7, 0.42) !important;
+  border-color: rgba(245, 184, 0, 0.14) !important;
 }
 
 html[data-theme="dark"] #home.hero::before,
@@ -325,10 +334,20 @@ html[data-theme="light"] .nav-link:hover {
 }
 
 html[data-theme="light"] #home.hero {
+  background: transparent !important;
+}
+
+html[data-theme="light"] #home .hero-container {
   background:
-    radial-gradient(circle at top left, rgba(216, 154, 0, 0.10), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(216, 154, 0, 0.08), transparent 26%),
-    linear-gradient(180deg, #fffdf8 0%, #fbf7ee 58%, #f4ead7 100%) !important;
+    radial-gradient(circle at 8% 8%, rgba(216, 154, 0, 0.10), transparent 34%),
+    linear-gradient(145deg, rgba(255, 253, 248, 0.99), rgba(247, 239, 225, 0.98)) !important;
+  border-color: rgba(172, 124, 18, 0.16) !important;
+  box-shadow: 0 30px 80px rgba(82, 60, 12, 0.10) !important;
+}
+
+html[data-theme="light"] #home .hero-right {
+  background: rgba(255, 251, 244, 0.7) !important;
+  border-color: rgba(172, 124, 18, 0.16) !important;
 }
 
 html[data-theme="light"] #home.hero::before,
