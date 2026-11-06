@@ -41,7 +41,7 @@
     "areaServed": ["Chile", "Argentina", "México"],
     "serviceType": ["Agentes de IA", "Automatización", "Diseño web", "Estrategia digital"],
     "sameAs": [
-      "https://www.instagram.com/atinai.ai/?utm_source=ig_web_copy_link"
+      "https://www.instagram.com/atinai.ai/"
     ]
   }
   </script>
@@ -139,123 +139,7 @@
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
 
   <!-- Overrides del theme del widget (scope en #n8n-chat) -->
-  <style>
-    #n8n-chat{
-      --chat--font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-
-      --chat--color-primary:#F5B800;
-      --chat--color-primary-shade-50:#D8A100;
-      --chat--color-primary-shade-100:#B88900;
-
-      --chat--color-secondary:#1A1A1A;
-      --chat--color-secondary-shade-50:#111111;
-
-      --chat--color-white:#ffffff;
-      --chat--color-light:#121212;
-      --chat--color-light-shade-50:#181818;
-      --chat--color-light-shade-100:#232323;
-      --chat--color-medium:#5E4A14;
-      --chat--color-dark:#F6EFDF;
-      --chat--color-disabled:#7C7463;
-
-      --chat--window--width:420px;
-      --chat--window--height:620px;
-      --chat--border-radius:20px;
-      --chat--window--border:1px solid rgba(245,184,0,0.14);
-
-      --chat--toggle--size:56px;
-      --chat--toggle--background:var(--chat--color-primary);
-      --chat--toggle--hover--background:var(--chat--color-primary-shade-50);
-      --chat--toggle--active--background:var(--chat--color-primary-shade-100);
-      --chat--toggle--color:#0C0C0C;
-
-      --chat--header--background:var(--chat--color-light-shade-50);
-      --chat--header--color:#F6EFDF;
-
-      --chat--message--user--background:var(--chat--color-primary);
-      --chat--message--user--color:#0C0C0C;
-      --chat--message--user--border:1px solid rgba(245,184,0,0.18);
-      --chat--message--bot--background:#1A1A1A;
-      --chat--message--bot--color:var(--chat--color-dark);
-      --chat--message--bot--border:1px solid rgba(245,184,0,0.08);
-
-      --chat--input--background:#121212;
-      --chat--input--color:var(--chat--color-dark);
-      --chat--input--placeholder--color:#7C7463;
-      --chat--input--send--button--background:var(--chat--color-primary);
-      --chat--input--send--button--color:#0C0C0C;
-      --chat--input--send--button--background-hover:var(--chat--color-primary-shade-50);
-      --chat--input--send--button--color-hover:#0C0C0C;
-      --chat--body--background:#0F0F13;
-      --chat--footer--background:#111115;
-      --chat--footer--color:var(--chat--color-dark);
-
-      --chat--button--background:var(--chat--color-secondary);
-      --chat--button--color:#F6EFDF;
-
-      --chat--loader--color:var(--chat--color-secondary);
-    }
-    #n8n-chat :is(header,.header,[data-role="header"]){
-      background:var(--chat--header--background)!important;
-      color:var(--chat--header--color)!important;
-    }
-    #n8n-chat .chat-window{
-      background:var(--chat--body--background)!important;
-      box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,184,0,0.12);
-    }
-    #n8n-chat :is(.chat-layout,.chat-body,.chat-messages-list,[data-role="body"]){
-      background:var(--chat--body--background)!important;
-      color:var(--chat--color-dark)!important;
-    }
-    #n8n-chat :is(footer,.chat-footer,[data-role="footer"]){
-      background:var(--chat--footer--background)!important;
-      color:var(--chat--footer--color)!important;
-      border-top:1px solid rgba(245,184,0,0.10)!important;
-    }
-    #n8n-chat :is(textarea,input:not([type="hidden"]),[contenteditable="true"]){
-      background:var(--chat--input--background)!important;
-      color:var(--chat--input--color)!important;
-      border:1px solid rgba(245,184,0,0.12)!important;
-    }
-    #n8n-chat textarea{
-      resize:none!important;
-      scrollbar-width:thin;
-      scrollbar-color:var(--chat--color-medium) var(--chat--input--background);
-    }
-    #n8n-chat textarea::-webkit-scrollbar{
-      width:12px;
-      height:12px;
-      background:var(--chat--input--background);
-    }
-    #n8n-chat textarea::-webkit-scrollbar-track,
-    #n8n-chat textarea::-webkit-scrollbar-corner{
-      background:var(--chat--input--background);
-    }
-    #n8n-chat textarea::-webkit-scrollbar-thumb{
-      background:var(--chat--color-medium);
-      border-radius:999px;
-      border:2px solid var(--chat--input--background);
-    }
-    #n8n-chat textarea::-webkit-scrollbar-button{
-      background:var(--chat--input--background);
-      height:0;
-      width:0;
-      display:none;
-    }
-    #n8n-chat :is(textarea,input:not([type="hidden"]))::placeholder{
-      color:var(--chat--input--placeholder--color)!important;
-    }
-    #n8n-chat .chat-message.chat-message-from-bot:not(.chat-message-transparent){
-      background:var(--chat--message--bot--background)!important;
-      color:var(--chat--message--bot--color)!important;
-      border:var(--chat--message--bot--border)!important;
-    }
-    #n8n-chat .chat-message.chat-message-from-user:not(.chat-message-transparent){
-      background:var(--chat--message--user--background)!important;
-      color:var(--chat--message--user--color)!important;
-      border:var(--chat--message--user--border)!important;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/home-chat.css" />
   <link rel="stylesheet" href="theme.css" />
 </head>
 
@@ -272,7 +156,6 @@
         <a href="/#beneficios" class="nav-link">Beneficios</a>
         <a href="/servicios" class="nav-link">Servicios</a>
         <a href="/#precios" class="nav-link">Planes</a>
-        <a href="/#proceso" class="nav-link">Proceso</a>
         <a href="/#casos" class="nav-link">Casos</a>
         <a href="/#contacto" class="nav-link">Contacto</a>
       </nav>
@@ -295,7 +178,6 @@
         <a href="/#beneficios" class="nav-link">Beneficios</a>
         <a href="/servicios" class="nav-link">Servicios</a>
         <a href="/#precios" class="nav-link">Planes</a>
-        <a href="/#proceso" class="nav-link">Proceso</a>
         <a href="/#casos" class="nav-link">Casos</a>
         <a href="/#contacto" class="nav-link">Contacto</a>
       </nav>
@@ -538,44 +420,6 @@
             </article>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- PROCESO -->
-    <section id="proceso" class="max-w-6xl mx-auto px-4 py-14 md:py-16 border-t border-crema-100">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-semibold">No necesitás saber de tecnología. Nosotros llevamos todo.</h2>
-          <p class="mt-2 text-stone-700 md:text-lg">Desde el diagnóstico hasta que el agente esté respondiendo clientes: diseño, implementación, entrenamiento y soporte en un solo proceso.</p>
-        </div>
-        <a href="#contacto" class="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:underline">Agendar una reunión →</a>
-      </div>
-      <div class="mt-8 grid md:grid-cols-5 gap-4">
-        <article class="p-4 rounded-2xl border border-crema-100 bg-white/70 shadow-soft">
-          <p class="text-xs uppercase text-stone-500 tracking-wide">1. Diagnóstico</p>
-          <h3 class="font-semibold mt-2">Objetivos y KPIs</h3>
-          <p class="text-sm text-stone-700 mt-1">Casos de uso, datos disponibles, riesgos y éxito esperado.</p>
-        </article>
-        <article class="p-4 rounded-2xl border border-crema-100 bg-white/70 shadow-soft">
-          <p class="text-xs uppercase text-stone-500 tracking-wide">2. Arquitectura</p>
-          <h3 class="font-semibold mt-2">Flujos + integraciones</h3>
-          <p class="text-sm text-stone-700 mt-1">Diseño UX, prompts, guardrails y conexiones con tus sistemas.</p>
-        </article>
-        <article class="p-4 rounded-2xl border border-crema-100 bg-white/70 shadow-soft">
-          <p class="text-xs uppercase text-stone-500 tracking-wide">3. Desarrollo</p>
-          <h3 class="font-semibold mt-2">MVP en semanas</h3>
-          <p class="text-sm text-stone-700 mt-1">Web y agentes listos para testear con usuarios reales.</p>
-        </article>
-        <article class="p-4 rounded-2xl border border-crema-100 bg-white/70 shadow-soft">
-          <p class="text-xs uppercase text-stone-500 tracking-wide">4. Entrenamiento</p>
-          <h3 class="font-semibold mt-2">Datos y QA</h3>
-          <p class="text-sm text-stone-700 mt-1">Dataset curado, feedback humano y pruebas de calidad.</p>
-        </article>
-        <article class="p-4 rounded-2xl border border-crema-100 bg-white/70 shadow-soft">
-          <p class="text-xs uppercase text-stone-500 tracking-wide">5. Soporte</p>
-          <h3 class="font-semibold mt-2">Mejora continua</h3>
-          <p class="text-sm text-stone-700 mt-1">Monitoreo, reportes y nuevas iteraciones para crecer.</p>
-        </article>
       </div>
     </section>
 
@@ -952,7 +796,6 @@
         <nav class="site-footer-column" aria-label="Recursos">
           <h3 class="site-footer-heading">Recursos</h3>
           <div class="site-footer-links">
-            <a href="#proceso">Proceso</a>
             <a href="#casos">Casos</a>
           </div>
         </nav>
@@ -961,9 +804,7 @@
           <h3 class="site-footer-heading">Contacto</h3>
           <div class="site-footer-links">
             <a href="#contacto">Contacto</a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
-            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">X</a>
-            <a href="https://www.instagram.com/atinai.ai/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+            <a href="https://www.instagram.com/atinai.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
           </div>
         </nav>
       </div>
@@ -974,7 +815,7 @@
     </div>
   </footer>
 
-  <button class="chat-lazy-launcher" type="button" data-chat-launcher data-open-chat aria-label="Abrir chat con el agente de Atinai">AI</button>
+  <button class="chat-lazy-launcher" type="button" data-chat-launcher data-open-chat aria-label="AI: abrir chat con el agente de Atinai">AI</button>
 
   <!-- Contenedor del widget -->
   <div id="n8n-chat"></div>

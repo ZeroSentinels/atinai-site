@@ -40,6 +40,13 @@ npx --yes tailwindcss@3.4.17 -c tailwind.config.js -i assets/css/tailwind.input.
 
 El archivo generado debe quedar incluido en el commit porque Vercel publica el sitio sin ejecutar un build.
 
+## Arquitectura CSS
+
+- `styles.css` contiene la base compartida del sitio.
+- `assets/css/*-page.css` contiene los estilos propios de cada landing.
+- `assets/css/chat.css` contiene la configuracion compartida del chat; `home-chat.css` conserva la variante especifica de la Home.
+- `theme.css` se carga al final para mantener los overrides de tema claro y oscuro.
+
 ## Cómo actualizar el sitio
 ### Opción A: editar desde GitHub Web
 1. Abrí `index.html`, clic en **✏️ Edit**.

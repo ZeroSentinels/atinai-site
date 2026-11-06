@@ -83,14 +83,6 @@ Sitios rápidos, medibles y preparados para convertir visitas en oportunidades.
 
 Todos los planes incluyen onboarding guiado y no requieren contrato de permanencia.
 
-## Proceso
-
-1. **Diagnóstico**: objetivos, KPIs, casos de uso y datos disponibles.
-2. **Arquitectura**: flujos, prompts, guardrails e integraciones.
-3. **Desarrollo**: MVP en semanas listo para testear.
-4. **Entrenamiento**: dataset curado y QA.
-5. **Soporte**: monitoreo, reportes y mejora continua.
-
 ## Clientes
 
 - Transportes Bieler — Transporte, Chile

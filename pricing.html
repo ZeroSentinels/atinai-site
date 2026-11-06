@@ -19,25 +19,25 @@
   <title>Atinai | Planes y Precios de Agentes de IA y Automatización</title>
   <meta name="description" content="Revisa los planes y precios de Atinai para agentes de IA, automatización e infraestructura web. Opciones desde USD 29/mes para pymes en LATAM." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <link rel="canonical" href="https://atinai.com/pricing.html" />
+  <link rel="canonical" href="https://www.atinai.com/pricing.html" />
   <meta name="author" content="Atinai" />
   <meta property="og:title" content="Atinai | Planes y Precios de Agentes de IA y Automatización" />
   <meta property="og:description" content="Conoce los planes de agentes de IA, automatización e infraestructura web de Atinai para pymes en Chile, Argentina y México." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://atinai.com/pricing.html" />
+  <meta property="og:url" content="https://www.atinai.com/pricing.html" />
   <meta property="og:site_name" content="Atinai" />
   <meta property="og:locale" content="es_CL" />
-  <meta property="og:image" content="https://atinai.com/assets/img/49163.png" />
+  <meta property="og:image" content="https://www.atinai.com/assets/img/banner-principal-tech.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Atinai | Planes y Precios de Agentes de IA y Automatización" />
   <meta name="twitter:description" content="Planes desde USD 29/mes para agentes de IA, automatización e infraestructura web para pymes en LATAM." />
-  <meta name="twitter:image" content="https://atinai.com/assets/img/49163.png" />
+  <meta name="twitter:image" content="https://www.atinai.com/assets/img/banner-principal-tech.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Planes y precios de Atinai",
-    "url": "https://atinai.com/pricing.html",
+    "url": "https://www.atinai.com/pricing.html",
     "description": "Planes de agentes de IA, automatización e infraestructura web para pymes en LATAM."
   }
   </script>
@@ -79,327 +79,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/tailwind.min.css" />
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-  <style>
-    :root {
-      --crema: #0C0C0C;
-      --card: linear-gradient(180deg, rgba(21, 21, 21, 0.92), rgba(10, 10, 10, 0.96));
-      --text: #F6EFDF;
-      --text-muted: #B8AB8A;
-      --primary: #F5B800;
-      --primary-text: #0C0C0C;
-      --chip-bg: rgba(245, 184, 0, 0.14);
-      --chip-text: #FFD76A;
-      --shadow-soft: 0 28px 70px rgba(0, 0, 0, 0.45);
-      --border: rgba(245, 184, 0, 0.18);
-      --border-strong: rgba(245, 184, 0, 0.38);
-      --radius: 24px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Manrope', system-ui, -apple-system, Segoe UI, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(245, 184, 0, 0.18), transparent 26%),
-        radial-gradient(circle at 84% 10%, rgba(245, 184, 0, 0.12), transparent 20%),
-        linear-gradient(180deg, #121212 0%, #0C0C0C 44%, #090909 100%);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    .pricing-section {
-      padding: 72px 24px 88px;
-    }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: grid;
-      gap: 40px;
-    }
-
-    .section-header {
-      display: grid;
-      gap: 12px;
-      max-width: 640px;
-    }
-
-    .section-title {
-      font-size: clamp(28px, 3vw, 36px);
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .section-subtitle {
-      font-size: 16px;
-      color: var(--text-muted);
-    }
-
-    .pricing-note {
-      font-size: 13px;
-      color: var(--chip-text);
-      background: rgba(245, 184, 0, 0.08);
-      border: 1px solid rgba(245, 184, 0, 0.24);
-      border-radius: 999px;
-      padding: 8px 12px;
-      display: inline-flex;
-      width: fit-content;
-    }
-
-    .pricing-grid {
-      display: grid;
-      gap: 20px;
-    }
-
-    .plan-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      backdrop-filter: blur(16px);
-    }
-
-    .plan-card.is-featured {
-      background: linear-gradient(180deg, rgba(245, 184, 0, 0.1), rgba(16, 16, 16, 0.96) 30%, rgba(10, 10, 10, 0.96));
-      border-color: var(--border-strong);
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(245, 184, 0, 0.08);
-    }
-
-    .plan-badge {
-      align-self: flex-start;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: var(--chip-bg);
-      color: var(--chip-text);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .plan-name {
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    .plan-desc {
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    .plan-price {
-      display: grid;
-      gap: 6px;
-    }
-
-    .price-usd {
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    .price-clp {
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-
-    .plan-features {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    .plan-features li {
-      position: relative;
-      padding-left: 18px;
-    }
-
-    .plan-features li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.55em;
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--primary);
-      box-shadow: 0 0 12px rgba(245, 184, 0, 0.24);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: var(--primary-text);
-      border-color: rgba(255, 232, 173, 0.34);
-      box-shadow: 0 18px 34px rgba(245, 184, 0, 0.24);
-    }
-
-    .btn-secondary {
-      background: rgba(15, 15, 15, 0.82);
-      color: var(--text);
-      border-color: var(--border);
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(12px);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .block {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      gap: 16px;
-    }
-
-    .block-title {
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    .block-text {
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    .addon-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .addon-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 16px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background: rgba(245, 184, 0, 0.08);
-      font-size: 14px;
-      color: var(--text);
-    }
-
-    .annual-card {
-      background: linear-gradient(180deg, rgba(245, 184, 0, 0.08), rgba(20, 20, 20, 0.94));
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius);
-      padding: 22px 24px;
-      display: grid;
-      gap: 8px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .cta-card {
-      background: linear-gradient(135deg, rgba(245, 184, 0, 0.14), rgba(17, 17, 17, 0.96) 34%, rgba(10, 10, 10, 0.96));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      display: grid;
-      gap: 16px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .cta-title {
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    @media (min-width: 720px) {
-      .pricing-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .addon-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (min-width: 1080px) {
-      .pricing-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .cta-card {
-        grid-template-columns: 1fr auto;
-        align-items: center;
-      }
-
-      .cta-card .btn {
-        width: auto;
-      }
-    }
-  </style>
-  <style>
-    #n8n-chat{
-      --chat--font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      --chat--color-primary:#F5B800;
-      --chat--color-primary-shade-50:#D8A100;
-      --chat--color-primary-shade-100:#B88900;
-      --chat--color-secondary:#1A1A1A;
-      --chat--color-secondary-shade-50:#111111;
-      --chat--color-white:#ffffff;
-      --chat--color-light:#121212;
-      --chat--color-light-shade-50:#181818;
-      --chat--color-light-shade-100:#232323;
-      --chat--color-medium:#5E4A14;
-      --chat--color-dark:#F6EFDF;
-      --chat--color-disabled:#7C7463;
-      --chat--window--width:420px;
-      --chat--window--height:620px;
-      --chat--border-radius:20px;
-      --chat--toggle--size:56px;
-      --chat--toggle--background:var(--chat--color-primary);
-      --chat--toggle--hover--background:var(--chat--color-primary-shade-50);
-      --chat--toggle--active--background:var(--chat--color-primary-shade-100);
-      --chat--toggle--color:#0C0C0C;
-      --chat--header--background:var(--chat--color-light-shade-50);
-      --chat--header--color:#F6EFDF;
-      --chat--message--user--background:var(--chat--color-primary);
-      --chat--message--user--color:#0C0C0C;
-      --chat--message--bot--background:#1A1A1A;
-      --chat--message--bot--color:var(--chat--color-dark);
-      --chat--input--background:#121212;
-      --chat--input--color:var(--chat--color-dark);
-      --chat--input--placeholder--color:#7C7463;
-      --chat--button--background:var(--chat--color-secondary);
-      --chat--button--color:#F6EFDF;
-      --chat--loader--color:var(--chat--color-secondary);
-    }
-    #n8n-chat :is(header,.header,[data-role="header"]){
-      background:var(--chat--header--background)!important;
-      color:var(--chat--header--color)!important;
-    }
-    #n8n-chat .chat-window{
-      box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,184,0,0.12);
-    }
-  </style>
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/pricing-page.css" />
+  <link rel="stylesheet" href="assets/css/chat.css" />
   <link rel="stylesheet" href="theme.css">
 </head>
 <body class="bg-vanilla-50 text-ink">
@@ -414,7 +96,6 @@
         <a href="/#beneficios" class="nav-link">Beneficios</a>
         <a href="/servicios.html" class="nav-link">Servicios</a>
         <a href="/#precios" class="nav-link">Planes</a>
-        <a href="/#proceso" class="nav-link">Proceso</a>
         <a href="/#casos" class="nav-link">Casos</a>
         <a href="/#contacto" class="nav-link">Contacto</a>
       </nav>
@@ -437,7 +118,6 @@
         <a href="/#beneficios" class="nav-link">Beneficios</a>
         <a href="/servicios.html" class="nav-link">Servicios</a>
         <a href="/#precios" class="nav-link">Planes</a>
-        <a href="/#proceso" class="nav-link">Proceso</a>
         <a href="/#casos" class="nav-link">Casos</a>
         <a href="/#contacto" class="nav-link">Contacto</a>
       </nav>
@@ -558,12 +238,14 @@
       </div>
     </div>
   </section>
+  <button class="chat-lazy-launcher" type="button" data-chat-launcher data-open-chat aria-label="AI: abrir chat con el agente de Atinai">AI</button>
   <div id="n8n-chat"></div>
 
   <script src="theme.js"></script>
   <script type="module">
     let chat = null;
     let chatBootPromise = null;
+    let chatStylesPromise = null;
     const chatRoot = document.getElementById('n8n-chat');
     const urlRegex = /https?:\/\/[^\s<]+/g;
     const urlTest = /https?:\/\/[^\s<]+/;
@@ -619,10 +301,28 @@
       linkifyChat(chatRoot);
     }
 
+    function loadChatStyles() {
+      if (chatStylesPromise) return chatStylesPromise;
+
+      chatStylesPromise = new Promise((resolve, reject) => {
+        const stylesheet = document.createElement('link');
+        stylesheet.rel = 'stylesheet';
+        stylesheet.href = 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css';
+        stylesheet.onload = resolve;
+        stylesheet.onerror = reject;
+        document.head.appendChild(stylesheet);
+      });
+
+      return chatStylesPromise;
+    }
+
     function bootChat() {
       if (chatBootPromise) return chatBootPromise;
-      chatBootPromise = import('https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js')
-        .then(({ createChat }) => {
+      chatBootPromise = Promise.all([
+        loadChatStyles(),
+        import('https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js')
+      ])
+        .then(([, { createChat }]) => {
           chat = createChat({
             webhookUrl: 'https://smartialab.app.n8n.cloud/webhook/5326e2ba-0e9a-4f0f-b3b2-1347140ce359/chat',
             target: '#n8n-chat',
@@ -647,6 +347,7 @@
               cmp: new URLSearchParams(location.search).get('cmp') || undefined
             }
           });
+          document.querySelector('[data-chat-launcher]')?.remove();
           setupChatEnhancements();
           return chat;
         })
@@ -658,7 +359,49 @@
       return chatBootPromise;
     }
 
-    bootChat();
+    function findChatToggle() {
+      const selectors = [
+        '#n8n-chat .chat-window-toggle',
+        '#n8n-chat button[class*="toggle"]',
+        '#n8n-chat [class*="chat-window-toggle"]',
+        '#n8n-chat button',
+        '#n8n-chat [role="button"]',
+        '#n8n-chat [data-testid*="toggle"]'
+      ];
+
+      for (const selector of selectors) {
+        const element = document.querySelector(selector);
+        if (element) return element;
+      }
+
+      return null;
+    }
+
+    async function openChatWindow() {
+      await bootChat();
+
+      const start = performance.now();
+      while (performance.now() - start < 4000) {
+        const toggle = findChatToggle();
+        if (toggle) {
+          toggle.click();
+          return;
+        }
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+      }
+    }
+
+    document.addEventListener('click', (event) => {
+      const trigger = event.target.closest('[data-open-chat]');
+      if (!trigger) return;
+      event.preventDefault();
+      openChatWindow();
+    }, true);
+
+    const query = new URLSearchParams(location.search);
+    if (query.get('openChat') === '1') {
+      requestAnimationFrame(() => openChatWindow());
+    }
   </script>
   <script>
     (function () {

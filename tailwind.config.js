@@ -4,9 +4,7 @@ module.exports = {
     './index.html',
     './servicios.html',
     './agentes.html',
-    './pricing.html',
-    './servicios/index.html',
-    './agentes/index.html'
+    './pricing.html'
   ],
   theme: {
     extend: {
