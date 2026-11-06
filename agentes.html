@@ -40,27 +40,27 @@
   <link rel="stylesheet" href="theme.css" />
 </head>
 <body class="bg-vanilla-50 text-ink">
-  <header class="sticky top-0 z-40 backdrop-blur bg-vanilla-50/80 border-b border-crema-100">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+  <header class="site-header sticky top-0 z-40 backdrop-blur bg-vanilla-50/80 border-b border-crema-100">
+    <div class="site-header-inner max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="/" class="site-brand font-semibold tracking-tight" aria-label="Inicio Atinai">
         <span class="site-brand-mark" aria-hidden="true"></span>
         <span class="site-brand-text">Atinai</span>
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
-        <a href="/agentes.html" class="nav-link">Agentes</a>
+      <nav class="site-header-nav hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
+        <a href="/agentes" class="nav-link is-active" aria-current="page">Agentes</a>
         <a href="/#beneficios" class="nav-link">Beneficios</a>
-        <a href="/servicios.html" class="nav-link">Servicios</a>
+        <a href="/servicios" class="nav-link">Servicios</a>
         <a href="/#precios" class="nav-link">Planes</a>
         <a href="/#casos" class="nav-link">Casos</a>
         <a href="/#contacto" class="nav-link">Contacto</a>
       </nav>
-      <div class="flex items-center gap-3">
+      <div class="site-header-actions flex items-center gap-3">
         <button class="theme-toggle theme-toggle-inline hidden md:inline-flex" type="button" data-theme-toggle aria-label="Cambiar a tema claro">
           <span class="theme-toggle-mark" aria-hidden="true"></span>
           <span class="theme-toggle-label" data-theme-label>Tema claro</span>
         </button>
-        <a href="/#contacto" class="hidden md:inline-flex px-4 py-2 rounded-xl2 bg-ink text-vanilla-50 text-sm font-semibold hover:opacity-90 shadow-soft">Quiero impulsar mi negocio</a>
-        <button class="mobile-menu-toggle md:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">
+        <a href="/#contacto" class="site-header-cta hidden md:inline-flex px-4 py-2 rounded-xl2 bg-ink text-vanilla-50 text-sm font-semibold hover:opacity-90 shadow-soft">Quiero impulsar mi negocio</a>
+        <button class="site-header-menu-toggle mobile-menu-toggle md:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">
           <span></span>
           <span></span>
           <span></span>
@@ -69,9 +69,9 @@
     </div>
     <div class="mobile-menu md:hidden" id="mobile-menu">
       <nav class="mobile-menu-links" aria-label="Principal">
-        <a href="/agentes.html" class="nav-link">Agentes</a>
+        <a href="/agentes" class="nav-link is-active" aria-current="page">Agentes</a>
         <a href="/#beneficios" class="nav-link">Beneficios</a>
-        <a href="/servicios.html" class="nav-link">Servicios</a>
+        <a href="/servicios" class="nav-link">Servicios</a>
         <a href="/#precios" class="nav-link">Planes</a>
         <a href="/#casos" class="nav-link">Casos</a>
         <a href="/#contacto" class="nav-link">Contacto</a>
